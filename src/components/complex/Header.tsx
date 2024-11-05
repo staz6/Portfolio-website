@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   return (
-    <header className="flex border justify-between font-inter items-center px-12 py-5">
+    <header className="flex  justify-between font-inter items-center ">
       <h1 data-testid="logo" className="text-3xl font-bold text-gray-900">
         {`<`}
         <span className="text-4xl">ss</span>

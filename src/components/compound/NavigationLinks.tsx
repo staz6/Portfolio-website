@@ -4,7 +4,7 @@ type Props = {};
 
 function NavigationLinks({}: Props) {
   return (
-    <div data-testid="NavigationLinks" className="flex md:flex-row flex-col gap-5 md:gap-10 font-medium ">
+    <div data-testid="NavigationLinks" className="flex md:flex-row flex-col gap-5  lg:gap-10 font-medium ">
       <a
         className="hover:text-black  text-gray-600 transition-all duration-200"
         href=""
