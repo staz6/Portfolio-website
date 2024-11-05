@@ -9,7 +9,7 @@ interface Props {
 const MobileNavButton: React.FC<Props> = ({ setOpenMenu, openMenu }) => {
   const genericHamburgerLine = `h-1 w-7 my-1 rounded-full bg-black transition ease transform duration-300`;
   return (
-    <div className="flex-col z-20 md:hidden  ">
+    <div className="flex-col z-30 md:hidden  ">
       <Button
         onClick={() => {
           setOpenMenu(!openMenu);
