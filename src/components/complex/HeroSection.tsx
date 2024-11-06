@@ -7,7 +7,7 @@ import image from "../../images/PortfolioPic.png";
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="grid mt-24 grid-cols-12 items-center font-inter">
+    <div className="grid mt-24 grid-cols-12 items-center font-inter mb-10">
       <div className="col-span-12 text-start sm:text-center lg:text-start order-2 lg:col-span-8">
         <h1
           data-testid="Name"
