@@ -9,6 +9,10 @@ module.exports = {
       fontFamily: {
         inter: ['Inter', 'sans-serif'], 
       },
+      boxShadow: {  
+        CustomboxShadow: "rgba(0, 0, 0, 0.2) 0px 4px 12px;"
+
+      },
     },
   },
   plugins: [],
