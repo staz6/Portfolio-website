@@ -10,7 +10,7 @@ const Aboutme = () => {
       >
         About me
       </h1>
-      <div className="grid items-center  grid-cols-12 ">
+      <div className="grid items-center  grid-cols-12 mb-10 ">
         <div
           data-testid="PortfolioPic"
           className="col-span-12 lg:col-span-6 mb-10 lg:mb-0 mt-10 flex justify-center lg:justify-start relative"
