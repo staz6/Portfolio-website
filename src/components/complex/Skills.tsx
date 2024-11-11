@@ -17,7 +17,7 @@ const Skills = () => {
                 Skills
             </h1>
             <p data-testid="Description" className="text-gray-600 mb-10 font-inter">The skills, tools and technologies I am really good at:</p>
-            <div data-testid="SkillsSetDesktop" className="sm:flex hidden flex-col items-center  gap-10">
+            <div data-testid="SkillsSetDesktop" className="sm:flex hidden flex-col items-center mb-10  gap-10">
                 <div className="flex justify-between w-full">
                     {firstHalf.map((skill, index) => (
                         <div  key={index + half} className="flex flex-col font-inter gap-2 items-center justify-center">
@@ -43,7 +43,7 @@ const Skills = () => {
                     ))}
                 </div>
             </div>
-            <div data-testid="SkillsSetMobile" className="flex flex-wrap justify-between gap-10">
+            <div data-testid="SkillsSetMobile" className="flex flex-wrap justify-between mb-10 gap-10">
                 {skills.map((skill, index) => (
                     <div key={index} className="flex flex-col sm:hidden justify-center ">
                         <img
