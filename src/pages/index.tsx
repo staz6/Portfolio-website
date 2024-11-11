@@ -5,6 +5,7 @@ import Wrapper from "../components/shared/Wrapper";
 import Aboutme from "../components/complex/Aboutme";
 import Skills from "../components/complex/Skills";
 import Experience from "../components/complex/Experience";
+import Work from "../components/complex/Work";
 
 const IndexPage: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const IndexPage: React.FC = () => {
       <Aboutme/>
       <Skills/>
       <Experience/>
+      <Work/>
     </Wrapper>
   );
 };
