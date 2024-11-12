@@ -6,17 +6,19 @@ import Aboutme from "../components/complex/Aboutme";
 import Skills from "../components/complex/Skills";
 import Experience from "../components/complex/Experience";
 import Work from "../components/complex/Work";
+import Testimonials from "../components/complex/Testimonials";
 
 const IndexPage: React.FC = () => {
   return (
-    <Wrapper>
+    <>
       <Header />
       <HeroSection />
       <Aboutme/>
       <Skills/>
       <Experience/>
       <Work/>
-    </Wrapper>
+      <Testimonials/>
+    </>
   );
 };
 
