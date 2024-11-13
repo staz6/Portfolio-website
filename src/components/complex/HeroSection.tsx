@@ -42,13 +42,13 @@ const HeroSection: React.FC = () => {
             data-testid="SocialLinks"
             className="flex gap-5 justify-start sm:justify-center lg:justify-start text-gray-600 mt-10 "
           >
-            <a href="">
+             <a className="hover:text-gray-900" href="">
               <LuGithub size={24} />
             </a>
-            <a href="">
+            <a className="hover:text-gray-900" href="">
               <FiTwitter size={24} />
             </a>
-            <a href="">
+            <a className="hover:text-gray-900" href="">
               <FaFigma size={24} />
             </a>
           </div>
