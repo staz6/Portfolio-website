@@ -7,6 +7,7 @@ import Skills from "../components/complex/Skills";
 import Experience from "../components/complex/Experience";
 import Work from "../components/complex/Work";
 import Testimonials from "../components/complex/Testimonials";
+import Footer from "../components/complex/Footer";
 
 const IndexPage: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const IndexPage: React.FC = () => {
       <Experience/>
       <Work/>
       <Testimonials/>
+      <Footer/>
     </>
   );
 };
