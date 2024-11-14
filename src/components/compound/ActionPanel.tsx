@@ -1,6 +1,6 @@
 import React from "react";
-import { IoSunnyOutline } from "react-icons/io5";
 import Button from "../shared/Button";
+import ThemeChanger from "./ThemeChanger";
 
 const ActionPanel = () => {
   return (
@@ -8,19 +8,11 @@ const ActionPanel = () => {
       data-testid="ActionPanel"
       className="flex md:flex-row flex-col items-center gap-5"
     >
-      <Button
-        description=""
-        className="flex mt-5 md:mt-0 justify-between w-full items-center"
-        onClick={() => {}}
-        icon={""}
-      >
-        <span className="md:hidden block">Switch Theme</span>
-        <IoSunnyOutline size={26} />
-      </Button>
+      <ThemeChanger />
       <Button
         description="Download CV"
-        className="text-gray-50 w-full md:w-fit text-nowrap bg-gray-900 rounded-xl font-medium hover:bg-gray-700 transition-all duration-200 p-2 px-4"
-        onClick={() => {}}
+        className="text-gray-50 dark:text-gray-900 w-full md:w-fit text-nowrap dark:hover:bg-gray-300 dark:bg-gray-50 bg-gray-900 rounded-xl font-medium hover:bg-gray-700 transition-all duration-200 p-2 px-4"
+        onClick={() => { }}
         icon=""
       />
     </div>

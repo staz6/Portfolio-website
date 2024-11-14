@@ -11,9 +11,9 @@ const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   return (
-    <Wrapper>
+    <Wrapper className="dark:bg-gray-950 py-5">
       <header className="flex  justify-between font-inter items-center ">
-        <h1 data-testid="logo" className="text-3xl font-bold text-gray-900">
+        <h1 data-testid="logo" className="text-3xl font-bold dark:text-gray-50 z-30 text-gray-900">
           {`<`}
           <span className="text-4xl">ss</span>
           {`/>`}

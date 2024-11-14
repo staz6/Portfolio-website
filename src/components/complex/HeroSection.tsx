@@ -8,18 +8,18 @@ import Wrapper from "../shared/Wrapper";
 
 const HeroSection: React.FC = () => {
   return (
-    <Wrapper>
+    <Wrapper className="dark:bg-gray-950 py-5">
       <div className="grid mt-24 grid-cols-12 items-center font-inter mb-10">
         <div className="col-span-12 text-start sm:text-center lg:text-start order-2 lg:col-span-8">
           <h1
             data-testid="Name"
-            className="text-4xl sm:text-6xl font-bold text-gray-900"
+            className="text-4xl sm:text-6xl font-bold dark:text-gray-50 text-gray-900"
           >
             Hi, I’m Aahad 👋
           </h1>
           <p
             data-testid="Description"
-            className="lg:w-[33rem] m-auto lg:mx-0 text-start sm:w-[25rem] xl:w-[48rem] text-gray-600 mt-5 mb-10"
+            className="lg:w-[33rem] m-auto lg:mx-0 text-start sm:w-[25rem] xl:w-[48rem] dark:text-gray-300 text-gray-600 mt-5 mb-10"
           >
             I'm a full stack developer (React.js & Node.js) with a focus on
             creating (and occasionally designing) exceptional digital experiences
@@ -29,18 +29,18 @@ const HeroSection: React.FC = () => {
           </p>
           <div
             data-testid="Location"
-            className="flex justify-start sm:justify-center lg:justify-start  mb-2 text-gray-600 gap-2 items-center"
+            className="flex justify-start sm:justify-center lg:justify-start  mb-2 dark:text-gray-300 text-gray-600 gap-2 items-center"
           >
             <GrLocation size={24} />
             <span>Karachi , Pakistan</span>
           </div>
-          <div className="flex pl-2 justify-start sm:justify-center lg:justify-start text-gray-600 items-center gap-2">
+          <div className="flex pl-2 justify-start sm:justify-center lg:justify-start dark:text-gray-300 text-gray-600 items-center gap-2">
             <div className="bg-emerald-500 h-2 w-2 rounded-full" />
             <span>Available for new projects</span>
           </div>
           <div
             data-testid="SocialLinks"
-            className="flex gap-5 justify-start sm:justify-center lg:justify-start text-gray-600 mt-10 "
+            className="flex gap-5 justify-start sm:justify-center lg:justify-start dark:text-gray-300 text-gray-600 mt-10 "
           >
              <a className="hover:text-gray-900" href="">
               <LuGithub size={24} />
