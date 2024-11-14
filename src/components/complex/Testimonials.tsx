@@ -29,32 +29,30 @@ const testimonials: Testimonial[] = [
 const Testimonials: React.FC = () => {
     return (
 
-        <div className="flex flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8 bg-gray-50">
-            <Wrapper>
-                <h1
+        <Wrapper className='flex flex-col items-center justify-center px-4 py-20 dark:bg-gray-900 sm:px-6 lg:px-8 bg-gray-50'>
+            <h1
                 data-testid="SectionTitle"
-                className="mb-3 w-fit m-auto px-4 py-1 font-inter font-medium rounded-2xl bg-gray-200 text-gray-600"
+                className="mb-3 w-fit m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
             >
                 Testimonials
             </h1>
-                <p data-testid="Description" className="text-gray-600 text-center mb-10 font-inter">Nice things people have said about me:</p>
-                <div data-testid="TestimonialSection" className="grid gap-8 font-inter sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl">
-                    {testimonials.map((testimonial, index) => (
-                        <div
-                            key={index}
-                            className="flex flex-col items-center bg-white px-9 py-12 rounded-lg shadow-lg  text-center"
-                        >
-                            <div className="w-16 h-16 bg-gray-500 rounded-full flex items-center justify-center mb-4">
-                               <HiUser size={50}/>
-                            </div>
-                            <p className="text-gray-600 text-sm mb-4 text-start">"{testimonial.message}"</p>
-                            <h3 className="text-gray-900 font-semibold">{testimonial.name}</h3>
-                            <p className="text-gray-500 text-sm">{testimonial.title}</p>
+            <p data-testid="Description" className="text-gray-600 dark:text-gray-300 text-center mb-10 font-inter">Nice things people have said about me:</p>
+            <div data-testid="TestimonialSection" className="grid gap-8 font-inter sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl">
+                {testimonials.map((testimonial, index) => (
+                    <div
+                        key={index}
+                        className="flex flex-col items-center bg-white dark:bg-gray-800 px-9 py-12 rounded-lg shadow-lg  text-center"
+                    >
+                        <div className="w-16 h-16 bg-gray-500 rounded-full flex items-center justify-center mb-4">
+                            <HiUser size={50} />
                         </div>
-                    ))}
-                </div>
-            </Wrapper> 
+                        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 text-start">"{testimonial.message}"</p>
+                        <h3 className="text-gray-900 dark:text-gray-50 font-semibold">{testimonial.name}</h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm">{testimonial.title}</p>
+                    </div>
+                ))}
             </div>
+        </Wrapper>
 
     );
 };
