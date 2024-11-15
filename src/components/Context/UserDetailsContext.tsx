@@ -1,30 +1,30 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 
+interface SanityAsset {
+    url: string;
+}
 
 interface SanityUserDetails {
     name: string;
     description: string;
+    detailedDescription: any[]; 
     location: string;
     availability: boolean;
     githubLink: string;
     linkedinLink: string;
     figmaLink: string;
     profileImage: {
-        asset: {
-            url: string;
-        };
+        asset: SanityAsset;
     };
     cvDocument: {
-        asset: {
-            url: string;
-        };
+        asset: SanityAsset;
     };
 }
 
-// Define the context interface
 interface UserDetailsContextProps {
     userDetails: SanityUserDetails;
 }
+
 interface UserDetailsProviderProps {
     data: SanityUserDetails;
     children: ReactNode;
@@ -37,7 +37,6 @@ export const UserDetailsProvider: React.FC<UserDetailsProviderProps> = ({ data, 
         {children}
     </UserDetailsContext.Provider>
 );
-
 
 export const useUserDetails = () => {
     const context = useContext(UserDetailsContext);

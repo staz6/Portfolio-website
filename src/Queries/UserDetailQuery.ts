@@ -6,6 +6,17 @@ export const useUserDetails = () => {
       sanityUserDetails {
         name
         description
+        detailedDescription {
+          _key
+          _type
+          style
+          children {
+            _key
+            _type
+            text
+            marks
+          }
+        }
         location
         availability
         githubLink
@@ -24,6 +35,6 @@ export const useUserDetails = () => {
       }
     }
   `);
-  
+
   return data.sanityUserDetails;
 };

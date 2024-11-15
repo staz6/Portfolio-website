@@ -5,6 +5,7 @@ export interface UserDetails {
     availability: boolean;
     githubLink: string;
     linkedinLink: string;
+    detailedDescription: any[]; 
     figmaLink: string;
     profileImage: {
       asset: {
