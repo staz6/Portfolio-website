@@ -1,8 +1,10 @@
 import React from "react";
-import image from "../../images/PortfolioPic.png";
 import Wrapper from "../shared/Wrapper";
+import { useUserDetails } from "../Context/UserDetailsContext";
+import { PortableText } from '@portabletext/react';
 
-const Aboutme = () => {
+const Aboutme:React.FC = () => {
+  const { detailedDescription,profileImage } = useUserDetails()
   return (
     <Wrapper className="gray-50 dark:bg-gray-900 py-20 ">
       <h1
@@ -19,7 +21,7 @@ const Aboutme = () => {
           <div className="bg-gray-200 h-[22rem]  z-0 absolute sm:h-[30rem] w-[98%]  sm:w-[26rem] lg:w-[22rem] xl:w-[25rem] "></div>
           <img
             className=" h-[22rem] sm:h-[30rem] relative bottom-5 sm:bottom-8 lg:left-8 z-10 w-[85%] sm:w-[22rem] xl:w-[25rem]"
-            src={image}
+            src={profileImage.asset.url}
             alt=""
           />
         </div>
@@ -31,33 +33,19 @@ const Aboutme = () => {
             Curious about me? Here you have it:
           </h1>
           <p className="dark:text-gray-300 text-gray-600 mb-5">
-            I'm a passionate, self-proclaimed designer who specializes in full
-            stack development (React.js & Node.js). I am very enthusiastic about
-            bringing the technical and visual aspects of digital products to
-            life. User experience, pixel perfect design, and writing clear,
-            readable, highly performant code matters to me.
-          </p>
-          <p className="dark:text-gray-300 text-gray-600 mb-5">
-            I'm a passionate, self-proclaimed designer who specializes in full
-            stack development (React.js & Node.js). I am very enthusiastic about
-            bringing the technical and visual aspects of digital products to
-            life. User experience, pixel perfect design, and writing clear,
-            readable, highly performant code matters to me.
-          </p>
-          <p className="dark:text-gray-300 text-gray-600 mb-5">
-            I'm a passionate, self-proclaimed designer who specializes in full
-            stack development (React.js & Node.js). I am very enthusiastic about
-            bringing the technical and visual aspects of digital products to
-            life. User experience, pixel perfect design, and writing clear,
-            readable, highly performant code matters to me.
-          </p>
-          <p className="dark:text-gray-300 text-gray-600 mb-5">
-            I'm a passionate, self-proclaimed designer who specializes in full
-            stack development (React.js & Node.js). I am very enthusiastic about
-            bringing the technical and visual aspects of digital products to
-            life. User experience, pixel perfect design, and writing clear,
-            readable, highly performant code matters to me.
-          </p>
+
+            <PortableText
+              value={detailedDescription}
+              components={{
+                types: {
+                  block: ({ value }) => {
+                    const Tag = value.style || 'p';
+                    return <Tag>{value.children.map((child: any) => child.text).join(' ')}</Tag>;
+                  },
+                },
+              }}
+            />
+          </p>x
         </div>
       </div>
     </Wrapper>
