@@ -8,27 +8,27 @@ export const schemaTypes = [
         name: 'name',
         title: 'Name',
         type: 'string',
-        validation: (Rule: { required: () => any }) => Rule.required(),
+        validation: (Rule: { required: () => any; }) => Rule.required(),
       },
       {
         name: 'githubLink',
         title: 'GitHub Profile Link',
         type: 'string',
-        validation: (Rule: { uri: (arg0: { scheme: string[] }) => any }) =>
+        validation: (Rule: { uri: (arg0: { scheme: string[]; }) => any; }) =>
           Rule.uri({ scheme: ['http', 'https'] }),
       },
       {
         name: 'linkedinLink',
         title: 'LinkedIn Profile Link',
         type: 'string',
-        validation: (Rule: { uri: (arg0: { scheme: string[] }) => any }) =>
+        validation: (Rule: { uri: (arg0: { scheme: string[]; }) => any; }) =>
           Rule.uri({ scheme: ['http', 'https'] }),
       },
       {
         name: 'figmaLink',
         title: 'Figma Profile Link',
         type: 'string',
-        validation: (Rule: { uri: (arg0: { scheme: string[] }) => any }) =>
+        validation: (Rule: { uri: (arg0: { scheme: string[]; }) => any; }) =>
           Rule.uri({ scheme: ['http', 'https'] }),
       },
       {
@@ -98,6 +98,31 @@ export const schemaTypes = [
       {
         name: 'profileImage',
         title: 'Profile Image',
+        type: 'image',
+        options: { hotspot: true },
+      },
+      {
+        name: 'skillSet',
+        title: 'Skill Set',
+        type: 'array',
+        of: [{ type: 'skill' }], 
+      },
+    ],
+  },
+  {
+    name: 'skill',
+    title: 'Skill',
+    type: 'object',
+    fields: [
+      {
+        name: 'name',
+        title: 'Skill Name',
+        type: 'string',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'image',
+        title: 'Skill Image',
         type: 'image',
         options: { hotspot: true },
       },

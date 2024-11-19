@@ -3,8 +3,8 @@ import Wrapper from "../shared/Wrapper";
 import { useUserDetails } from "../Context/UserDetailsContext";
 import { PortableText } from '@portabletext/react';
 
-const Aboutme:React.FC = () => {
-  const { detailedDescription,profileImage } = useUserDetails()
+const Aboutme: React.FC = () => {
+  const { detailedDescription, profileImage } = useUserDetails()
   return (
     <Wrapper className="gray-50 dark:bg-gray-900 py-20 ">
       <h1
@@ -38,14 +38,18 @@ const Aboutme:React.FC = () => {
               value={detailedDescription}
               components={{
                 types: {
+
                   block: ({ value }) => {
                     const Tag = value.style || 'p';
-                    return <Tag>{value.children.map((child: any) => child.text).join(' ')}</Tag>;
+                    return <Tag>{value.children.map((child: any) => child.text).join(' ')}
+                      <br />
+
+                    </Tag>;
                   },
                 },
               }}
             />
-          </p>x
+          </p>
         </div>
       </div>
     </Wrapper>

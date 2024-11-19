@@ -16,9 +16,7 @@ const ActionPanel = () => {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    } else {
-      console.error("CV document URL is not available.");
-    }
+    } 
   };
 
   return (
