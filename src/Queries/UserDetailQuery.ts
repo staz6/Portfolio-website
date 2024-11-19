@@ -32,6 +32,12 @@ export const useUserDetails = () => {
             url
           }
         }
+        skillSet {
+        _key
+        _type
+        name
+        _rawImage
+      }
       }
     }
   `);

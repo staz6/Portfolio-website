@@ -32,6 +32,18 @@ const config: GatsbyConfig = {
       },
       __key: "images",
     },
+    {
+      resolve: "gatsby-plugin-sanity-image",
+      options: {
+        projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+        dataset: "production", 
+        defaultImageConfig: {
+          auto: "format", 
+          fit: "max",
+        },
+      },
+    }
+
   ],
 };
 

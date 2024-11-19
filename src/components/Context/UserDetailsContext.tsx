@@ -3,16 +3,24 @@ import React, { createContext, useContext, ReactNode } from 'react';
 interface SanityAsset {
     url: string;
 }
-
+interface skill {
+    name: string;
+    _rawImage: {
+        asset: {
+            _ref:string
+        }
+    }
+}
 interface SanityUserDetails {
     name: string;
     description: string;
-    detailedDescription: any[]; 
+    detailedDescription: any[];
     location: string;
     availability: boolean;
     githubLink: string;
     linkedinLink: string;
     figmaLink: string;
+    skillSet: skill[];
     profileImage: {
         asset: SanityAsset;
     };
