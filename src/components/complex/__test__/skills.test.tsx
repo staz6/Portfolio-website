@@ -3,6 +3,7 @@ import { describe } from "node:test";
 import "@testing-library/jest-dom";
 import Skills from "../Skills";
 import { UserDetailsContext } from "../../Context/UserDetailsContext";
+
 const mockUserDetails = {
   name: "John Doe",
   description: "A passionate software developer.",
@@ -57,9 +58,18 @@ const mockUserDetails = {
         },
       },
     },
-
+  ],
+  Experience: [
+    {
+      CompanyName: "Creative Dev Studio",
+      PositionName: "Software Engineer",
+      Description: "Led a team to deliver high-quality software solutions, ensuring scalable architecture and maintainable code. Focused on modernizing legacy systems with Node.js and microservices.",
+      StartDate: "2024-01-01",
+      EndDate: "Present",
+    },
   ],
 };
+
 
 
 jest.mock("gatsby-plugin-sanity-image", () => {

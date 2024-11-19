@@ -6,7 +6,16 @@ export const useUserDetails = () => {
       sanityUserDetails {
         name
         description
-        detailedDescription {
+        Experience {
+      _key
+      _type
+      CompanyName
+      PositionName
+      Description
+      StartDate
+      EndDate
+    }
+      detailedDescription {
           _key
           _type
           style

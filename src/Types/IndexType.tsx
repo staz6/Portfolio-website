@@ -7,6 +7,15 @@ interface skill {
     }
   }
 }
+
+interface experience {
+  CompanyName: string;
+  PositionName: string;
+  Description: string;
+  StartDate: string;
+  EndDate:string;
+}
+
 export interface UserDetails {
   name: string;
   description: string;
@@ -14,6 +23,7 @@ export interface UserDetails {
   availability: boolean;
   githubLink: string;
   linkedinLink: string;
+  Experience: experience[];
   detailedDescription: any[];
   skillSet: skill[];
   figmaLink: string;

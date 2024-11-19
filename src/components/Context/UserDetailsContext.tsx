@@ -7,15 +7,23 @@ interface skill {
     name: string;
     _rawImage: {
         asset: {
-            _ref:string
+            _ref: string
         }
     }
+}
+interface experience {
+    CompanyName: string;
+    PositionName: string;
+    Description: string;
+    StartDate: string;
+    EndDate: string;
 }
 interface SanityUserDetails {
     name: string;
     description: string;
     detailedDescription: any[];
     location: string;
+    Experience: experience[];
     availability: boolean;
     githubLink: string;
     linkedinLink: string;
