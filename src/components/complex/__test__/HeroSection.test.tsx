@@ -58,9 +58,18 @@ const mockUserDetails = {
         },
       },
     },
-
+  ],
+  Experience: [
+    {
+      CompanyName: "Creative Dev Studio",
+      PositionName: "Software Engineer",
+      Description: "Led a team to deliver high-quality software solutions, ensuring scalable architecture and maintainable code. Focused on modernizing legacy systems with Node.js and microservices.",
+      StartDate: "2024-01-01",
+      EndDate: "Present",
+    },
   ],
 };
+
 
 
 describe("HeroSection Component tests", () => {

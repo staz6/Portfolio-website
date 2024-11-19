@@ -105,8 +105,14 @@ export const schemaTypes = [
         name: 'skillSet',
         title: 'Skill Set',
         type: 'array',
-        of: [{ type: 'skill' }], 
+        of: [{ type: 'skill' }],
       },
+      {
+        name: 'Experience',
+        title: 'experience',
+        type: 'array',
+        of: [{ type: 'ExperienceObj' }]
+      }
     ],
   },
   {
@@ -128,4 +134,65 @@ export const schemaTypes = [
       },
     ],
   },
+  {
+    name: 'ExperienceObj',
+    title: 'Experience Obj',
+    type: 'object',
+    fields: [
+      {
+        name: 'CompanyName',
+        title: 'Company Name',
+        type: 'string',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'PositionName',
+        title: 'Position Name',
+        type: 'string',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'Description',
+        title: 'Description',
+        type: 'string',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'StartDate',
+        title: 'Start Date',
+        type: 'date',
+        options: {
+          dateFormat: 'MMM YYYY',
+        },
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'EndDate',
+        title: 'End Date',
+        type: 'string',
+        validation: (Rule: { custom: (arg0: (endDate: any, context: any) => true | string) => any; }) =>
+          Rule.custom((endDate: string, context: { parent: { StartDate: string }; }) => {
+            const { StartDate } = context.parent;
+
+            if (endDate === 'Present') return true;
+
+            const startDateObj = new Date(StartDate);
+            const endDateObj = new Date(endDate);
+
+            if (isNaN(endDateObj.getTime())) {
+              return 'End date must be a valid date (e.g., "2024-12-01")';
+            }
+
+            if (endDateObj < startDateObj) {
+              return 'End date must be after start date';
+            }
+
+            return true;
+          }),
+        description: 'Enter a date in YYYY-MM-DD format or "Present" for ongoing roles',
+      },
+
+    ],
+  }
+
 ];
