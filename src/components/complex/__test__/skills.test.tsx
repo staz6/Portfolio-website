@@ -29,26 +29,6 @@ const mockUserDetails = {
   },
   skillSet: [
     {
-      name: "JavaScript",
-      _rawImage: {
-        _type: "image",
-        asset: {
-          _ref: "image-12345-400x400-jpg",
-          _type: "reference",
-        },
-      },
-    },
-    {
-      name: "React",
-      _rawImage: {
-        _type: "image",
-        asset: {
-          _ref: "image-67890-400x400-jpg",
-          _type: "reference",
-        },
-      },
-    },
-    {
       name: "Node.js",
       _rawImage: {
         _type: "image",
@@ -67,6 +47,21 @@ const mockUserDetails = {
       StartDate: "2024-01-01",
       EndDate: "Present",
     },
+  ],
+  work: [
+    {
+     
+      name: "TrendMart",
+      description: "Trendmart is an ecommerce website that has a variety of products for sale.",
+      ProjectUrl: "https://trend-mart-app.vercel.app/",
+      skills:["React","Typescript"],
+      _rawProjectImage: {
+        asset: {
+          _ref: "image-ef42e743baa29d3d7cd3b2242557bc7ddd3f2625-1916x854-png",
+        },
+      },
+    },
+    
   ],
 };
 
