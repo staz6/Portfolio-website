@@ -47,6 +47,15 @@ export const useUserDetails = () => {
         name
         _rawImage
       }
+      work {
+       _key
+       _type
+       name
+       skills
+       description
+       ProjectUrl
+       _rawProjectImage
+     }
       }
     }
   `);

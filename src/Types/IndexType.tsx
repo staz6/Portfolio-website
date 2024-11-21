@@ -7,13 +7,24 @@ interface skill {
     }
   }
 }
-
+interface SanityImage {
+  asset: {
+    _ref: string;
+  };
+}
+interface WorkItem {
+  name: string;
+  description: string;
+  ProjectUrl: string;
+  _rawProjectImage: SanityImage;
+  skills: string[]
+}
 interface experience {
   CompanyName: string;
   PositionName: string;
   Description: string;
   StartDate: string;
-  EndDate:string;
+  EndDate: string;
 }
 
 export interface UserDetails {
@@ -37,4 +48,5 @@ export interface UserDetails {
       url: string;
     };
   };
+  work: WorkItem[];
 }

@@ -8,27 +8,27 @@ export const schemaTypes = [
         name: 'name',
         title: 'Name',
         type: 'string',
-        validation: (Rule: { required: () => any; }) => Rule.required(),
+        validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
         name: 'githubLink',
         title: 'GitHub Profile Link',
         type: 'string',
-        validation: (Rule: { uri: (arg0: { scheme: string[]; }) => any; }) =>
+        validation: (Rule: { uri: (arg0: { scheme: string[] }) => any }) =>
           Rule.uri({ scheme: ['http', 'https'] }),
       },
       {
         name: 'linkedinLink',
         title: 'LinkedIn Profile Link',
         type: 'string',
-        validation: (Rule: { uri: (arg0: { scheme: string[]; }) => any; }) =>
+        validation: (Rule: { uri: (arg0: { scheme: string[] }) => any }) =>
           Rule.uri({ scheme: ['http', 'https'] }),
       },
       {
         name: 'figmaLink',
         title: 'Figma Profile Link',
         type: 'string',
-        validation: (Rule: { uri: (arg0: { scheme: string[]; }) => any; }) =>
+        validation: (Rule: { uri: (arg0: { scheme: string[] }) => any }) =>
           Rule.uri({ scheme: ['http', 'https'] }),
       },
       {
@@ -109,10 +109,16 @@ export const schemaTypes = [
       },
       {
         name: 'Experience',
-        title: 'experience',
+        title: 'Experience',
         type: 'array',
-        of: [{ type: 'ExperienceObj' }]
-      }
+        of: [{ type: 'ExperienceObj' }],
+      },
+      {
+        name: 'work',
+        title: 'Work',
+        type: 'array',
+        of: [{ type: 'workItem' }],
+      },
     ],
   },
   {
@@ -124,7 +130,7 @@ export const schemaTypes = [
         name: 'name',
         title: 'Skill Name',
         type: 'string',
-        validation: (Rule: { required: () => any; }) => Rule.required(),
+        validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
         name: 'image',
@@ -143,19 +149,19 @@ export const schemaTypes = [
         name: 'CompanyName',
         title: 'Company Name',
         type: 'string',
-        validation: (Rule: { required: () => any; }) => Rule.required(),
+        validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
         name: 'PositionName',
         title: 'Position Name',
         type: 'string',
-        validation: (Rule: { required: () => any; }) => Rule.required(),
+        validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
         name: 'Description',
         title: 'Description',
         type: 'string',
-        validation: (Rule: { required: () => any; }) => Rule.required(),
+        validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
         name: 'StartDate',
@@ -164,14 +170,14 @@ export const schemaTypes = [
         options: {
           dateFormat: 'MMM YYYY',
         },
-        validation: (Rule: { required: () => any; }) => Rule.required(),
+        validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
         name: 'EndDate',
         title: 'End Date',
         type: 'string',
-        validation: (Rule: { custom: (arg0: (endDate: any, context: any) => true | string) => any; }) =>
-          Rule.custom((endDate: string, context: { parent: { StartDate: string }; }) => {
+        validation: (Rule: { custom: (arg0: (endDate: any, context: any) => true | string) => any }) =>
+          Rule.custom((endDate: string, context: { parent: { StartDate: string } }) => {
             const { StartDate } = context.parent;
 
             if (endDate === 'Present') return true;
@@ -191,8 +197,46 @@ export const schemaTypes = [
           }),
         description: 'Enter a date in YYYY-MM-DD format or "Present" for ongoing roles',
       },
-
     ],
-  }
-
+  },
+  {
+    name: 'workItem',
+    title: 'Work Item',
+    type: 'object',
+    fields: [
+      {
+        name: 'name',
+        title: 'Name',
+        type: 'string',
+        validation: (Rule: { required: () => any }) => Rule.required(),
+      },
+      {
+        name: 'description',
+        title: 'Description',
+        type: 'text',
+      },
+      {
+        name: 'skills',
+        title: 'Skills',
+        type: 'array',
+        of: [{ type: 'string' }],
+      },
+      {
+        name: 'ProjectImage',
+        title: 'Project Image',
+        type: 'image',
+        options: { hotspot: true },
+      },
+      {
+        name: 'ProjectUrl',
+        title: 'Project URL',
+        type: 'url',
+        validation: (Rule: { uri: (arg0: { scheme: string[]; }) => any; }) =>
+          Rule.uri({
+            scheme: ['http', 'https'],
+          }),
+        description: 'Provide the URL for the project (optional).',
+      },
+    ],
+  },
 ];
