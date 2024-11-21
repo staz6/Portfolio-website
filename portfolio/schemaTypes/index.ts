@@ -119,6 +119,36 @@ export const schemaTypes = [
         type: 'array',
         of: [{ type: 'workItem' }],
       },
+      {
+        name: 'reviews',
+        title: 'Reviews',
+        type: 'array',
+        of: [{ type: 'ReviewObj' }],
+      },
+    ],
+  },
+  {
+    name: 'ReviewObj',
+    title: 'Review Object',
+    type: 'object',
+    fields: [
+      {
+        name: 'name',
+        title: 'Name',
+        type: 'string',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'description',
+        title: 'Description',
+        type: 'string',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'background',
+        title: 'Background',
+        type: 'string',
+      },
     ],
   },
   {

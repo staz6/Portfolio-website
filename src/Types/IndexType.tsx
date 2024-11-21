@@ -12,6 +12,11 @@ interface SanityImage {
     _ref: string;
   };
 }
+interface review {
+  name: string,
+  description: string,
+  background: string
+}
 interface WorkItem {
   name: string;
   description: string;
@@ -37,6 +42,7 @@ export interface UserDetails {
   Experience: experience[];
   detailedDescription: any[];
   skillSet: skill[];
+  reviews: review[];
   figmaLink: string;
   profileImage: {
     asset: {

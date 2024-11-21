@@ -49,19 +49,26 @@ const mockUserDetails = {
   ],
   work: [
     {
-
+     
       name: "TrendMart",
       description: "Trendmart is an ecommerce website that has a variety of products for sale.",
       ProjectUrl: "https://trend-mart-app.vercel.app/",
-      skills: ["React", "Typescript"],
+      skills:["React","Typescript"],
       _rawProjectImage: {
         asset: {
           _ref: "image-ef42e743baa29d3d7cd3b2242557bc7ddd3f2625-1916x854-png",
         },
       },
     },
-
+    
   ],
+  reviews:[
+    {
+      name:'John Doe',
+      description:"Hello world",
+      background:"Freelancer"
+    }
+  ]
 };
 
 

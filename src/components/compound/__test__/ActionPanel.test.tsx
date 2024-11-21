@@ -63,6 +63,13 @@ const mockUserDetails = {
     },
     
   ],
+  reviews:[
+    {
+      name:'John Doe',
+      description:"Hello world",
+      background:"Freelancer"
+    }
+  ]
 };
 
 
