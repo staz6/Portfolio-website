@@ -56,6 +56,13 @@ export const useUserDetails = () => {
        ProjectUrl
        _rawProjectImage
      }
+      reviews {
+        _key
+        _type
+        name
+        description
+        background
+      }
       }
     }
   `);

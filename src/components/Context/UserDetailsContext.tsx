@@ -11,6 +11,11 @@ interface skill {
         }
     }
 }
+interface review {
+    name: string,
+    description: string,
+    background: string
+}
 interface experience {
     CompanyName: string;
     PositionName: string;
@@ -20,7 +25,7 @@ interface experience {
 }
 interface SanityImage {
     asset: {
-        _ref: string; 
+        _ref: string;
     };
 }
 
@@ -29,7 +34,7 @@ interface WorkItem {
     description: string;
     ProjectUrl: string;
     _rawProjectImage: SanityImage;
-    skills:string[]
+    skills: string[]
 }
 interface SanityUserDetails {
     name: string;
@@ -42,6 +47,7 @@ interface SanityUserDetails {
     linkedinLink: string;
     figmaLink: string;
     skillSet: skill[];
+    reviews: review[];
     profileImage: {
         asset: SanityAsset;
     };
