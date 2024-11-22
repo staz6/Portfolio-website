@@ -14,6 +14,7 @@ import { useUserDetails } from "../Queries/UserDetailQuery";
 
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails();
+  console.log(userDetails)
   return (
     <UserDetailsProvider data={userDetails}>
       <Header />

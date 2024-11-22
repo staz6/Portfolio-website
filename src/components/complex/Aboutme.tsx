@@ -2,9 +2,65 @@ import React from "react";
 import Wrapper from "../shared/Wrapper";
 import { useUserDetails } from "../Context/UserDetailsContext";
 import { PortableText } from '@portabletext/react';
+import { PortableTextComponents } from '@portabletext/react'
+
+const components: PortableTextComponents = {
+  marks: {
+    em: ({ children }) => <em className="text-gray-600 font-semibold">{children}</em>,
+    link: ({ value, children }) => {
+      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
+      return (
+        <a href={value?.href} target={target} >
+          {children}
+        </a>
+      )
+    },
+  },
+  block: {
+    h1: ({ children }) => <h1 className="text-2xl">{children}</h1>,
+    blockquote: ({ children }) => <blockquote >{children}</blockquote>,
+
+  },
+  list: {
+    bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
+    number: ({ children }) => <ol className="mt-lg">{children}</ol>,
+    checkmarks: ({ children }) => <ol className="m-auto text-lg">{children}</ol>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li style={{ listStyleType: 'disclosure-closed' }}>{children}</li>,
+    checkmarks: ({ children }) => <li>✅ {children}</li>,
+  },
+}
+
 
 const Aboutme: React.FC = () => {
   const { detailedDescription, profileImage } = useUserDetails()
+  console.log(detailedDescription)
+  const sampleData = [
+    {
+      _type: 'block',
+      style: 'normal',
+      children: [
+        { _type: 'span', text: 'Hello, this is a test.' },
+      ],
+    },
+    {
+      _type: 'block',
+      style: 'h2',
+      children: [
+        { _type: 'span', text: 'Subheading Example' },
+      ],
+    },
+    {
+      _type: 'list',
+      listItem: 'bullet',
+      children: [
+        { _type: 'span', text: 'Bullet Point 1' },
+        { _type: 'span', text: 'Bullet Point 2' },
+      ],
+    },
+  ];
+
   return (
     <Wrapper className="gray-50 dark:bg-gray-900 py-20 ">
       <h1
@@ -34,21 +90,13 @@ const Aboutme: React.FC = () => {
           </h1>
           <p className="dark:text-gray-300 text-gray-600 mb-5">
 
+
             <PortableText
               value={detailedDescription}
-              components={{
-                types: {
+              components={components}
 
-                  block: ({ value }) => {
-                    const Tag = value.style || 'p';
-                    return <Tag>{value.children.map((child: any) => child.text).join(' ')}
-                      <br />
-
-                    </Tag>;
-                  },
-                },
-              }}
             />
+
           </p>
         </div>
       </div>
