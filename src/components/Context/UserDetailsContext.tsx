@@ -48,6 +48,7 @@ interface SanityUserDetails {
     figmaLink: string;
     skillSet: skill[];
     reviews: review[];
+    FooterText:string;
     profileImage: {
         asset: SanityAsset;
     };

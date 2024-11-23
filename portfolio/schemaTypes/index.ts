@@ -125,6 +125,12 @@ export const schemaTypes = [
         type: 'array',
         of: [{ type: 'ReviewObj' }],
       },
+      {
+        name: 'FooterText',
+        title: 'footertext',
+        type: 'string',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      }
     ],
   },
   {

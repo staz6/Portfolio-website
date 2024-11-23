@@ -1,7 +1,7 @@
 import React from "react";
 import { GrLocation } from "react-icons/gr";
 import { FaFigma } from "react-icons/fa";
-import { FiTwitter } from "react-icons/fi";
+import { FiLinkedin } from "react-icons/fi";
 import { LuGithub } from "react-icons/lu";
 import Wrapper from "../shared/Wrapper";
 import { useUserDetails } from "../Context/UserDetailsContext";
@@ -46,7 +46,7 @@ const HeroSection: React.FC = () => {
               <LuGithub size={24} />
             </a>
             <a className="hover:text-gray-900" href={linkedinLink}>
-              <FiTwitter size={24} />
+              <FiLinkedin size={24} />
             </a>
             <a className="hover:text-gray-900" href={figmaLink}>
               <FaFigma size={24} />

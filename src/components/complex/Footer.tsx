@@ -1,11 +1,12 @@
 import React from "react";
 import Wrapper from "../shared/Wrapper";
 import { LuGithub } from "react-icons/lu";
-import { FiTwitter } from "react-icons/fi";
+import { FiLinkedin } from "react-icons/fi";
 import { FaFigma } from "react-icons/fa";
+import { useUserDetails } from "../Context/UserDetailsContext";
 
 const Footer: React.FC = () => {
-
+    const { githubLink, figmaLink, linkedinLink, FooterText } = useUserDetails()
     return (
         <>
 
@@ -25,20 +26,20 @@ const Footer: React.FC = () => {
 
                 <p className="text-center text-gray-600 dark:text-gray-300 mt-8">You may also find me on these platforms!</p>
                 <div data-testid="SocialLinks" className="flex justify-center text-gray-600 dark:text-gray-300 mt-3 gap-5">
-                    <a className="hover:text-gray-900 dark:hover:text-gray-50" href="">
+                    <a className="hover:text-gray-900 dark:hover:text-gray-50" href={githubLink}>
                         <LuGithub size={24} />
                     </a>
-                    <a className="hover:text-gray-900 dark:hover:text-gray-50" href="">
-                        <FiTwitter size={24} />
+                    <a className="hover:text-gray-900 dark:hover:text-gray-50" href={linkedinLink}>
+                        <FiLinkedin size={24} />
                     </a>
-                    <a className="hover:text-gray-900 dark:hover:text-gray-50" href="">
+                    <a className="hover:text-gray-900 dark:hover:text-gray-50" href={figmaLink}>
                         <FaFigma size={24} />
                     </a>
                 </div>
             </Wrapper>
 
             <div className="bg-gray-50 dark:bg-gray-900 py-4 ">
-                <p data-testid="FooterHeading" className="text-center font-inter text-gray-600 dark:text-gray-300">@2024 | Developer Muhammad Aahad</p>
+                <p data-testid="FooterHeading" className="text-center font-inter text-gray-600 dark:text-gray-300">{FooterText}</p>
             </div>
         </>
     );

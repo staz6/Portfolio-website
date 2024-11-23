@@ -7,6 +7,7 @@ import { UserDetailsContext } from "../../Context/UserDetailsContext";
 const mockUserDetails = {
   name: "John Doe",
   description: "A passionate software developer.",
+
   detailedDescription: [
     "I have been developing web applications for over 5 years.",
     "I specialize in JavaScript and React, but also have experience with Node.js and Express.",
@@ -27,6 +28,7 @@ const mockUserDetails = {
       url: "https://example.com/johndoe_cv.pdf",
     },
   },
+  FooterText: "Lorem ipsum ",
   skillSet: [
     {
       name: "Node.js",
@@ -50,33 +52,33 @@ const mockUserDetails = {
   ],
   work: [
     {
-     
+
       name: "TrendMart",
       description: "Trendmart is an ecommerce website that has a variety of products for sale.",
       ProjectUrl: "https://trend-mart-app.vercel.app/",
-      skills:["React","Typescript"],
+      skills: ["React", "Typescript"],
       _rawProjectImage: {
         asset: {
           _ref: "image-ef42e743baa29d3d7cd3b2242557bc7ddd3f2625-1916x854-png",
         },
       },
     },
-    
+
   ],
-  reviews:[
+  reviews: [
     {
-      name:'John Doe',
-      description:"Hello world",
-      background:"Freelancer"
+      name: 'John Doe',
+      description: "Hello world",
+      background: "Freelancer"
     }
   ]
 };
 
 describe("MobileNav component tests", () => {
   it("Testing rendering of ui", () => {
-    render(      <UserDetailsContext.Provider value={{ userDetails: mockUserDetails }}>
-        <MobileNav openMenu={true} />
-      </UserDetailsContext.Provider>
+    render(<UserDetailsContext.Provider value={{ userDetails: mockUserDetails }}>
+      <MobileNav openMenu={true} />
+    </UserDetailsContext.Provider>
     );
     expect(screen.getByTestId("NavigationLinks")).toBeInTheDocument();
     expect(screen.getByTestId("ActionPanel")).toBeInTheDocument();

@@ -43,6 +43,7 @@ export interface UserDetails {
   detailedDescription: any[];
   skillSet: skill[];
   reviews: review[];
+  FooterText:string;
   figmaLink: string;
   profileImage: {
     asset: {
