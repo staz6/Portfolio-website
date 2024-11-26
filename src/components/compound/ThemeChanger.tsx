@@ -5,17 +5,25 @@ import Button from "../shared/Button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ThemeChanger: React.FC = () => {
-    const [isDark, setIsDark] = useState<boolean>(() => {
-        return localStorage.getItem("isDark") === "true";
-    });
+    const [isDark, setIsDark] = useState<boolean>(false);
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const savedTheme = localStorage.getItem("isDark");
+            if (savedTheme) {
+                setIsDark(savedTheme === "true");
+            }
+        }
+    }, []);
 
     useEffect(() => {
-        if (isDark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
+        if (typeof window !== "undefined") {
+            if (isDark) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+            localStorage.setItem("isDark", JSON.stringify(isDark));
         }
-        localStorage.setItem("isDark", JSON.stringify(isDark));
     }, [isDark]);
 
     return (
