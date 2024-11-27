@@ -30,10 +30,10 @@ const testimonials: Testimonial[] = [
 const Testimonials: React.FC = () => {
     const { reviews } = useUserDetails()
     return (
-        <Wrapper className='flex flex-col items-center justify-center px-4 py-20 dark:bg-gray-900 sm:px-6 lg:px-8 bg-gray-50'>
+        <Wrapper id="testimonials" className='flex flex-col items-center justify-center px-4 py-20 dark:bg-gray-900 sm:px-6 lg:px-8 bg-gray-50'>
             <h1
                 data-testid="SectionTitle"
-                className="mb-3 w-fit m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
+                className="mb-3 text-center w-36 m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
             >
                 Testimonials
             </h1>

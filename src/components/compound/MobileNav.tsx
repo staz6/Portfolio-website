@@ -5,26 +5,28 @@ import NavigationLinks from "./NavigationLinks";
 
 interface Props {
   openMenu: boolean;
+  setOpenMenu: (openMenu: boolean) => void;
 }
-const MobileNav: React.FC<Props> = ({ openMenu }) => {
+
+const MobileNav: React.FC<Props> = ({ openMenu, setOpenMenu }) => {
   return (
     <AnimatePresence>
       {openMenu && (
         <motion.div
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "100%" }}
+          initial={{ translateX: "100%" }} 
+          animate={{ translateX: "0%" }}   
+          exit={{ translateX: "100%" }}   
+          transition={{ duration: 0.3, ease: "easeInOut" }} 
           data-testid="MobileNav"
-          transition={{ duration: 0.15, type: "Tween" }}
-          className="bg-white dark:bg-gray-950  z-20 bg-opacity-30 px-10 pt-28  lg:hidden text-center  absolute h-[30rem] top-0 left-0 right-0"
+          className="fixed top-0 left-0 w-full h-[30rem]  z-20 pt-28 text-center bg-white dark:bg-gray-950"
         >
-          <div className="bg-white dark:bg-gray-950 pb-10">
-          <div className="w-fit  text-start ">
-            <NavigationLinks />
-          </div>
-          <div className="mt-5">
-            <ActionPanel />
-          </div>
+          <div className="px-10 pb-10">
+            <div className="w-fit text-start">
+              <NavigationLinks setOpenMenu={setOpenMenu} />
+            </div>
+            <div className="mt-5">
+              <ActionPanel />
+            </div>
           </div>
         </motion.div>
       )}

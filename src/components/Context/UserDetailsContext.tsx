@@ -45,7 +45,6 @@ interface SanityUserDetails {
     availability: boolean;
     githubLink: string;
     linkedinLink: string;
-    figmaLink: string;
     skillSet: skill[];
     reviews: review[];
     FooterText:string;

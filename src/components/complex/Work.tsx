@@ -9,11 +9,11 @@ import SanityImage from "gatsby-plugin-sanity-image";
 const Work: React.FC = () => {
     const { work } = useUserDetails()
     return (
-        <Wrapper className="dark:bg-gray-950 py-5">
+        <Wrapper id="work" className="dark:bg-gray-950 py-5">
             <div className="mt-20">
                 <h1
                     data-testid="SectionTitle"
-                    className="mb-3 w-fit m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
+                    className="mb-3 w-20 text-center m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
                 >
                     Work
                 </h1>
@@ -25,7 +25,7 @@ const Work: React.FC = () => {
                         className="grid grid-cols-12 shadow-lg mb-10 rounded-ss-2xl rounded-es-2xl rounded-ee-2xl"
                     >
                         <div
-                            className={`col-span-12 md:col-span-6 bg-gray-50 dark:bg-gray-700   md:h-auto h-72 flex justify-center items-center lg:h-[30rem] ${index % 2 === 0 ? "md:order-1 rounded-ss-xl rounded-se-xl md:rounded-se-none  md:rounded-es-xl" : "md:order-2 md:rounded-ee-xl rounded-se-xl rounded-ss-xl md:rounded-ss-none"
+                            className={`col-span-12 m-auto sm:m-0 max-w-96 sm:max-w-full md:col-span-6 bg-gray-50 dark:bg-gray-700   md:h-auto h-72 flex justify-center items-center lg:h-[30rem] ${index % 2 === 0 ? "md:order-1 rounded-ss-xl rounded-se-xl md:rounded-se-none  md:rounded-es-xl" : "md:order-2 md:rounded-ee-xl rounded-se-xl rounded-ss-xl md:rounded-ss-none"
                                 }`}
                         >
                             <SanityImage
@@ -37,7 +37,7 @@ const Work: React.FC = () => {
 
                         </div>
                         <div
-                            className={`col-span-12 dark:bg-gray-800  md:col-span-6 px-6 md:pl-8 lg:pl-12 font-inter ${index % 2 === 0 ? "md:order-2 rounded-bl-xl md:rounded-bl-none md:rounded-se-xl rounded-ee-xl" : "md:order-1 rounded-es-xl rounded-ee-xl md:rounded-ee-none md:rounded-ss-xl"
+                            className={`col-span-12 m-auto sm:m-0 max-w-96 sm:max-w-full dark:bg-gray-800  md:col-span-6 px-6 md:pl-8 lg:pl-12 font-inter ${index % 2 === 0 ? "md:order-2 rounded-bl-xl md:rounded-bl-none md:rounded-se-xl rounded-ee-xl" : "md:order-1 rounded-es-xl rounded-ee-xl md:rounded-ee-none md:rounded-ss-xl"
                                 }`}
                         >
                             <h1 className="text-gray-900 dark:text-gray-50 mt-10 lg:mt-12 font-semibold text-xl mb-5 lg:mb-8">

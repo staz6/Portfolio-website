@@ -9,7 +9,7 @@ const Experience: React.FC = () => {
         <Wrapper className="dark:bg-gray-900 bg-gray-50 py-20">
             <h1
                 data-testid="SectionTitle"
-                className="mb-3 w-fit m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
+                className="mb-3 w-32 text-center m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
             >
                 Experience
             </h1>
@@ -34,9 +34,14 @@ const Experience: React.FC = () => {
                                             : new Date(experience.EndDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
                                 </h1>
                             </div>
-                            <p className="dark:text-gray-300 text-gray-600">
-                                {experience.Description}
-                            </p>
+                            <ul className="list-disc pl-7">
+                                {experience.Description.split('\n').map((item, index) => (
+                                    <li key={index} className="dark:text-gray-300 md:w-80 text-gray-600">
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+
 
 
                         </div>

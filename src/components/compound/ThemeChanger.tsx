@@ -1,40 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IoSunnyOutline } from "react-icons/io5";
 import { LuMoonStar } from "react-icons/lu";
 import Button from "../shared/Button";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../Context/ThemeChangerContext";
 
 const ThemeChanger: React.FC = () => {
-    const [isDark, setIsDark] = useState<boolean>(false);
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            const savedTheme = localStorage.getItem("isDark");
-            if (savedTheme) {
-                setIsDark(savedTheme === "true");
-            }
-        }
-    }, []);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            if (isDark) {
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-            }
-            localStorage.setItem("isDark", JSON.stringify(isDark));
-        }
-    }, [isDark]);
-
+    const { isDark, toggleTheme } = useTheme();
     return (
         <Button
             description=""
             testid="ThemeChangerBtn"
             className="flex mt-5 md:mt-0 justify-between w-full items-center"
-            onClick={() => setIsDark((prev) => !prev)}
+            onClick={toggleTheme}
             icon=""
         >
-            <span className="md:hidden block">Switch Theme</span>
+            <span className="md:hidden block dark:text-gray-300 font-medium text-gray-600">Switch Theme</span>
             <AnimatePresence mode="wait" initial={false}>
                 {!isDark ? (
                     <motion.span
