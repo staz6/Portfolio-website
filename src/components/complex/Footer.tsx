@@ -2,18 +2,16 @@ import React from "react";
 import Wrapper from "../shared/Wrapper";
 import { LuGithub } from "react-icons/lu";
 import { FiLinkedin } from "react-icons/fi";
-import { FaFigma } from "react-icons/fa";
 import { useUserDetails } from "../Context/UserDetailsContext";
 
 const Footer: React.FC = () => {
-    const { githubLink, figmaLink, linkedinLink, FooterText } = useUserDetails()
+    const { githubLink, linkedinLink, FooterText } = useUserDetails()
     return (
         <>
-
-            <Wrapper className="py-20 font-inter dark:bg-gray-950">
+            <Wrapper id="contact" className="py-20 font-inter dark:bg-gray-950">
                 <h1
                     data-testid="SectionTitle"
-                    className="mb-3 w-fit m-auto px-4 py-1  font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
+                    className="mb-3 text-center w-36 m-auto px-4 py-1  font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
                 >
                     Get in touch
                 </h1>
@@ -31,9 +29,6 @@ const Footer: React.FC = () => {
                     </a>
                     <a className="hover:text-gray-900 dark:hover:text-gray-50" href={linkedinLink}>
                         <FiLinkedin size={24} />
-                    </a>
-                    <a className="hover:text-gray-900 dark:hover:text-gray-50" href={figmaLink}>
-                        <FaFigma size={24} />
                     </a>
                 </div>
             </Wrapper>

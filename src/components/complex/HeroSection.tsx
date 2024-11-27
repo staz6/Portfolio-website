@@ -1,14 +1,14 @@
 import React from "react";
 import { GrLocation } from "react-icons/gr";
-import { FaFigma } from "react-icons/fa";
 import { FiLinkedin } from "react-icons/fi";
 import { LuGithub } from "react-icons/lu";
+import { GoDotFill } from "react-icons/go";
 import Wrapper from "../shared/Wrapper";
 import { useUserDetails } from "../Context/UserDetailsContext";
 
 
 const HeroSection: React.FC = () => {
-  const { name, description, location, linkedinLink, figmaLink, githubLink, availability, profileImage } = useUserDetails()
+  const { name, description, location, linkedinLink, githubLink, availability, profileImage } = useUserDetails()
   return (
     <Wrapper className="dark:bg-gray-950 py-5">
       <div className="grid mt-24 grid-cols-12 items-center font-inter mb-10">
@@ -21,19 +21,22 @@ const HeroSection: React.FC = () => {
           </h1>
           <p
             data-testid="Description"
-            className="lg:w-[33rem] m-auto lg:mx-0 text-start sm:w-[25rem] xl:w-[48rem] dark:text-gray-300 text-gray-600 mt-5 mb-10"
+            className="lg:w-[33rem] m-auto lg:mx-0 text-start sm:w-[25rem] xl:w-[48rem] text-gray-600 dark:text-gray-300 mt-5 mb-10"
           >
             {description}
           </p>
           <div
             data-testid="Location"
-            className="flex justify-start sm:justify-center lg:justify-start  mb-2 dark:text-gray-300 text-gray-600 gap-2 items-center"
+            className="flex capitalize justify-start sm:justify-center lg:justify-start  mb-2 dark:text-gray-300 text-gray-600 gap-2 items-center"
           >
             <GrLocation size={24} />
             <span>{location}</span>
           </div>
-          <div className="flex pl-2 justify-start sm:justify-center lg:justify-start dark:text-gray-300 text-gray-600 items-center gap-2">
-            <div className="bg-emerald-500 h-2 w-2 rounded-full" />
+          <div className="flex justify-start sm:justify-center lg:justify-start dark:text-gray-300 text-gray-600 items-center gap-2">
+            <span className="text-emerald-500">
+              <GoDotFill size={24} />
+            </span>
+           
             <span>
               {availability ? "Available for new projects" : "Not available"}
             </span>
@@ -48,16 +51,14 @@ const HeroSection: React.FC = () => {
             <a className="hover:text-gray-900" href={linkedinLink}>
               <FiLinkedin size={24} />
             </a>
-            <a className="hover:text-gray-900" href={figmaLink}>
-              <FaFigma size={24} />
-            </a>
+
           </div>
         </div>
         <div className="col-span-12 order-1 lg:order-3 lg:col-span-4 relative  mt-10  flex w-full h-full justify-center lg:justify-end">
-          <div className="bg-gray-200 z-0 absolute w-[100%] h-80  sm:h-80  sm:w-80 lg:w-72"></div>
+          <div className="bg-gray-200 max-w-80 sm:max-w-full  z-0 absolute w-[100%] h-80  sm:h-80  sm:w-80 lg:w-72"></div>
           <img
             data-testid="PortfolioPic"
-            className="sm:h-80 w-[90%] h-80 sm:w-72 z-10 lg:mr-10 mb-10 relative bottom-5 lg:bottom-12"
+            className="sm:h-80 w-[90%] h-80 max-w-72 sm:max-w-full sm:w-72 z-10 lg:mr-10 mb-10 relative bottom-5 lg:bottom-12"
             src={profileImage.asset.url}
             alt={name}
           />

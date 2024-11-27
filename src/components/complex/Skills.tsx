@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "../../images/PortfolioPic.png"
 import Wrapper from "../shared/Wrapper";
 import { useUserDetails } from "../Context/UserDetailsContext";
 import SanityImage from "gatsby-plugin-sanity-image";
@@ -16,12 +15,12 @@ const Skills: React.FC = () => {
             <div className="text-center">
                 <h1
                     data-testid="SectionTitle"
-                    className="mb-3 w-fit m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
+                    className="mb-3 text-center w-20 m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
                 >
                     Skills
                 </h1>
                 <p data-testid="Description" className="
-                 mb-10 font-inter">The skills, tools and technologies I am really good at:</p>
+                 mb-10 font-inter dark:text-gray-300">The skills, tools and technologies I am really good at:</p>
                 <div data-testid="SkillsSetDesktop" className="sm:flex hidden flex-col items-center mb-10  gap-10">
                     <div className="flex justify-between w-full">
                         {firstHalf.map((skill, index) => (
@@ -57,11 +56,7 @@ const Skills: React.FC = () => {
                 <div data-testid="SkillsSetMobile" className="flex flex-wrap justify-between mb-10 gap-10">
                     {skillSet.map((skill, index) => (
                         <div key={index} className="flex flex-col sm:hidden justify-center ">
-                            <img
-                                src={Image}
-                                alt="Skill"
-                                className="w-16 h-16"
-                            /> <SanityImage
+                            <SanityImage
                                 {...skill._rawImage}
                                 alt={skill.name}
                                 width={100}

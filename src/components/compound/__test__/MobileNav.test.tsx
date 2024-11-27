@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MobileNav from "../MobileNav";
 import { UserDetailsContext } from "../../Context/UserDetailsContext";
+import { ThemeProvider } from "../../Context/ThemeChangerContext";
 
 const mockUserDetails = {
   name: "John Doe",
@@ -17,7 +18,6 @@ const mockUserDetails = {
   availability: true,
   githubLink: "https://github.com/johndoe",
   linkedinLink: "https://linkedin.com/in/johndoe",
-  figmaLink: "https://figma.com/@johndoe",
   profileImage: {
     asset: {
       url: "https://example.com/profile.jpg",
@@ -77,7 +77,9 @@ const mockUserDetails = {
 describe("MobileNav component tests", () => {
   it("Testing rendering of ui", () => {
     render(<UserDetailsContext.Provider value={{ userDetails: mockUserDetails }}>
-      <MobileNav openMenu={true} />
+      <ThemeProvider>
+        <MobileNav setOpenMenu={() => { }} openMenu={true} />
+      </ThemeProvider>
     </UserDetailsContext.Provider>
     );
     expect(screen.getByTestId("NavigationLinks")).toBeInTheDocument();

@@ -62,10 +62,10 @@ const Aboutme: React.FC = () => {
   ];
 
   return (
-    <Wrapper className="gray-50 dark:bg-gray-900 py-20 ">
+    <Wrapper id="about"  className="gray-50 dark:bg-gray-900 bg-gray-50  py-20 ">
       <h1
         data-testid="SectionTitle"
-        className="text-center mb-10 w-fit m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
+        className="text-center  mb-10 w-28 m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
       >
         About me
       </h1>
@@ -74,9 +74,9 @@ const Aboutme: React.FC = () => {
           data-testid="PortfolioPic"
           className="col-span-12 lg:col-span-6 mb-10 lg:mb-0 mt-10 flex justify-center lg:justify-start relative"
         >
-          <div className="bg-gray-200 h-[22rem]  z-0 absolute sm:h-[30rem] w-[98%]  sm:w-[26rem] lg:w-[22rem] xl:w-[25rem] "></div>
+          <div className="bg-gray-200 max-w-80 sm:max-w-full  h-[22rem]  z-0 absolute sm:h-[30rem] w-[98%]  sm:w-[26rem] lg:w-[22rem] xl:w-[25rem] "></div>
           <img
-            className=" h-[22rem] sm:h-[30rem] relative bottom-5 sm:bottom-8 lg:left-8 z-10 w-[85%] sm:w-[22rem] xl:w-[25rem]"
+            className=" h-[22rem] sm:h-[30rem] max-w-72 sm:max-w-full relative bottom-5 sm:bottom-8 lg:left-8 z-10 w-[85%] sm:w-[22rem] xl:w-[25rem]"
             src={profileImage.asset.url}
             alt=""
           />
@@ -89,14 +89,10 @@ const Aboutme: React.FC = () => {
             Curious about me? Here you have it:
           </h1>
           <p className="dark:text-gray-300 text-gray-600 mb-5">
-
-
             <PortableText
               value={detailedDescription}
               components={components}
-
             />
-
           </p>
         </div>
       </div>

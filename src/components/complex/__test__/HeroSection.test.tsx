@@ -17,7 +17,6 @@ const mockUserDetails = {
   availability: true,
   githubLink: "https://github.com/johndoe",
   linkedinLink: "https://linkedin.com/in/johndoe",
-  figmaLink: "https://figma.com/@johndoe",
   profileImage: {
       asset: {
           url: "https://example.com/profile.jpg",

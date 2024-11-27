@@ -30,7 +30,6 @@ export const useUserDetails = () => {
         availability
         githubLink
         linkedinLink
-        figmaLink
         profileImage {
           asset {
             url

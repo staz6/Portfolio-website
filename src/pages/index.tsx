@@ -10,6 +10,8 @@ import Footer from "../components/complex/Footer";
 import { UserDetailsProvider } from "../components/Context/UserDetailsContext";
 import { UserDetails } from "../Types/IndexType";
 import { useUserDetails } from "../Queries/UserDetailQuery";
+import ThemeChanger from "../components/compound/ThemeChanger";
+import { ThemeProvider } from "../components/Context/ThemeChangerContext";
 
 
 const IndexPage: React.FC = () => {
@@ -17,14 +19,16 @@ const IndexPage: React.FC = () => {
   console.log(userDetails)
   return (
     <UserDetailsProvider data={userDetails}>
-      <Header />
-      <HeroSection />
-      <Aboutme />
-      <Skills />
-      <Experience />
-      <Work />
-      <Testimonials />
-      <Footer />
+      <ThemeProvider>
+        <Header />
+        <HeroSection />
+        <Aboutme />
+        <Skills />
+        <Experience />
+        <Work />
+        <Testimonials />
+        <Footer />
+      </ThemeProvider >
     </UserDetailsProvider>
   );
 };
