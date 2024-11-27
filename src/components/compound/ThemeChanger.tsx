@@ -7,7 +7,6 @@ import { useTheme } from "../Context/ThemeChangerContext";
 
 const ThemeChanger: React.FC = () => {
     const { isDark, toggleTheme } = useTheme();
-
     return (
         <Button
             description=""
