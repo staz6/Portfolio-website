@@ -3,7 +3,8 @@ import { describe } from "node:test";
 import "@testing-library/jest-dom";
 import Testimonials from "../Testimonials";
 import { UserDetailsContext } from "../../Context/UserDetailsContext";
-
+import TestimonialsSliderContent from "../../compound/TestimonialsSlider";
+import TestimonialsSliderControls from "../../compound/TestimonialsSliderControls";
 const mockUserDetails = {
     name: "John Doe",
     description: "A passionate software developer.",
@@ -72,6 +73,17 @@ const mockUserDetails = {
         }
     ]
 }
+
+jest.mock("swiper/css", () => {});
+jest.mock("swiper/css/navigation", () => {});
+jest.mock("swiper/css/pagination", () => {});
+jest.mock("../../compound/TestimonialsSlider", () => () => (
+  <div>Slider Content</div>
+));
+jest.mock("../../compound/TestimonialsSliderControls", () => () => (
+  <div>Slider Controls</div>
+));
+
 describe("HeroSection Component tests", () => {
     it("Testing rendering of UI", () => {
         render(<UserDetailsContext.Provider value={{ userDetails: mockUserDetails }}>
