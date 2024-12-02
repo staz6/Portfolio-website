@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/complex/Header";
 import HeroSection from "../components/complex/HeroSection";
 import Aboutme from "../components/complex/Aboutme";
@@ -10,13 +10,16 @@ import Footer from "../components/complex/Footer";
 import { UserDetailsProvider } from "../components/Context/UserDetailsContext";
 import { UserDetails } from "../Types/IndexType";
 import { useUserDetails } from "../Queries/UserDetailQuery";
-import ThemeChanger from "../components/compound/ThemeChanger";
 import { ThemeProvider } from "../components/Context/ThemeChangerContext";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails();
   console.log(userDetails)
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   return (
     <UserDetailsProvider data={userDetails}>
       <ThemeProvider>
