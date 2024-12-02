@@ -35,32 +35,7 @@ const components: PortableTextComponents = {
 
 const Aboutme: React.FC = () => {
   const { detailedDescription, profileImage } = useUserDetails()
-  console.log(detailedDescription)
-  const sampleData = [
-    {
-      _type: 'block',
-      style: 'normal',
-      children: [
-        { _type: 'span', text: 'Hello, this is a test.' },
-      ],
-    },
-    {
-      _type: 'block',
-      style: 'h2',
-      children: [
-        { _type: 'span', text: 'Subheading Example' },
-      ],
-    },
-    {
-      _type: 'list',
-      listItem: 'bullet',
-      children: [
-        { _type: 'span', text: 'Bullet Point 1' },
-        { _type: 'span', text: 'Bullet Point 2' },
-      ],
-    },
-  ];
-
+  
   return (
     <Wrapper id="about"  className="gray-50 dark:bg-gray-900 bg-gray-50  py-20 ">
       <h1
@@ -78,17 +53,18 @@ const Aboutme: React.FC = () => {
           <img
             className=" h-[22rem] sm:h-[30rem] max-w-72 sm:max-w-full relative bottom-5 sm:bottom-8 lg:left-8 z-10 w-[85%] sm:w-[22rem] xl:w-[25rem]"
             src={profileImage.asset.url}
-            alt=""
+            alt="ProfilePic"
+            data-aos="fade-up"
           />
         </div>
         <div
           data-testid="Description"
           className="col-span-12 lg:col-span-6 font-inter "
         >
-          <h1 className="text-gray-900 dark:text-gray-50 mb-5 font-semibold text-3xl">
+          <h1 data-aos="fade-up" className="text-gray-900 dark:text-gray-50 mb-5 font-semibold text-3xl">
             Curious about me? Here you have it:
           </h1>
-          <p className="dark:text-gray-300 text-gray-600 mb-5">
+          <p  data-aos="fade-right" className="dark:text-gray-300 text-gray-600 mb-5">
             <PortableText
               value={detailedDescription}
               components={components}
@@ -101,3 +77,5 @@ const Aboutme: React.FC = () => {
 };
 
 export default Aboutme;
+
+

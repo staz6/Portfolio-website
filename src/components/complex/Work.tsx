@@ -8,6 +8,7 @@ import SanityImage from "gatsby-plugin-sanity-image";
 
 const Work: React.FC = () => {
     const { work } = useUserDetails()
+   
     return (
         <Wrapper id="work" className="dark:bg-gray-950 py-5">
             <div className="mt-20">
@@ -17,9 +18,9 @@ const Work: React.FC = () => {
                 >
                     Work
                 </h1>
-                <p data-testid="Description" className="text-gray-600 dark:text-gray-300  mb-10 text-center font-inter">Some of the noteworthy projects I have built:</p>
+                <p data-aos="fade-up" data-testid="Description" className="text-gray-600 dark:text-gray-300  mb-10 text-center font-inter">Some of the noteworthy projects I have built:</p>
                 {work.map((item, index) => (
-                    <div
+                    <div data-aos="fade-up"
                         key={index}
                         data-testid="WorkSection"
                         className="grid grid-cols-12 shadow-lg mb-10 rounded-ss-2xl rounded-es-2xl rounded-ee-2xl"

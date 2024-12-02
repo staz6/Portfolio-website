@@ -44,13 +44,13 @@ const TestimonialsSliderContent: React.FC<SectionSliderContentProps> = ({
         swiper.params.navigation.nextEl = nextRef.current;
     }
 }}
-className = "flex "
+className = "flex py-2 h-fit"
     >
 {
     React.Children.toArray(children).map((item, index) => (
         <SwiperSlide
             key= { index }
-            className = "m-auto mb-2"
+            className = "m-auto my-2 h-auto flex items-baseline "
         >
         { item }
         </SwiperSlide>

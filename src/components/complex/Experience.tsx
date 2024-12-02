@@ -1,10 +1,10 @@
 import React from "react"
 import Wrapper from "../shared/Wrapper"
-import { useUserDetails } from "../Context/UserDetailsContext"
-
+import { useUserDetails } from "../Context/UserDetailsContext";
 
 const Experience: React.FC = () => {
     const { Experience } = useUserDetails()
+
     return (
         <Wrapper className="dark:bg-gray-900 bg-gray-50 py-20">
             <h1
@@ -13,9 +13,9 @@ const Experience: React.FC = () => {
             >
                 Experience
             </h1>
-            <p data-testid="Description" className="text-gray-600 dark:text-gray-300 mb-10 text-center font-inter">Here is a quick summary of my most recent experiences:</p>
+            <p data-testid="Description" data-aos="fade-up" className="text-gray-600 dark:text-gray-300 mb-10 text-center font-inter">Here is a quick summary of my most recent experiences:</p>
             {Experience.map((experience, index) => (
-                <div key={index} data-testid="ExperienceSection" className="flex flex-col items-center">
+                <div data-aos="fade-right"  key={index} data-testid="ExperienceSection" className="flex flex-col items-center">
                     <div className=" w-full font-inter dark:bg-gray-800  max-w-[40rem] p-6 rounded-lg shadow-CustomboxShadow flex sm:flex-row flex-col items-start gap-8 sm:gap-12 md:gap-20">
                         <div >
                             <h1 className="text-2xl text-bold text-gray-900 dark:text-gray-50">{experience.CompanyName}</h1>
