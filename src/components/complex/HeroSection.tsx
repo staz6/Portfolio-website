@@ -11,8 +11,8 @@ const HeroSection: React.FC = () => {
   const { name, description, location, linkedinLink, githubLink, availability, profileImage } = useUserDetails();
 
   return (
-    <Wrapper className="dark:bg-gray-950 py-5">
-      <div className="grid mt-24 grid-cols-12 items-center font-inter mb-10">
+    <Wrapper className="dark:bg-gray-950 py-5 ">
+      <div className="grid mt-24 grid-cols-12 overflow-hidden items-center font-inter mb-10">
         <div className="col-span-12 text-start sm:text-center lg:text-start order-2 lg:col-span-8">
           <h1
             data-testid="Name"
@@ -21,14 +21,14 @@ const HeroSection: React.FC = () => {
           >
             Hi, I’m {name}{" "}
             <motion.span
-              style={{ display: "inline-block", transformOrigin: "bottom center" }} // Set origin to emulate wrist tilt
+              className="inline-block origin-bottom"
               animate={{
-                rotate: [0, 10, -10, 10, -10, 0], // Tilt back and forth (subtle wrist-like motion)
+                rotate: [0, 10, -10, 10, -10, 0],
               }}
               transition={{
-                duration: 2, 
-                repeat: Infinity, 
-                ease: "easeInOut", 
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
               }}
             >
               👋
