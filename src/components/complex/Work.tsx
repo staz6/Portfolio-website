@@ -8,7 +8,7 @@ import SanityImage from "gatsby-plugin-sanity-image";
 
 const Work: React.FC = () => {
     const { work } = useUserDetails()
-   
+
     return (
         <Wrapper id="work" className="dark:bg-gray-950 py-5">
             <div className="mt-20">

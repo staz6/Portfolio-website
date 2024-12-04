@@ -1,6 +1,39 @@
 import React from "react"
 import Wrapper from "../shared/Wrapper"
 import { useUserDetails } from "../Context/UserDetailsContext";
+import { PortableText, PortableTextComponents } from '@portabletext/react'
+
+const components: PortableTextComponents = {
+    marks: {
+        em: ({ children }) => <em className="text-gray-600 font-semibold">{children}</em>,
+        link: ({ value, children }) => {
+            const target = (value?.href || '').startsWith('http') ? '_blank' : undefined;
+            return (
+                <a href={value?.href} target={target} className="text-blue-600 hover:underline">
+                    {children}
+                </a>
+            );
+        },
+    },
+    block: {
+        h1: ({ children }) => <h1 className="text-2xl font-bold">{children}</h1>,
+        blockquote: ({ children }) => (
+            <blockquote className="border-l-4 border-gray-300 pl-4 italic">{children}</blockquote>
+        ),
+    },
+    list: {
+        bullet: ({ children }) => (
+            <ul className="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">{children}</ul>
+        ),
+        number: ({ children }) => (
+            <ol className="list-decimal pl-5 space-y-2 text-gray-600 dark:text-gray-300">{children}</ol>
+        ),
+    },
+    listItem: {
+        bullet: ({ children }) => <li className="text-gray-600 dark:text-gray-300">{children}</li>,
+        number: ({ children }) => <li className="text-gray-600 dark:text-gray-300">{children}</li>,
+    },
+};
 
 const Experience: React.FC = () => {
     const { Experience } = useUserDetails()
@@ -15,7 +48,7 @@ const Experience: React.FC = () => {
             </h1>
             <p data-testid="Description" data-aos="fade-up" className="text-gray-600 dark:text-gray-300 mb-10 text-center font-inter">Here is a quick summary of my most recent experiences:</p>
             {Experience.map((experience, index) => (
-                <div data-aos="fade-right"  key={index} data-testid="ExperienceSection" className="flex flex-col items-center">
+                <div data-aos="fade-right" key={index} data-testid="ExperienceSection" className="flex flex-col items-center">
                     <div className=" w-full font-inter dark:bg-gray-800  max-w-[40rem] p-6 rounded-lg shadow-CustomboxShadow flex sm:flex-row flex-col items-start gap-8 sm:gap-12 md:gap-20">
                         <div >
                             <h1 className="text-2xl text-bold text-gray-900 dark:text-gray-50">{experience.CompanyName}</h1>
@@ -34,16 +67,13 @@ const Experience: React.FC = () => {
                                             : new Date(experience.EndDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
                                 </h1>
                             </div>
-                            <ul className="list-disc pl-7">
-                                {experience.Description.split('\n').map((item, index) => (
-                                    <li key={index} className="dark:text-gray-300 md:w-80 text-gray-600">
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-
-
-
+                            <div className="sm:w-[80%]">
+                            <PortableText
+                                value={experience.Description}
+                                components={components}
+                            />
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

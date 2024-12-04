@@ -16,7 +16,6 @@ import "aos/dist/aos.css";
 
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails();
-  console.log(userDetails)
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
