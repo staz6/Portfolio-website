@@ -25,13 +25,6 @@ export const schemaTypes = [
           Rule.uri({ scheme: ['http', 'https'] }),
       },
       {
-        name: 'figmaLink',
-        title: 'Figma Profile Link',
-        type: 'string',
-        validation: (Rule: { uri: (arg0: { scheme: string[] }) => any }) =>
-          Rule.uri({ scheme: ['http', 'https'] }),
-      },
-      {
         name: 'description',
         title: 'Description',
         type: 'text',
@@ -196,8 +189,43 @@ export const schemaTypes = [
       {
         name: 'Description',
         title: 'Description',
-        type: 'string',
-        validation: (Rule: { required: () => any }) => Rule.required(),
+        type: 'array',
+        of: [
+          {
+            type: 'block',
+            styles: [
+              { title: 'Normal', value: 'normal' },
+              { title: 'Heading 1', value: 'h1' },
+              { title: 'Heading 2', value: 'h2' },
+              { title: 'Heading 3', value: 'h3' },
+            ],
+            lists: [
+              { title: 'Bullet', value: 'bullet' },
+              { title: 'Numbered', value: 'number' },
+            ],
+            marks: {
+              decorators: [
+                { title: 'Strong', value: 'strong' },
+                { title: 'Emphasis', value: 'em' },
+                { title: 'Underline', value: 'underline' },
+              ],
+              annotations: [
+                {
+                  name: 'link',
+                  type: 'object',
+                  title: 'Link',
+                  fields: [
+                    {
+                      name: 'href',
+                      type: 'url',
+                      title: 'URL',
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+        ],
       },
       {
         name: 'StartDate',

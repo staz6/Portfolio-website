@@ -19,7 +19,7 @@ interface review {
 interface experience {
     CompanyName: string;
     PositionName: string;
-    Description: string;
+    Description: any[];
     StartDate: string;
     EndDate: string;
 }
