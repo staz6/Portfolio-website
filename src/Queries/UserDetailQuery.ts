@@ -6,6 +6,10 @@ export const useUserDetails = () => {
       sanityUserDetails {
         name
         description
+        NameAcronym,
+        MetaKeywords,
+        MetaDescription,
+        CanonicalLink
          Experience {
        _key
        _type

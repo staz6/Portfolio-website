@@ -123,7 +123,31 @@ export const schemaTypes = [
         title: 'footertext',
         type: 'string',
         validation: (Rule: { required: () => any; }) => Rule.required(),
-      }
+      },
+      {
+        name: 'NameAcronym',
+        title: 'NameAcronym',
+        type: 'string',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'MetaDescription',
+        title: 'Meta-Description',
+        type: 'string',
+        validation: (Rule: { required: () => any }) => Rule.required(),
+      },
+      {
+        name: 'MetaKeywords',
+        title: 'Meta-Keywords',
+        type: 'string',
+        validation: (Rule: { required: () => any }) => Rule.required(),
+      },
+      {
+        name: 'CanonicalLink',
+        title: 'Canonical-Link',
+        type: 'string',
+        validation: (Rule: { required: () => any }) => Rule.required(),
+      },
     ],
   },
   {
@@ -303,4 +327,5 @@ export const schemaTypes = [
       },
     ],
   },
+
 ];

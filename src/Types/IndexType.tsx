@@ -24,6 +24,7 @@ interface WorkItem {
   _rawProjectImage: SanityImage;
   skills: string[]
 }
+
 interface experience {
   CompanyName: string;
   PositionName: string;
@@ -43,7 +44,7 @@ export interface UserDetails {
   detailedDescription: any[];
   skillSet: skill[];
   reviews: review[];
-  FooterText:string;
+  FooterText: string;
   profileImage: {
     asset: {
       url: string;
@@ -55,4 +56,8 @@ export interface UserDetails {
     };
   };
   work: WorkItem[];
+  MetaDescription: string;
+  MetaKeywords: string;
+  CanonicalLink: string;
+  NameAcronym: string;
 }

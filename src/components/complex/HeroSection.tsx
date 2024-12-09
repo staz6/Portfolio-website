@@ -36,7 +36,7 @@ const HeroSection: React.FC = () => {
           </h1>
           <p
             data-testid="Description"
-            className="lg:w-[33rem] m-auto lg:mx-0 text-start sm:w-[25rem] xl:w-[48rem] text-gray-600 dark:text-gray-300 mt-5 mb-10"
+            className="lg:w-[33rem] m-auto lg:mx-0 text-start sm:text-center lg:text-start   sm:w-[25rem] xl:w-[48rem] text-gray-600 dark:text-gray-300 mt-5 mb-10"
             data-aos="fade-right"
           >
             {description}

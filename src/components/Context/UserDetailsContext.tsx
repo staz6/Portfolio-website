@@ -55,6 +55,7 @@ interface SanityUserDetails {
         asset: SanityAsset;
     };
     work: WorkItem[];
+    NameAcronym: string;
 }
 
 interface UserDetailsContextProps {

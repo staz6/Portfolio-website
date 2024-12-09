@@ -13,6 +13,7 @@ import { useUserDetails } from "../Queries/UserDetailQuery";
 import { ThemeProvider } from "../components/Context/ThemeChangerContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet";
 
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails();
@@ -20,18 +21,27 @@ const IndexPage: React.FC = () => {
     AOS.init({ duration: 1000, once: true });
   }, []);
   return (
-    <UserDetailsProvider data={userDetails}>
-      <ThemeProvider>
-        <Header />
-        <HeroSection />
-        <Aboutme />
-        <Skills />
-        <Experience />
-        <Work />
-        <Testimonials />
-        <Footer />
-      </ThemeProvider >
-    </UserDetailsProvider>
+    <>
+      <UserDetailsProvider data={userDetails}>
+        <Helmet>
+          <title>My Portfolio</title>
+          <meta name="description" content={userDetails.MetaDescription} />
+          <meta name="keywords" content={userDetails.MetaKeywords} />
+          <link rel="canonical" href={userDetails.CanonicalLink} />
+        </Helmet>
+
+        <ThemeProvider>
+          <Header />
+          <HeroSection />
+          <Aboutme />
+          <Skills />
+          <Experience />
+          <Work />
+          <Testimonials />
+          <Footer />
+        </ThemeProvider >
+      </UserDetailsProvider>
+    </>
   );
 };
 
