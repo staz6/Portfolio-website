@@ -16,7 +16,7 @@ const config: GatsbyConfig = {
       options: {
         projectId: process.env.GATSBY_SANITY_PROJECT_ID,
         dataset: "production",
-        url: 'https://0fdtpk49.api.sanity.io/v2023-08-01/graphql/production/default',
+        url: process.env.GATSBY_SANITY_API_URL,
       },
     },
     "gatsby-plugin-image",
