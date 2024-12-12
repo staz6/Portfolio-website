@@ -86,11 +86,11 @@ const HeroSection: React.FC = () => {
             </a>
           </div>
         </div>
-        <div className="col-span-12 order-1 lg:order-3 lg:col-span-4 relative mt-10 flex w-full h-full justify-center lg:justify-end">
+        <div className="col-span-12   order-1 lg:order-3 lg:col-span-4 relative mt-10 flex w-full h-full pt-10 justify-center lg:justify-end">
           <div className="bg-gray-200 max-w-80 sm:max-w-full z-0 absolute w-[100%] h-80 sm:h-80 sm:w-80 lg:w-72"></div>
           <img
             data-testid="PortfolioPic"
-            className="sm:h-80 w-[90%] h-80 max-w-72 sm:max-w-full sm:w-72 z-10 lg:mr-10 mb-10 relative bottom-5 lg:bottom-12"
+            className="sm:h-80  w-[90%] h-80 max-w-72 sm:max-w-full sm:w-72 z-10 lg:mr-10 mb-10 relative bottom-5 lg:bottom-12"
             src={profileImage.asset.url}
             alt={name}
             data-aos="fade-up"
