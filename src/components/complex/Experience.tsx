@@ -49,9 +49,9 @@ const Experience: React.FC = () => {
             <p data-testid="Description" data-aos="fade-up" className="text-gray-600 dark:text-gray-300 mb-10 text-center font-inter">Here is a quick summary of my most recent experiences:</p>
             {Experience.map((experience, index) => (
                 <div data-aos="fade-right" key={index} data-testid="ExperienceSection" className="flex mb-5 flex-col items-center">
-                    <div className=" w-full font-inter dark:bg-gray-800  max-w-[40rem] p-6 rounded-lg shadow-CustomboxShadow flex sm:flex-row flex-col items-start gap-8 sm:gap-12 md:gap-20">
+                    <div className=" w-full font-inter dark:bg-gray-800  max-w-[40rem] p-6 rounded-lg shadow-CustomboxShadow flex sm:flex-row flex-col items-start gap-8 sm:gap-12 md:gap-12 ">
                         <div >
-                            <h1 className="text-2xl text-bold text-gray-900 dark:text-gray-50">{experience.CompanyName}</h1>
+                            <h1 className="text-2xl text-bold text-gray-900 w-32 dark:text-gray-50">{experience.CompanyName}</h1>
                         </div>
 
 
