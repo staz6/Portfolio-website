@@ -1,51 +1,46 @@
-# Portfolio-Website
-This project is build on Gatsby and Sanity
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# Portfolio
 
-## 🚀 Quick start
+My portfolio website build using Gatsby and Sanity
 
-1.  **Create a Gatsby site.**
+## Getting Started
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+### Prerequisite
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+* Node 
+* npm
+* Sanity Project Id and Data set. You can create this just by creating a account on [Sanity](https://www.sanity.io/)
 
-2.  **Start developing.**
+### Installing
 
-    Navigate into your new site’s directory and start it up.
+* git clone the repository
+* cd in to gatsby folder and run ```npm install```
+* Also create an .env.development file at the root of the gatsby folder and insert to env variables in to it.
+```
+GATSBY_SANITY_PROJECT_ID=sanityProjectId
+GATSBY_SANITY_API_URL = sanity graphql api
+```
+* run ```npm start```
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+### Branches
 
-3.  **Open the code and start customizing!**
+* [master](https://maahadportfolio.netlify.app/)
 
-    Your site is now running at http://localhost:8000!
+## Features List
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+- [x] Initial design
+- [x] Logo
+- [x] Sanity Integeration
+- [x] Div fade in and out animation
+- [x] SEO and React Helmet
+- [x] Unit tests
+- [x] Responsive
+- [x] Animate on Scroll
 
-4.  **Learn more**
+## Authors
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+Muhammad Aahad  
+[@Muhammad Aahad](https://www.linkedin.com/in/muhammad-aahad-568aaa179/)
 
-## 🚀 Quick start (Netlify)
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+
