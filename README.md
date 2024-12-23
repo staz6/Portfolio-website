@@ -29,7 +29,7 @@ GATSBY_SANITY_API_URL = sanity graphql api
 
 - [x] Initial design
 - [x] Logo
-- [s] Sanity Integeration
+- [x] Sanity Integeration
 - [x] Div fade in and out animation
 - [x] SEO and React Helmet
 - [x] Unit tests
