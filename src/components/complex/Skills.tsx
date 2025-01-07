@@ -10,7 +10,7 @@ const Skills: React.FC = () => {
     const half = Math.ceil(skillSet.length / 2);
     const firstHalf = skillSet.slice(0, half);
     const secondHalf = skillSet.slice(half);
-
+console.log(skillSet)
     return (
         <Wrapper className="dark:bg-gray-950 pt-20 pb-3">
             <div className="text-center">
@@ -55,7 +55,7 @@ const Skills: React.FC = () => {
                                         className="xl:w-20 w-14 lg:w-16 xl:h-20 lg:h-16  h-14"
                                     />
                                 </motion.div>
-                                <h1 className="text-gray-600 dark:text-gray-300 text-sm  lg:text-base">Skill</h1>
+                                <h1 className="text-gray-600 dark:text-gray-300 text-sm  lg:text-base">{skill.name}</h1>
                             </div>
                         ))}
                     </div>
@@ -75,7 +75,7 @@ const Skills: React.FC = () => {
                                 />
                             </motion.div>
 
-                            <h1 className="text-gray-600 dark:text-gray-300 ">Skill</h1>
+                            <h1 className="text-gray-600 dark:text-gray-300 ">{skill.name}</h1>
 
 
                         </div>
