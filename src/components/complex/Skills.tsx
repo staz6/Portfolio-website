@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
     const secondHalf = skillSet.slice(half);
 console.log(skillSet)
     return (
-        <Wrapper className="dark:bg-gray-950 pt-20 pb-3">
+        <Wrapper id="skills" className="dark:bg-gray-950 pt-20 pb-3">
             <div className="text-center">
                 <h1
                     data-testid="SectionTitle"

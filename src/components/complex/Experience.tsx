@@ -39,7 +39,7 @@ const Experience: React.FC = () => {
     const { Experience } = useUserDetails()
 
     return (
-        <Wrapper className="dark:bg-gray-900 bg-gray-50 py-20">
+        <Wrapper id="experience" className="dark:bg-gray-900 bg-gray-50 py-20">
             <h1
                 data-testid="SectionTitle"
                 className="mb-3 w-32 text-center m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"

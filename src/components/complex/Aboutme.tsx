@@ -52,7 +52,7 @@ const Aboutme: React.FC = () => {
       <div className="grid items-center  grid-cols-12  ">
         <div
           data-testid="PortfolioPic"
-          className="col-span-12 lg:col-span-6 mb-10 lg:mb-0 mt-10 flex justify-center lg:justify-start relative"
+          className="col-span-12 lg:col-span-6 mb-10 lg:mb-0 mt-10 flex justify-center  relative"
         >
           <div className="bg-gray-200 max-w-80 sm:max-w-full  h-[22rem]  z-0 absolute sm:h-[30rem] w-[98%]  sm:w-[26rem] lg:w-[22rem] xl:w-[25rem] "></div>
           <img
