@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
   const { name, description, location, linkedinLink, githubLink, availability, profileImage } = useUserDetails();
 
   return (
-    <Wrapper className="dark:bg-gray-950 py-5 ">
+    <Wrapper className="dark:bg-gray-950 py-5" id="herosection" >
       <div className="grid mt-24 grid-cols-12 overflow-hidden items-center font-inter mb-10">
         <div className="col-span-12 text-start sm:text-center lg:text-start order-2 lg:col-span-8">
           <h1
@@ -65,7 +65,7 @@ const HeroSection: React.FC = () => {
             className="flex gap-5 justify-start sm:justify-center lg:justify-start dark:text-gray-300 text-gray-600 mt-10"
           >
             <a
-              className="hover:text-gray-900"
+              className="hover:text-gray-900 dark:hover:text-gray-50"
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
               <LuGithub size={24} />
             </a>
             <a
-              className="hover:text-gray-900"
+              className="hover:text-gray-900 dark:hover:text-gray-50"
               href={linkedinLink}
               target="_blank"
               rel="noopener noreferrer"
