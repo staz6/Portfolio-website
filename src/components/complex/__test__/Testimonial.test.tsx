@@ -3,12 +3,11 @@ import { describe } from "node:test";
 import "@testing-library/jest-dom";
 import Testimonials from "../Testimonials";
 import { UserDetailsContext } from "../../Context/UserDetailsContext";
-import TestimonialsSliderContent from "../../compound/TestimonialsSlider";
-import TestimonialsSliderControls from "../../compound/TestimonialsSliderControls";
+
 const mockUserDetails = {
     name: "John Doe",
     description: "A passionate software developer.",
-
+    NameAcronym: "JD",
     detailedDescription: [
         "I have been developing web applications for over 5 years.",
         "I specialize in JavaScript and React, but also have experience with Node.js and Express.",
@@ -45,8 +44,17 @@ const mockUserDetails = {
         {
             CompanyName: "Creative Dev Studio",
             PositionName: "Software Engineer",
-            Description: "Led a team to deliver high-quality software solutions, ensuring scalable architecture and maintainable code. Focused on modernizing legacy systems with Node.js and microservices.",
-            StartDate: "2024-01-01",
+            Description: [
+                {
+                    _type: "block",
+                    children: [
+                        {
+                            _type: "span",
+                            text: "Led a team to deliver high-quality software solutions, ensuring scalable architecture and maintainable code. Focused on modernizing legacy systems with Node.js and microservices.",
+                        },
+                    ],
+                },
+            ], StartDate: "2024-01-01",
             EndDate: "Present",
         },
     ],
@@ -72,7 +80,7 @@ const mockUserDetails = {
             background: "Freelancer"
         }
     ]
-}
+};
 
 jest.mock("swiper/css", () => {});
 jest.mock("swiper/css/navigation", () => {});
