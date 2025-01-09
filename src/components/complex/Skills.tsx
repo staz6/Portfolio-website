@@ -10,7 +10,7 @@ const Skills: React.FC = () => {
     const half = Math.ceil(skillSet.length / 2);
     const firstHalf = skillSet.slice(0, half);
     const secondHalf = skillSet.slice(half);
-console.log(skillSet)
+    console.log(skillSet)
     return (
         <Wrapper id="skills" className="dark:bg-gray-950 pt-20 pb-3">
             <div className="text-center">
@@ -60,28 +60,34 @@ console.log(skillSet)
                         ))}
                     </div>
                 </div>
-                <div data-testid="SkillsSetMobile" className="flex flex-wrap justify-between mb-10 gap-10">
+                <div
+                    data-testid="SkillsSetMobile"
+                    className="flex flex-wrap justify-start sm:hidden gap-y-4 mb-10"
+                >
                     {skillSet.map((skill, index) => (
-                        <div key={index} className="flex flex-col sm:hidden justify-center ">
-                            <motion.div initial={{ rotateY: 0 }}
+                        <div
+                            key={index}
+                            className="flex flex-col justify-center items-center basis-1/3"
+                        >
+                            <motion.div
+                                initial={{ rotateY: 0 }}
                                 animate={{ rotateY: 360 }}
-                                transition={{ repeat: Infinity, duration: 5, ease: "linear" }}>
+                                transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+                            >
                                 <SanityImage
                                     {...skill._rawImage}
                                     alt={skill.name}
                                     width={100}
                                     height={100}
-                                    className="xl:w-20 w-14 lg:w-16 xl:h-20 lg:h-16  h-14"
+                                    className="xl:w-20 w-14 lg:w-16 xl:h-20 lg:h-16 h-14"
                                 />
                             </motion.div>
 
-                            <h1 className="text-gray-600 dark:text-gray-300 ">{skill.name}</h1>
-
-
+                            <h1 className="text-gray-600 dark:text-gray-300">{skill.name}</h1>
                         </div>
                     ))}
-
                 </div>
+
             </div>
         </Wrapper>
     );
