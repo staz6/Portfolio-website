@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavigationLinks from "../compound/NavigationLinks";
 import ActionPanel from "../compound/ActionPanel";
 import MobileNav from "../compound/MobileNav";
@@ -10,7 +10,7 @@ import Scrollspy from "react-scrollspy";
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const [Active, setActive] = useState<string>("");
-  const { NameAcronym } = useUserDetails();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleScroll = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -24,44 +24,58 @@ const Header: React.FC = () => {
       setOpenMenu(false);
     }
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <Scrollspy
-      items={["herosection", "about", "skills","experience","work", "testimonials", "contact"]}
+      items={["herosection", "about", "skills", "experience", "work", "testimonials", "contact"]}
       currentClassName="active"
       onUpdate={(element) => {
         if (element) setActive(element.id);
       }}
       offset={-500}
     >
-      <header className="fixed z-20 w-full">
-        <Wrapper className="flex relative justify-between font-inter items-center w-full py-5">
+      <header
+        className={`fixed   z-20 w-full font-medium  md:px-10 lg:px-12 transition-all duration-300  ${isScrolled ? "bg-customPurple shadow-md" : "bg-transparent"
+          }`}
+      >
+        <div className="flex sm:pr-0 pr-2 relative justify-between  items-center w-full ">
           <a
             href="#herosection"
             data-testid="logo"
-            className="text-3xl font-bold cursor-pointer relative group dark:text-gray-50 z-30 text-gray-900"
+            className="text-3xl font-bold cursor-pointer relative group "
             onClick={(e) => handleScroll(e, "herosection")}
           >
-            {`<`}
-            <span className="text-4xl">{NameAcronym}</span>
-            {`/>`}
+            <img className="w-[170px] h-[102px] relative right-3 " src="	https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75" alt="" />
             <span
-              className={`absolute left-0 bottom-0 h-0.5 bg-gray-900 dark:bg-gray-50 transition-all duration-300 ${Active === "herosection"
-                  ? "w-full"
-                  : "w-0 group-hover:w-full "
+              className={`absolute left-0 bottom-7 h-0.5 bg-customYellow transition-all duration-300 ${Active === "herosection"
+                ? "w-full"
+                : "w-0 group-hover:w-full "
                 }`}
             ></span>
           </a>
 
-          <div className="hidden md:flex items-center gap-10">
-            <NavigationLinks handleScroll={handleScroll} Active={Active}  />
-            <ActionPanel />
+          <div className="hidden lg:flex items-center gap-10">
+            <NavigationLinks handleScroll={handleScroll} Active={Active} />
           </div>
-          <MobileNavButton setOpenMenu={setOpenMenu} openMenu={openMenu} />
-        </Wrapper>
-        <MobileNav handleScroll={handleScroll} Active={Active} openMenu={openMenu} />
+          <div className="flex items-center gap-5">
+            <ActionPanel />
+            <MobileNavButton setOpenMenu={setOpenMenu} openMenu={openMenu} />
+          </div>
+        </div>
+        <MobileNav setOpenMenu={setOpenMenu} handleScroll={handleScroll} Active={Active} openMenu={openMenu} />
       </header>
-      </Scrollspy>
+    </Scrollspy>
   );
 };
 
