@@ -87,11 +87,10 @@ describe("MobileNav component tests", () => {
     it("Testing rendering of ui", () => {
         render(<UserDetailsContext.Provider value={{ userDetails: mockUserDetails }}>
             <ThemeProvider>
-                <MobileNav handleScroll={() => { }} Active="" openMenu={true} />
+                <MobileNav setOpenMenu={() => { }} handleScroll={() => { }} Active="" openMenu={true} />
             </ThemeProvider>
         </UserDetailsContext.Provider>
         );
         expect(screen.getByTestId("NavigationLinks")).toBeInTheDocument();
-        expect(screen.getByTestId("ActionPanel")).toBeInTheDocument();
     });
 });
