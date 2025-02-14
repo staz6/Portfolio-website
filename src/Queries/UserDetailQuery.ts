@@ -7,6 +7,7 @@ export const useUserDetails = () => {
         name
         description
         NameAcronym,
+        Shortdescription,
         MetaKeywords,
         MetaDescription,
         CanonicalLink

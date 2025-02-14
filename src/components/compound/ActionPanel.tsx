@@ -5,18 +5,7 @@ import { useUserDetails } from "../Context/UserDetailsContext";
 const ActionPanel = () => {
   const { cvDocument } = useUserDetails();
 
-  const handleDownloadCV = () => {
-    if (cvDocument?.asset?.url) {
-      const fileUrl = cvDocument.asset.url;
-      const fileName = fileUrl.split("/").pop() || "CV"; 
-      const link = document.createElement("a");
-      link.href = fileUrl;
-      link.download = fileName; 
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } 
-  };
+
 
   return (
     <div
@@ -31,8 +20,8 @@ const ActionPanel = () => {
       /> */}
       <Button
         description="Hire me"
-        className="bg-white  text-blue-800 font-semibold w-full transition-all duration-200 text-nowrap px-8 py-3 rounded-lg"
-        onClick={handleDownloadCV}
+        className="md:px-10 md:py-3 px-8 py-3 text-blue-800 font-semibold sm:text-base text-sm bg-white hover:bg-gray-200 transition-all duration-200 rounded-lg"
+        onClick={() => { }}
         icon=""
       />
     </div>

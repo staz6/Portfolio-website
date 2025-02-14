@@ -39,6 +39,7 @@ interface WorkItem {
 interface SanityUserDetails {
     name: string;
     description: string;
+    Shortdescription: string;
     detailedDescription: any[];
     location: string;
     Experience: experience[];
@@ -47,7 +48,7 @@ interface SanityUserDetails {
     linkedinLink: string;
     skillSet: skill[];
     reviews: review[];
-    FooterText:string;
+    FooterText: string;
     profileImage: {
         asset: SanityAsset;
     };

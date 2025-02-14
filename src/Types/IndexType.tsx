@@ -36,6 +36,7 @@ interface experience {
 export interface UserDetails {
   name: string;
   description: string;
+  Shortdescription: string;
   location: string;
   availability: boolean;
   githubLink: string;

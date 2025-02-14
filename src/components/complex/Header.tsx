@@ -3,15 +3,12 @@ import NavigationLinks from "../compound/NavigationLinks";
 import ActionPanel from "../compound/ActionPanel";
 import MobileNav from "../compound/MobileNav";
 import MobileNavButton from "../compound/MobileNavButton";
-import Wrapper from "../shared/Wrapper";
-import { useUserDetails } from "../Context/UserDetailsContext";
 import Scrollspy from "react-scrollspy";
 
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const [Active, setActive] = useState<string>("");
   const [isScrolled, setIsScrolled] = useState(false);
-
   const handleScroll = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     sectionId: string
@@ -46,10 +43,10 @@ const Header: React.FC = () => {
       offset={-500}
     >
       <header
-        className={`fixed   z-20 w-full font-medium  md:px-10 lg:px-12 transition-all duration-300  ${isScrolled ? "bg-customPurple shadow-md" : "bg-transparent"
+        className={`fixed z-20 py-1 w-full font-medium   transition-all duration-300  ${isScrolled ? "bg-customPurple shadow-md" : "bg-[#0f0715]"
           }`}
       >
-        <div className="flex sm:pr-0 pr-2 relative justify-between  items-center w-full ">
+        <div className=" flex  h-full justify-between w-[95%] sm:w-[90%] xl:w-[80%] mx-auto sm:pr-0 pr-2 relative  items-center  ">
           <a
             href="#herosection"
             data-testid="logo"
@@ -57,18 +54,13 @@ const Header: React.FC = () => {
             onClick={(e) => handleScroll(e, "herosection")}
           >
             <img className="w-[170px] h-[102px] relative right-3 " src="	https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75" alt="" />
-            <span
-              className={`absolute left-0 bottom-7 h-0.5 bg-customYellow transition-all duration-300 ${Active === "herosection"
-                ? "w-full"
-                : "w-0 group-hover:w-full "
-                }`}
-            ></span>
           </a>
-
+                
+         
+          <div className="flex items-center gap-4 sm:gap-10">
           <div className="hidden lg:flex items-center gap-10">
             <NavigationLinks handleScroll={handleScroll} Active={Active} />
           </div>
-          <div className="flex items-center gap-5">
             <ActionPanel />
             <MobileNavButton setOpenMenu={setOpenMenu} openMenu={openMenu} />
           </div>
