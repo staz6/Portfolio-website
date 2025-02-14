@@ -25,6 +25,11 @@ export const schemaTypes = [
           Rule.uri({ scheme: ['http', 'https'] }),
       },
       {
+        name: 'Shortdescription',
+        title: 'ShortDescription',
+        type: 'text',
+      },
+      {
         name: 'description',
         title: 'Description',
         type: 'text',
