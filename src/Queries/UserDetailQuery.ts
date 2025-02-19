@@ -33,20 +33,6 @@ export const useUserDetails = () => {
         }
       }
      }
-      detailedDescription {
-          _key
-          _type
-          style
-           listItem
-            level
-           _rawChildren
-          children {
-            _key
-            _type
-            text
-            marks
-          }
-        }
         location
         availability
         githubLink

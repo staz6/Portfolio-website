@@ -40,7 +40,6 @@ interface SanityUserDetails {
     name: string;
     description: string;
     Shortdescription: string;
-    detailedDescription: any[];
     location: string;
     Experience: experience[];
     availability: boolean;
