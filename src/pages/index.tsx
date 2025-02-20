@@ -14,6 +14,7 @@ import { ThemeProvider } from "../components/Context/ThemeChangerContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
+import Services from "../components/complex/Services";
 
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails();
@@ -34,6 +35,7 @@ const IndexPage: React.FC = () => {
           <Header />
           <HeroSection />
           <Aboutme />
+          <Services />
           <Skills />
           <Experience />
           <Work />
