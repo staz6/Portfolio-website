@@ -18,11 +18,53 @@ export const schemaTypes = [
           Rule.uri({ scheme: ['http', 'https'] }),
       },
       {
+        name: 'AboutmeDescription',
+        title: 'About Me Description',
+        type: 'string',
+        validation: (Rule: { required: () => any }) => Rule.required(),
+      },
+      {
+        name: 'AboutmeHeading',
+        title: 'About Me Heading',
+        type: 'string',
+        validation: (Rule: { required: () => any }) => Rule.required(),
+      },
+      {
+        name: 'AboutmeCheckmark',
+        title: 'About Me Checkmark',
+        type: 'array',
+        of: [{ type: 'CheckmarkObj' }],
+      },
+      {
         name: 'linkedinLink',
         title: 'LinkedIn Profile Link',
         type: 'string',
         validation: (Rule: { uri: (arg0: { scheme: string[] }) => any }) =>
           Rule.uri({ scheme: ['http', 'https'] }),
+      },
+      {
+        name: 'satisfiedCustomers',
+        title: 'Satisfied Customers',
+        type: 'number',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'yearsExperience',
+        title: 'Years Experience',
+        type: 'number',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'completedProjects',
+        title: 'Completed Projects',
+        type: 'number',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
+      },
+      {
+        name: 'websiteLaunched',
+        title: 'Website Launched',
+        type: 'number',
+        validation: (Rule: { required: () => any; }) => Rule.required(),
       },
       {
         name: 'Shortdescription',
@@ -33,47 +75,6 @@ export const schemaTypes = [
         name: 'description',
         title: 'Description',
         type: 'text',
-      },
-      {
-        name: 'detailedDescription',
-        title: 'Detailed Description',
-        type: 'array',
-        of: [
-          {
-            type: 'block',
-            styles: [
-              { title: 'Normal', value: 'normal' },
-              { title: 'Heading 1', value: 'h1' },
-              { title: 'Heading 2', value: 'h2' },
-              { title: 'Heading 3', value: 'h3' },
-            ],
-            lists: [
-              { title: 'Bullet', value: 'bullet' },
-              { title: 'Numbered', value: 'number' },
-            ],
-            marks: {
-              decorators: [
-                { title: 'Strong', value: 'strong' },
-                { title: 'Emphasis', value: 'em' },
-                { title: 'Underline', value: 'underline' },
-              ],
-              annotations: [
-                {
-                  name: 'link',
-                  type: 'object',
-                  title: 'Link',
-                  fields: [
-                    {
-                      name: 'href',
-                      type: 'url',
-                      title: 'URL',
-                    },
-                  ],
-                },
-              ],
-            },
-          },
-        ],
       },
       {
         name: 'location',
@@ -154,6 +155,25 @@ export const schemaTypes = [
         validation: (Rule: { required: () => any }) => Rule.required(),
       },
     ],
+  },
+  {
+    name: 'CheckmarkObj',
+    title: 'Checkmark Object',
+    type: 'object',
+    fields: [
+      {
+        name: 'Text',
+        title: 'Text',
+        type: 'string',
+        validation: (Rule: { required: () => any }) => Rule.required(),
+      },
+      {
+        name: 'BackgroundColorInTailwind',
+        title: 'Background Color In Tailwind',
+        type: 'string',
+        validation: (Rule: { required: () => any }) => Rule.required(),
+      }
+    ]
   },
   {
     name: 'ReviewObj',
@@ -332,5 +352,4 @@ export const schemaTypes = [
       },
     ],
   },
-
 ];

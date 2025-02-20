@@ -2,8 +2,20 @@ import { graphql, useStaticQuery } from "gatsby";
 
 export const useUserDetails = () => {
   const data = useStaticQuery(graphql`
-    query {
+   query {
       sanityUserDetails {
+        completedProjects
+        yearsExperience
+        websiteLaunched
+        satisfiedCustomers
+        AboutmeHeading
+        AboutmeCheckmark {
+          _key
+          _type
+          Text
+          BackgroundColorInTailwind
+        }
+        AboutmeDescription
         name
         description
         NameAcronym,

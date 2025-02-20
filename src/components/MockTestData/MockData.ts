@@ -1,5 +1,17 @@
 export const mockUserDetails = {
     name: "John Doe",
+    AboutmeHeading: "Passionate Frontend Developer",
+  AboutmeDescription:
+    "I specialize in crafting interactive and visually appealing user experiences. With a strong foundation in React, TypeScript, and Tailwind CSS, I build high-performance applications that bring ideas to life.",
+  AboutmeCheckmark: [
+    { Text: "5+ Years of Experience", BackgroundColorInTailwind: "bg-blue-500" },
+    { Text: "100+ Completed Projects", BackgroundColorInTailwind: "bg-green-500" },
+    { Text: "Trusted by Clients Worldwide", BackgroundColorInTailwind: "bg-yellow-500" },
+  ],
+  completedProjects: 120,
+  yearsExperience: 5,
+  websiteLaunched: 50,
+  satisfiedCustomers: 200,
     description: "A passionate software developer.",
     NameAcronym: "JD",
     detailedDescription: [
