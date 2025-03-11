@@ -3,7 +3,6 @@ import NavigationLinks from "../compound/NavigationLinks";
 import ActionPanel from "../compound/ActionPanel";
 import MobileNav from "../compound/MobileNav";
 import MobileNavButton from "../compound/MobileNavButton";
-import Scrollspy from "react-scrollspy";
 
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -16,11 +15,15 @@ const Header: React.FC = () => {
     event.preventDefault();
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
+      const offset = 100; 
+      const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - offset;
+  
+      window.scrollTo({ top: targetPosition, behavior: "smooth" });
       setActive(sectionId);
       setOpenMenu(false);
     }
   };
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -34,14 +37,6 @@ const Header: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <Scrollspy
-      items={["herosection", "about", "skills", "experience", "work", "testimonials", "contact"]}
-      currentClassName="active"
-      onUpdate={(element) => {
-        if (element) setActive(element.id);
-      }}
-      offset={-500}
-    >
       <header
         className={`fixed z-20 py-1 w-full font-medium   transition-all duration-300  ${isScrolled ? "bg-customPurple shadow-md" : "bg-[#0f0715]"
           }`}
@@ -67,7 +62,6 @@ const Header: React.FC = () => {
         </div>
         <MobileNav setOpenMenu={setOpenMenu} handleScroll={handleScroll} Active={Active} openMenu={openMenu} />
       </header>
-    </Scrollspy>
   );
 };
 

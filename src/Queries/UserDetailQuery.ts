@@ -1,9 +1,20 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from 'gatsby'
 
 export const useUserDetails = () => {
   const data = useStaticQuery(graphql`
-   query {
+    query {
       sanityUserDetails {
+        Serivces {
+          _key
+          _type
+          ServiceName
+          ServiceDescription
+          ServiceImage {
+            asset {
+              url
+            }
+          }
+        }
         completedProjects
         yearsExperience
         websiteLaunched
@@ -18,33 +29,33 @@ export const useUserDetails = () => {
         AboutmeDescription
         name
         description
-        NameAcronym,
-        Shortdescription,
-        MetaKeywords,
-        MetaDescription,
+        NameAcronym
+        Shortdescription
+        MetaKeywords
+        MetaDescription
         CanonicalLink
-         Experience {
-       _key
-       _type
-       CompanyName
-       PositionName
-       StartDate
-       EndDate
-       _rawDescription
-      Description {
-        _key
-        _type
-        style
-        listItem
-        level
-        _rawChildren
-        children {
+        Experience {
           _key
           _type
-          text
+          CompanyName
+          PositionName
+          StartDate
+          EndDate
+          _rawDescription
+          Description {
+            _key
+            _type
+            style
+            listItem
+            level
+            _rawChildren
+            children {
+              _key
+              _type
+              text
+            }
+          }
         }
-      }
-     }
         location
         availability
         githubLink
@@ -60,31 +71,31 @@ export const useUserDetails = () => {
           }
         }
         skillSet {
-        _key
-        _type
-        name
-        _rawImage
-      }
-      work {
-       _key
-       _type
-       name
-       skills
-       description
-       ProjectUrl
-       _rawProjectImage
-     }
-      reviews {
-        _key
-        _type
-        name
-        description
-        background
-      }
+          _key
+          _type
+          name
+          _rawImage
+        }
+        work {
+          _key
+          _type
+          name
+          skills
+          description
+          ProjectUrl
+          _rawProjectImage
+        }
+        reviews {
+          _key
+          _type
+          name
+          description
+          background
+        }
         FooterText
       }
     }
-  `);
+  `)
 
-  return data.sanityUserDetails;
-};
+  return data.sanityUserDetails
+}

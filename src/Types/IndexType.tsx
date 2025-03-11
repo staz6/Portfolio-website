@@ -1,6 +1,7 @@
+import { ServiceCardType } from "../components/compound/ServiceCard"
 
 interface skill {
-  name: string;
+  name: string
   _rawImage: {
     asset: {
       _ref: string
@@ -9,56 +10,66 @@ interface skill {
 }
 interface SanityImage {
   asset: {
-    _ref: string;
-  };
+    _ref: string
+  }
 }
 interface review {
-  name: string,
-  description: string,
+  name: string
+  description: string
   background: string
 }
 interface WorkItem {
-  name: string;
-  description: string;
-  ProjectUrl: string;
-  _rawProjectImage: SanityImage;
+  name: string
+  description: string
+  ProjectUrl: string
+  _rawProjectImage: SanityImage
   skills: string[]
 }
 
 interface experience {
-  CompanyName: string;
-  PositionName: string;
-  Description: any[];
-  StartDate: string;
-  EndDate: string;
+  CompanyName: string
+  PositionName: string
+  Description: any[]
+  StartDate: string
+  EndDate: string
 }
 
 export interface UserDetails {
-  name: string;
-  description: string;
-  Shortdescription: string;
-  location: string;
-  availability: boolean;
-  githubLink: string;
-  linkedinLink: string;
-  Experience: experience[];
-  detailedDescription: any[];
-  skillSet: skill[];
-  reviews: review[];
-  FooterText: string;
+  name: string
+  description: string
+  Shortdescription: string
+  location: string
+  availability: boolean
+  githubLink: string
+  linkedinLink: string
+  Experience: experience[]
+  AboutmeHeading: string
+  AboutmeDescription: string
+  AboutmeCheckmark: {
+    Text: string
+    BackgroundColorInTailwind: string
+  }[]
+  Serivces: ServiceCardType[]
+  completedProjects: number
+  yearsExperience: number
+  websiteLaunched: number
+  satisfiedCustomers: number
+  skillSet: skill[]
+  reviews: review[]
+  FooterText: string
   profileImage: {
     asset: {
-      url: string;
-    };
-  };
+      url: string
+    }
+  }
   cvDocument: {
     asset: {
-      url: string;
-    };
-  };
-  work: WorkItem[];
-  MetaDescription: string;
-  MetaKeywords: string;
-  CanonicalLink: string;
-  NameAcronym: string;
+      url: string
+    }
+  }
+  work: WorkItem[]
+  MetaDescription: string
+  MetaKeywords: string
+  CanonicalLink: string
+  NameAcronym: string
 }

@@ -19,7 +19,7 @@ const AboutMe: React.FC = () => {
   } = useUserDetails()
   console.log(AboutmeCheckmark)
   return (
-    <div id='about' data-testid="Aboutme" className='pt-16 pb-16 bg-[#050709]'>
+<div id='about' data-testid="Aboutme" className='py-24 bg-[#050709] w-full overflow-hidden'>
       <h1 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
         About Me
       </h1>

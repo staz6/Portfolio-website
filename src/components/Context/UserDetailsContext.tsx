@@ -1,4 +1,5 @@
 import React, { createContext, useContext, ReactNode } from 'react'
+import { ServiceCardType } from '../compound/ServiceCard'
 
 interface SanityAsset {
   url: string
@@ -46,6 +47,7 @@ interface SanityUserDetails {
     Text: string
     BackgroundColorInTailwind: string
   }[]
+  Serivces: ServiceCardType[]
   completedProjects: number
   yearsExperience: number
   websiteLaunched: number
