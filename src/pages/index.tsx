@@ -15,6 +15,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { Helmet } from 'react-helmet'
 import Services from '../components/complex/Services'
+import Projects from '../components/complex/Projects'
 
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails()
@@ -36,6 +37,7 @@ const IndexPage: React.FC = () => {
           <HeroSection />
           <Aboutme />
           <Services />
+          <Projects/>
           <Skills />
           <Experience />
           <Work />
