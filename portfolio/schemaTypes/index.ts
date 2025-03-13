@@ -1,3 +1,5 @@
+import {title} from 'process'
+
 export const schemaTypes = [
   {
     name: 'userDetails',
@@ -159,6 +161,52 @@ export const schemaTypes = [
         title: 'Canonical-Link',
         type: 'string',
         validation: (Rule: {required: () => any}) => Rule.required()
+      },
+      {
+        name: 'Project',
+        title: 'Project',
+        type: 'array',
+        of: [{type: 'ProjectObj'}]
+      }
+    ]
+  },
+  {
+    name: 'ProjectObj',
+    title: 'Project Object',
+    type: 'object',
+    fields: [
+      {
+        name: 'ProjectName',
+        title: 'Project Name',
+        type: 'string',
+        validation: (Rule: {required: () => any}) => Rule.required()
+      },
+      {
+        name: 'ProjectDescription',
+        title: 'Project Description',
+        type: 'string',
+        validation: (Rule: {required: () => any}) => Rule.required()
+      },
+      {
+        name: 'skills',
+        title: 'Skills',
+        type: 'array',
+        of: [{type: 'string'}]
+      },
+      {
+        name: 'ProjectImage',
+        title: 'Project Image',
+        type: 'image',
+        options: {hotspot: true}
+      },
+      {
+        name: 'ProjectUrl',
+        title: 'Project URL',
+        type: 'url',
+        validation: (Rule: {uri: (arg0: {scheme: string[]}) => any}) =>
+          Rule.uri({
+            scheme: ['http', 'https']
+          }),
       }
     ]
   },

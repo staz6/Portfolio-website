@@ -1,6 +1,20 @@
 export const mockUserDetails = {
   name: 'John Doe',
   AboutmeHeading: 'Passionate Frontend Developer',
+  Project:[
+    {
+      ProjectName: 'TrendMart',
+      ProjectDescription: 'Trendmart is an ecommerce website that has a variety of products for sale.',
+      ProjectUrl: 'https://trend-mart-app.vercel.app/',
+      index:1,
+      skills: ['React', 'Typescript'],
+      ProjectImage: {
+        asset: {
+          url: 'https://example.com/profile.jpg'
+        }
+      }
+    },
+  ],
   AboutmeDescription:
     'I specialize in crafting interactive and visually appealing user experiences. With a strong foundation in React, TypeScript, and Tailwind CSS, I build high-performance applications that bring ideas to life.',
   AboutmeCheckmark: [

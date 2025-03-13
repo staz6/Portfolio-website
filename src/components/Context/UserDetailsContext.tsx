@@ -1,5 +1,6 @@
 import React, { createContext, useContext, ReactNode } from 'react'
 import { ServiceCardType } from '../compound/ServiceCard'
+import { ProjectCardType } from '../../Types/IndexType'
 
 interface SanityAsset {
   url: string
@@ -12,6 +13,7 @@ interface skill {
     }
   }
 }
+
 interface review {
   name: string
   description: string
@@ -54,6 +56,7 @@ interface SanityUserDetails {
   satisfiedCustomers: number
   location: string
   Experience: experience[]
+  Project: ProjectCardType[]
   availability: boolean
   githubLink: string
   linkedinLink: string

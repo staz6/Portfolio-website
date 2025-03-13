@@ -34,6 +34,18 @@ interface experience {
   EndDate: string
 }
 
+export interface ProjectCardType{
+  ProjectName: string
+  ProjectDescription: string
+  ProjectUrl: string
+  skills: string[]
+  ProjectImage: {
+    asset: {
+      url: string
+    }
+  }
+  index: number
+}
 export interface UserDetails {
   name: string
   description: string
@@ -50,6 +62,7 @@ export interface UserDetails {
     BackgroundColorInTailwind: string
   }[]
   Serivces: ServiceCardType[]
+  Project: ProjectCardType[]
   completedProjects: number
   yearsExperience: number
   websiteLaunched: number
