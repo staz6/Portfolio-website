@@ -5,9 +5,6 @@ import { FaCheck } from 'react-icons/fa'
 import { useUserDetails } from '../Context/UserDetailsContext'
 
 const AboutMe: React.FC = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true })
-  }, [])
   const {
     AboutmeHeading,
     AboutmeDescription,
