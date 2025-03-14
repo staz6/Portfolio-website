@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import ProjectCard from '../ProjectCard'
 
 describe('Testing rendering of ui', () => {
-  it('Renders Service Card Succesfully', () => {
+  it('Renders Project Card Succesfully', () => {
     render(
       <ProjectCard
         ProjectName='Test'

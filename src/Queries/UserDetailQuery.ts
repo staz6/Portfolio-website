@@ -4,15 +4,15 @@ export const useUserDetails = () => {
   const data = useStaticQuery(graphql`
     query {
       sanityUserDetails {
-         Project {
+        Project {
           ProjectName
           ProjectDescription
           ProjectUrl
           skills
           ProjectImage {
-           asset{
-            url
-          }
+            asset {
+              url
+            }
           }
         }
         Serivces {
@@ -82,10 +82,13 @@ export const useUserDetails = () => {
           }
         }
         skillSet {
-          _key
-          _type
           name
-          _rawImage
+          excellency
+          image {
+            asset {
+              url
+            }
+          }
         }
         work {
           _key
