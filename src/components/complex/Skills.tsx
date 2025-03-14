@@ -1,97 +1,35 @@
-import React from "react";
-import Wrapper from "../shared/Wrapper";
-import { useUserDetails } from "../Context/UserDetailsContext";
-import SanityImage from "gatsby-plugin-sanity-image";;
-import { motion } from 'framer-motion';
+import React from 'react'
+import Wrapper from '../shared/Wrapper'
+import { useUserDetails } from '../Context/UserDetailsContext'
+import SanityImage from 'gatsby-plugin-sanity-image'
+import { motion } from 'framer-motion'
+import SkillCard from '../compound/SkillCard'
+import { url } from 'inspector'
 
 const Skills: React.FC = () => {
+  const { skillSet } = useUserDetails()
+  const half = Math.ceil(skillSet.length / 2)
+  const firstHalf = skillSet.slice(0, half)
+  const secondHalf = skillSet.slice(half)
+  console.log(skillSet)
+  return (
+    <div className='py-24 bg-[#0f0715]'>
+      <h1 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
+        My Skills
+      </h1>
+      <div className='mt-20 w-[80%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 items-center'>
+ 
+        {Array.from({ length: 20 }).map((_, index) => (
+          <SkillCard
+            SkillExcellency={90}
+            SkillImage={{ asset: { url: '' } }}
+            SkillName='React'
+            index={0}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
-    const { skillSet } = useUserDetails()
-    const half = Math.ceil(skillSet.length / 2);
-    const firstHalf = skillSet.slice(0, half);
-    const secondHalf = skillSet.slice(half);
-    console.log(skillSet)
-    return (
-        <Wrapper id="skills" className="dark:bg-gray-950 pt-20 pb-3">
-            <div className="text-center">
-                <h1
-                    data-testid="SectionTitle"
-                    className="mb-3 text-center w-20 m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
-                >
-                    Skills
-                </h1>
-                <p data-aos="fade-right" data-testid="Description" className="
-                 mb-10 font-inter dark:text-gray-300">The skills, tools and technologies I am really good at:</p>
-                <div data-testid="SkillsSetDesktop" className="sm:flex hidden flex-col items-center mb-10  gap-10">
-                    <div className="flex justify-between w-full">
-                        {firstHalf.map((skill, index) => (
-                            <div key={index + half} className="flex flex-col font-inter gap-2 items-center justify-center">
-                                <motion.div
-                                    animate={{ rotateY: 360 }}
-                                    transition={{ repeat: Infinity, duration: 5, ease: "linear" }}>
-                                    <SanityImage
-                                        {...skill._rawImage}
-                                        alt={skill.name}
-                                        width={100}
-                                        height={100}
-                                        className="xl:w-20 w-14 lg:w-16 xl:h-20 lg:h-16  h-14"
-                                    />
-                                </motion.div>
-                                <h1 className="text-gray-600 dark:text-gray-300 text-sm  lg:text-base">{skill.name}</h1>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="flex justify-between  w-full">
-                        {secondHalf.map((skill, index) => (
-                            <div key={index + half} className="flex flex-col   font-inter gap-2 items-center justify-center">
-                                <motion.div
-                                    animate={{ rotateY: 360 }}
-                                    transition={{ repeat: Infinity, duration: 5, ease: "linear" }}>
-                                    <SanityImage
-                                        {...skill._rawImage}
-                                        alt={skill.name}
-                                        width={100}
-                                        height={100}
-                                        className="xl:w-20 w-14 lg:w-16 xl:h-20 lg:h-16  h-14"
-                                    />
-                                </motion.div>
-                                <h1 className="text-gray-600 dark:text-gray-300 text-sm  lg:text-base">{skill.name}</h1>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div
-                    data-testid="SkillsSetMobile"
-                    className="flex flex-wrap justify-start sm:hidden gap-y-4 mb-10"
-                >
-                    {skillSet.map((skill, index) => (
-                        <div
-                            key={index}
-                            className="flex flex-col justify-center items-center basis-1/3"
-                        >
-                            <motion.div
-                                initial={{ rotateY: 0 }}
-                                animate={{ rotateY: 360 }}
-                                transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
-                            >
-                                <SanityImage
-                                    {...skill._rawImage}
-                                    alt={skill.name}
-                                    width={100}
-                                    height={100}
-                                    className="xl:w-20 w-14 lg:w-16 xl:h-20 lg:h-16 h-14"
-                                />
-                            </motion.div>
-
-                            <h1 className="text-gray-600 dark:text-gray-300">{skill.name}</h1>
-                        </div>
-                    ))}
-                </div>
-
-            </div>
-        </Wrapper>
-    );
-};
-
-export default Skills;
-
+export default Skills
