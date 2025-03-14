@@ -206,7 +206,7 @@ export const schemaTypes = [
         validation: (Rule: {uri: (arg0: {scheme: string[]}) => any}) =>
           Rule.uri({
             scheme: ['http', 'https']
-          }),
+          })
       }
     ]
   },
@@ -294,7 +294,8 @@ export const schemaTypes = [
         title: 'Skill Image',
         type: 'image',
         options: {hotspot: true}
-      }
+      },
+      {name: 'excellency', title: 'Excellency', type: 'number', options: {hotspot: true}}
     ]
   },
   {

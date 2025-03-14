@@ -1,4 +1,5 @@
 import { ServiceCardType } from "../components/compound/ServiceCard"
+import { SkillCardType } from "../components/compound/SkillCard"
 
 interface skill {
   name: string
@@ -67,7 +68,7 @@ export interface UserDetails {
   yearsExperience: number
   websiteLaunched: number
   satisfiedCustomers: number
-  skillSet: skill[]
+  skillSet: SkillCardType[]
   reviews: review[]
   FooterText: string
   profileImage: {

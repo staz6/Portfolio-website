@@ -1,18 +1,12 @@
 import React, { createContext, useContext, ReactNode } from 'react'
 import { ServiceCardType } from '../compound/ServiceCard'
 import { ProjectCardType } from '../../Types/IndexType'
+import { SkillCardType } from '../compound/SkillCard'
 
 interface SanityAsset {
   url: string
 }
-interface skill {
-  name: string
-  _rawImage: {
-    asset: {
-      _ref: string
-    }
-  }
-}
+
 
 interface review {
   name: string
@@ -60,7 +54,7 @@ interface SanityUserDetails {
   availability: boolean
   githubLink: string
   linkedinLink: string
-  skillSet: skill[]
+  skillSet: SkillCardType[]
   reviews: review[]
   FooterText: string
   profileImage: {

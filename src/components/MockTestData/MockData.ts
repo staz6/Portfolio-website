@@ -1,6 +1,28 @@
 export const mockUserDetails = {
   name: 'John Doe',
   AboutmeHeading: 'Passionate Frontend Developer',
+  skillSet:[
+    {
+      name: 'React',
+      excellency: 90,
+      image: {
+        asset: {
+          url: 'https://example.com/profile.jpg'
+        }
+      },
+      index:1
+    },
+    {
+      name: 'Node.js',
+      excellency: 80,
+      image: {
+        asset: {
+          url: 'https://example.com/profile.jpg'
+        }
+      },
+      index:2
+    },
+  ],
   Project:[
     {
       ProjectName: 'TrendMart',
@@ -57,18 +79,6 @@ export const mockUserDetails = {
     }
   },
   FooterText: 'Lorem ipsum ',
-  skillSet: [
-    {
-      name: 'Node.js',
-      _rawImage: {
-        _type: 'image',
-        asset: {
-          _ref: 'image-11223-400x400-jpg',
-          _type: 'reference'
-        }
-      }
-    }
-  ],
   Experience: [
     {
       CompanyName: 'Creative Dev Studio',
