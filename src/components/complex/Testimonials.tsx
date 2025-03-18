@@ -1,28 +1,20 @@
-import React, { useEffect, useRef } from 'react'
-import Wrapper from '../shared/Wrapper'
-import { HiUser } from 'react-icons/hi2'
+import React from 'react'
 import { useUserDetails } from '../Context/UserDetailsContext'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import quotationImg from '../../images/q.png'
-import TestimonialsSliderContent from '../compound/TestimonialsSlider'
-import TestimonialsSliderControls from '../compound/TestimonialsSliderControls'
 import { motion } from 'framer-motion'
-import { Pagination, Navigation } from 'swiper/modules'
+import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css/navigation'
+import { FaUser } from 'react-icons/fa'
 
 const Testimonials: React.FC = () => {
   const { reviews } = useUserDetails()
-  const prevRef = useRef<HTMLButtonElement>(null)
-  const nextRef = useRef<HTMLButtonElement>(null)
   const ReviewsLength = reviews.length
-  const testimonials = [
-    { id: 1, text: 'Great service!', author: 'Alice' },
-    { id: 2, text: 'Loved it!', author: 'Bob' }
-  ]
-  const slidesPerView = ReviewsLength > 3 ? 3 : ReviewsLength
   return (
     <div
+    id='Testimonials'
       data-testid='Testimonials'
       className='py-24 bg-[#050709] w-full overflow-hidden'
     >
@@ -36,7 +28,7 @@ const Testimonials: React.FC = () => {
           loop={true}
           pagination={{ clickable: true }}
           navigation={true}
-          modules={[Pagination, Navigation]}
+          modules={[Navigation]}
           breakpoints={{
             0: { slidesPerView: ReviewsLength < 1 ? ReviewsLength : 1 },
             768: { slidesPerView: ReviewsLength < 2 ? ReviewsLength : 2 },
@@ -44,52 +36,40 @@ const Testimonials: React.FC = () => {
           }}
           className='w-[85%]'
         >
-          <TestimonialsSliderControls prevRef={prevRef} nextRef={nextRef} />
-          <TestimonialsSliderContent prevRef={prevRef} nextRef={nextRef}>
-            {testimonials.map(({ id, text, author }) => (
-              <SwiperSlide key={id} className='flex justify-center'>
-                <motion.div
-                  data-aos='fade-right'
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.05, ease: 'easeInOut' }}
-                  key={1}
-                  className='rounded-md  overflow-hidden bg-[#140c1c] m-4'
-                >
-                  <div className='p-6'>
+          {reviews.map(({ name, description, background }, index) => (
+            <SwiperSlide key={index} className='flex justify-center'>
+              <motion.div
+                data-aos='fade-right'
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.05, ease: 'easeInOut' }}
+                key={1}
+                className='rounded-md  overflow-hidden bg-[#140c1c] m-4'
+              >
+                <div className='p-6'>
+                  <img className='h-10' src={quotationImg} alt='' />
+                  <p className='text-white text-opacity-70'>{description}</p>
+                  <div className='flex justify-end'>
                     <img className='h-10' src={quotationImg} alt='' />
-                    <p className='text-white text-opacity-70'>
-                      Exceptional service! The team delivered exactly what we
-                      needed on time. Very professional
-                    </p>
-                    <div className='flex justify-end'>
-                      <img className='h-10' src={quotationImg} alt='' />
+                  </div>
+                </div>
+                <div className='px-6 py-3 mb-3 w-fit mx-auto rounded-full flex items-center space-x-3 bg-indigo-900 text-white font-bold'>
+                  <span>5/5</span>
+                  <span>⭐️</span>
+                </div>
+                <div className='bg-gray-100'>
+                  <div className='p-6 flex items-center space-x-6'>
+                    <div className='bg-black bg-opacity-50 p-2 rounded-full'>
+                     <FaUser  size={20}/>
+                    </div>
+                    <div>
+                      <h1 className='text-lg font-bold '>{name}</h1>
+                      <p className='text-base text-gray-700'>{background}</p>
                     </div>
                   </div>
-                  <div className='px-6 py-3 mb-3 w-fit mx-auto rounded-full flex items-center space-x-3 bg-indigo-900 text-white font-bold'>
-                    <span>4.5/5</span>
-                    <span>⭐️</span>
-                  </div>
-                  <div className='bg-gray-100'>
-                    <div className='p-6 flex items-center space-x-6'>
-                      <div>
-                        <img
-                          src='https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Fu2.jpg&w=96&q=75'
-                          className='rounded-full h-12 w-12'
-                          alt=''
-                        />
-                      </div>
-                      <div>
-                        <h1 className='text-lg font-bold '>Michael Johnson</h1>
-                        <p className='text-base text-gray-700'>
-                          Project Coordinator
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </TestimonialsSliderContent>
+                </div>
+              </motion.div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
