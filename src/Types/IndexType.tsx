@@ -1,5 +1,6 @@
 import { ServiceCardType } from "../components/compound/ServiceCard"
 import { SkillCardType } from "../components/compound/SkillCard"
+import { experience } from "../components/Context/UserDetailsContext"
 
 interface skill {
   name: string
@@ -25,14 +26,6 @@ interface WorkItem {
   ProjectUrl: string
   _rawProjectImage: SanityImage
   skills: string[]
-}
-
-interface experience {
-  CompanyName: string
-  PositionName: string
-  Description: any[]
-  StartDate: string
-  EndDate: string
 }
 
 export interface ProjectCardType{

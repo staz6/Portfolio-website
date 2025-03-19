@@ -7,18 +7,22 @@ interface SanityAsset {
   url: string
 }
 
-
 interface review {
   name: string
   description: string
   background: string
 }
-interface experience {
+export interface experience {
   CompanyName: string
   PositionName: string
-  Description: any[]
-  StartDate: string
-  EndDate: string
+  date: string
+  points: string[]
+  icon: {
+    asset: {
+      url: string
+    }
+  }
+  index: number
 }
 interface SanityImage {
   asset: {

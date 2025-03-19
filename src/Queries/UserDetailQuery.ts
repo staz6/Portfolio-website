@@ -46,24 +46,13 @@ export const useUserDetails = () => {
         MetaDescription
         CanonicalLink
         Experience {
-          _key
-          _type
           CompanyName
+          points
           PositionName
-          StartDate
-          EndDate
-          _rawDescription
-          Description {
-            _key
-            _type
-            style
-            listItem
-            level
-            _rawChildren
-            children {
-              _key
-              _type
-              text
+          date
+          icon {
+            asset {
+              url
             }
           }
         }

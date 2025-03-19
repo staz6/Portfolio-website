@@ -1,7 +1,9 @@
+import Experience from '../complex/Experience'
+
 export const mockUserDetails = {
   name: 'John Doe',
   AboutmeHeading: 'Passionate Frontend Developer',
-  skillSet:[
+  skillSet: [
     {
       name: 'React',
       excellency: 90,
@@ -10,7 +12,7 @@ export const mockUserDetails = {
           url: 'https://example.com/profile.jpg'
         }
       },
-      index:1
+      index: 1
     },
     {
       name: 'Node.js',
@@ -20,22 +22,23 @@ export const mockUserDetails = {
           url: 'https://example.com/profile.jpg'
         }
       },
-      index:2
-    },
+      index: 2
+    }
   ],
-  Project:[
+  Project: [
     {
       ProjectName: 'TrendMart',
-      ProjectDescription: 'Trendmart is an ecommerce website that has a variety of products for sale.',
+      ProjectDescription:
+        'Trendmart is an ecommerce website that has a variety of products for sale.',
       ProjectUrl: 'https://trend-mart-app.vercel.app/',
-      index:1,
+      index: 1,
       skills: ['React', 'Typescript'],
       ProjectImage: {
         asset: {
           url: 'https://example.com/profile.jpg'
         }
       }
-    },
+    }
   ],
   AboutmeDescription:
     'I specialize in crafting interactive and visually appealing user experiences. With a strong foundation in React, TypeScript, and Tailwind CSS, I build high-performance applications that bring ideas to life.',
@@ -79,25 +82,6 @@ export const mockUserDetails = {
     }
   },
   FooterText: 'Lorem ipsum ',
-  Experience: [
-    {
-      CompanyName: 'Creative Dev Studio',
-      PositionName: 'Software Engineer',
-      Description: [
-        {
-          _type: 'block',
-          children: [
-            {
-              _type: 'span',
-              text: 'Led a team to deliver high-quality software solutions, ensuring scalable architecture and maintainable code. Focused on modernizing legacy systems with Node.js and microservices.'
-            }
-          ]
-        }
-      ],
-      StartDate: '2024-01-01',
-      EndDate: 'Present'
-    }
-  ],
   work: [
     {
       name: 'TrendMart',
@@ -122,23 +106,40 @@ export const mockUserDetails = {
   ],
   Serivces: [
     {
-        ServiceName: 'Web Development',
-        ServiceDescription: 'Building responsive and high-performance web applications.',
-        ServiceImage: {
-            asset: {
-                url: 'https://example.com/profile.jpg'
-            }
+      ServiceName: 'Web Development',
+      ServiceDescription:
+        'Building responsive and high-performance web applications.',
+      ServiceImage: {
+        asset: {
+          url: 'https://example.com/profile.jpg'
         }
+      }
     },
     {
-        ServiceName: 'UI/UX Design',
-        ServiceDescription: 'Designing visually appealing and user-friendly interfaces.',
-        ServiceImage: {
-            asset: {
-                url: 'https://example.com/profile.jpg'
-            }
+      ServiceName: 'UI/UX Design',
+      ServiceDescription:
+        'Designing visually appealing and user-friendly interfaces.',
+      ServiceImage: {
+        asset: {
+          url: 'https://example.com/profile.jpg'
         }
+      }
     }
-]
-
+  ],
+  Experience: [
+    {
+      CompanyName: 'Creative Dev Studio',
+      PositionName: 'Software Engineer',
+      date: '2024-01-01',
+      points: [
+        'Led a team to deliver high-quality software solutions, ensuring scalable architecture and maintainable code. Focused on modernizing legacy systems with Node.js and microservices.'
+      ],
+      icon: {
+        asset: {
+          url: 'https://example.com/profile.jpg'
+        }
+      },
+      index: 1
+    }
+  ]
 }
