@@ -1,4 +1,5 @@
 import {title} from 'process'
+import {validation} from 'sanity'
 
 export const schemaTypes = [
   {
@@ -316,81 +317,24 @@ export const schemaTypes = [
         validation: (Rule: {required: () => any}) => Rule.required()
       },
       {
-        name: 'Description',
-        title: 'Description',
-        type: 'array',
-        of: [
-          {
-            type: 'block',
-            styles: [
-              {title: 'Normal', value: 'normal'},
-              {title: 'Heading 1', value: 'h1'},
-              {title: 'Heading 2', value: 'h2'},
-              {title: 'Heading 3', value: 'h3'}
-            ],
-            lists: [
-              {title: 'Bullet', value: 'bullet'},
-              {title: 'Numbered', value: 'number'}
-            ],
-            marks: {
-              decorators: [
-                {title: 'Strong', value: 'strong'},
-                {title: 'Emphasis', value: 'em'},
-                {title: 'Underline', value: 'underline'}
-              ],
-              annotations: [
-                {
-                  name: 'link',
-                  type: 'object',
-                  title: 'Link',
-                  fields: [
-                    {
-                      name: 'href',
-                      type: 'url',
-                      title: 'URL'
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        name: 'StartDate',
-        title: 'Start Date',
-        type: 'date',
-        options: {
-          dateFormat: 'MMM YYYY'
-        },
+        name: 'icon',
+        title: 'Icon',
+        type: 'image',
+        options: {hotspot: true},
         validation: (Rule: {required: () => any}) => Rule.required()
       },
       {
-        name: 'EndDate',
-        title: 'End Date',
+        name: 'points',
+        title: 'Points',
+        type: 'array',
+        of: [{type: 'string'}],
+        validation: (Rule: {required: () => any}) => Rule.required()
+      },
+      {
+        name: 'date',
+        title: 'Date',
         type: 'string',
-        validation: (Rule: {
-          custom: (arg0: (endDate: any, context: any) => true | string) => any
-        }) =>
-          Rule.custom((endDate: string, context: {parent: {StartDate: string}}) => {
-            const {StartDate} = context.parent
-
-            if (endDate === 'Present') return true
-
-            const startDateObj = new Date(StartDate)
-            const endDateObj = new Date(endDate)
-
-            if (isNaN(endDateObj.getTime())) {
-              return 'End date must be a valid date (e.g., "2024-12-01")'
-            }
-
-            if (endDateObj < startDateObj) {
-              return 'End date must be after start date'
-            }
-
-            return true
-          }),
-        description: 'Enter a date in YYYY-MM-DD format or "Present" for ongoing roles'
+        validation: (Rule: {required: () => any}) => Rule.required()
       }
     ]
   },
