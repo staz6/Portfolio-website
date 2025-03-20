@@ -11,10 +11,10 @@ const BabylonEarth = () => {
     }
 
     const engine = new BABYLON.Engine(canvas, true, { disableWebGL2Support: false });
-    const createScene = () => {
+
+    const createScene = async () => {
       const scene = new BABYLON.Scene(engine);
       scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
-
       const camera = new BABYLON.ArcRotateCamera(
         "Camera",
         Math.PI / 4,
@@ -31,39 +31,30 @@ const BabylonEarth = () => {
       camera.lowerRadiusLimit = camera.radius;
       camera.upperRadiusLimit = camera.radius;
 
-      const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+      new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
-      BABYLON.SceneLoader.ImportMesh(
-        "",
-        "/planet/", 
-        "scene.gltf",
-        scene,
-        (meshes) => {
-          if (meshes.length === 0) {
-            console.error("No meshes loaded!");
-          } else {
-            console.log("Meshes loaded:", meshes);
-            meshes[0].scaling = new BABYLON.Vector3(2.5, 2.5, 2.5);
-          }
-        },
-        null,
-        (scene, message) => {
-          console.error("Error loading model:", message);
-        }
-      );
+      try {
+        const assetContainer = await BABYLON.LoadAssetContainerAsync("/planet/scene.gltf", scene);
+
+        assetContainer.addAllToScene();
+
+        console.log("Model loaded successfully!", assetContainer);
+      } catch (error) {
+        console.error("Error loading model:", error);
+      }
 
       return scene;
     };
 
-    const scene = createScene();
-    engine.runRenderLoop(() => scene.render());
+    createScene().then(scene => {
+      engine.runRenderLoop(() => scene.render());
+    });
 
     const handleResize = () => engine.resize();
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      scene.dispose();
       engine.dispose();
     };
   }, []);
