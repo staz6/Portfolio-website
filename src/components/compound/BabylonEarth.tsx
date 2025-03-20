@@ -19,7 +19,7 @@ const BabylonEarth = () => {
         "Camera",
         Math.PI / 4,
         Math.PI / 2.2,
-        7,
+        2.5,
         BABYLON.Vector3.Zero(),
         scene
       );
