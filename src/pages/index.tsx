@@ -4,7 +4,6 @@ import HeroSection from '../components/complex/HeroSection'
 import Aboutme from '../components/complex/Aboutme'
 import Skills from '../components/complex/Skills'
 import Experience from '../components/complex/Experience'
-import Work from '../components/complex/Work'
 import Testimonials from '../components/complex/Testimonials'
 import Footer from '../components/complex/Footer'
 import { UserDetailsProvider } from '../components/Context/UserDetailsContext'
@@ -16,7 +15,8 @@ import 'aos/dist/aos.css'
 import { Helmet } from 'react-helmet'
 import Services from '../components/complex/Services'
 import Projects from '../components/complex/Projects'
-
+import BabylonEarth from '../components/compound/BabylonEarth'
+import Hireme from '../components/complex/Hireme'
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails()
   useEffect(() => {
@@ -37,13 +37,15 @@ const IndexPage: React.FC = () => {
           <HeroSection />
           <Aboutme />
           <Services />
-          <Projects/>
+          <Projects />
           <Skills />
           <Experience />
-          <Work />
+          {/* <Work /> */}
           <Testimonials />
-          <Footer />
-        </ThemeProvider>
+          {/* <Footer /> */}
+          {/* <Contact/> */}
+          <Hireme/>
+          </ThemeProvider>
       </UserDetailsProvider>
     </>
   )
