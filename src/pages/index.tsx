@@ -42,10 +42,10 @@ const IndexPage: React.FC = () => {
           <Experience />
           {/* <Work /> */}
           <Testimonials />
-          {/* <Footer /> */}
           {/* <Contact/> */}
-          <Hireme/>
-          </ThemeProvider>
+          <Hireme />
+          <Footer />
+        </ThemeProvider>
       </UserDetailsProvider>
     </>
   )
