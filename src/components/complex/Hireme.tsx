@@ -2,10 +2,9 @@ import { motion } from 'framer-motion'
 import React, { useRef, useState } from 'react'
 import { slideIn } from '../utils/motion'
 import BabylonEarth from '../compound/BabylonEarth'
+import emailjs from '@emailjs/browser';
 
-type Props = {}
-
-const Hireme = (props: Props) => {
+const Hireme:React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState({
     name: '',
@@ -25,10 +24,45 @@ const Hireme = (props: Props) => {
     })
   }
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {}
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  
+    const serviceId = process.env.GATSBY_EMAILJS_SERVICE_ID;
+    const templateId = process.env.GATSBY_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.GATSBY_EMAILJS_PUBLIC_KEY;
+  
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("Missing EmailJS environment variables.");
+      alert("Email service is not configured properly.");
+      return;
+    }
+  
+    setLoading(true);
+  
+    emailjs.send(
+      serviceId,
+      templateId,
+      {
+        name: form.name,  
+        email: form.email,
+        message: form.message,
+      },
+      publicKey
+    )
+    .then(() => {
+      setLoading(false);
+      alert("Thank you. I will get back to you soon!");
+      setForm({ name: "", email: "", message: "" });
+    })
+    .catch((error: any) => {
+      setLoading(false);
+      console.error("Email sending error:", error);
+      alert("Oops! Something went wrong. Please try again.");
+    });
+  };
 
   return (
-    <div className='grid grid-cols-1 xl:grid-cols-2 py-24 bg-[#0f0715] '>
+    <div className='grid grid-cols-1 xl:grid-cols-2 py-24 bg-[#0f0715] ' id='contact'>
       <motion.div
         variants={slideIn('left', 'tween', 0.2, 1)}
         className=' bg-[#100D25] mx-8 sm:w-[30rem] xl:order-1 order-2 xl:w-[33rem] 2xl:w-[40rem] sm:m-auto p-8  rounded-2xl'
