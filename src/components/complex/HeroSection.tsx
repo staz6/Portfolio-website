@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => {
     <div
     data-testid="Herosection"
     id="herosection"
-    className="w-full sm:pt-[4vh] pt-28 md:pt-[12vh] h-[50rem] sm:h-screen bg-[#0f0715] relative overflow-hidden" // Added `overflow-hidden`
+    className="w-full sm:pt-[4vh] pt-28 md:pt-[12vh] h-[50rem] sm:h-screen bg-[#0f0715] relative overflow-hidden"
   >
     <div className="flex justify-center flex-col w-4/5 h-full mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
           <h1
             data-testid="Name"
             data-aos="fade-left"
-            className="text-2xl md:text-3xl lg:text-4xl mb-5 text-gray-300 font-semibold w-full" // Ensures it stays within the container
+            className="text-2xl md:text-3xl lg:text-4xl mb-5 text-gray-300 font-semibold w-full" 
           >
             I am {name}
           </h1>
