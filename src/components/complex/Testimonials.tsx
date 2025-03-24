@@ -14,7 +14,7 @@ const Testimonials: React.FC = () => {
   const ReviewsLength = reviews.length
   return (
     <div
-    id='Testimonials'
+    id='Reviews'
       data-testid='Testimonials'
       className='py-24 bg-[#050709] w-full overflow-hidden'
     >
