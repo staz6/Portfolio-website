@@ -28,6 +28,7 @@ const AboutMe: React.FC = () => {
           <p className='mt-6 text-base text-gray-500'>{AboutmeDescription}</p>
           <div className='mt-8'>
             {AboutmeCheckmark.map(
+              
               ({ Text, BackgroundColorInTailwind }, index) => (
                 <div key={index} className='flex items-center space-x-2 mb-6'>
                   <div

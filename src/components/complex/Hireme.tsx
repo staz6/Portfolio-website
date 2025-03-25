@@ -62,7 +62,7 @@ const Hireme:React.FC = () => {
   };
 
   return (
-    <div className='grid grid-cols-1 xl:grid-cols-2 py-24 bg-[#0f0715] ' id='contact'>
+    <div className='grid grid-cols-1 xl:grid-cols-2 py-24 bg-[#0f0715] ' id='contact' data-testid='Hireme'>
       <motion.div
         variants={slideIn('left', 'tween', 0.2, 1)}
         className=' bg-[#100D25] mx-8 sm:w-[30rem] xl:order-1 order-2 xl:w-[33rem] 2xl:w-[40rem] sm:m-auto p-8  rounded-2xl'
