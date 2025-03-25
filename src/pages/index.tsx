@@ -15,13 +15,21 @@ import 'aos/dist/aos.css'
 import { Helmet } from 'react-helmet'
 import Services from '../components/complex/Services'
 import Projects from '../components/complex/Projects'
-import BabylonEarth from '../components/compound/BabylonEarth'
 import Hireme from '../components/complex/Hireme'
+import Scroll_To_Top from '../components/complex/Scroll_To_Top'
+import CustomCursor from '../components/complex/CustomCursor'
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails()
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true })
-  }, [])
+    AOS.init({ duration: 1000, once: true });
+  
+    document.documentElement.classList.add("custom-scrollbar");
+    return () => {
+      document.documentElement.classList.remove("custom-scrollbar"); 
+    };
+  }, []);
+  
+
   return (
     <>
       <UserDetailsProvider data={userDetails}>
@@ -34,17 +42,17 @@ const IndexPage: React.FC = () => {
 
         <ThemeProvider>
           <Header />
+          <CustomCursor />
           <HeroSection />
           <Aboutme />
           <Services />
           <Projects />
           <Skills />
           <Experience />
-          {/* <Work /> */}
           <Testimonials />
-          {/* <Contact/> */}
           <Hireme />
           <Footer />
+          <Scroll_To_Top />
         </ThemeProvider>
       </UserDetailsProvider>
     </>

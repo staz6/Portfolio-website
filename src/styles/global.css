@@ -11,6 +11,8 @@
 body{
     overflow-x: hidden;
     font-family: "Sora", sans-serif;
+    scrollbar-width: thin; 
+    scrollbar-color: #c277fa #44028f; 
 }
 
 .swiper-button-next, .swiper-button-prev{
@@ -25,4 +27,21 @@ body{
 }
 .swiper-button-next::after, .swiper-button-prev::after{
     font-size: 1.6rem !important;
+}
+.custom-scrollbar {
+    scrollbar-color: #c277fa #44028f;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #44028f;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #c277fa;
+    border-radius: 4px;
 }

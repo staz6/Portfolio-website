@@ -8,8 +8,7 @@ const Footer: React.FC = () => {
   const { githubLink, linkedinLink, FooterText } = useUserDetails()
 
   return (
-    <div className='bg-[#050709]'>
-     
+    <div className='bg-[#050709]' data-testid='Footer'>
       <h1 data-aos='fade-right ' className='text-gray-300 text-center pt-10'>
       You may also find me on these platforms!
       </h1>
