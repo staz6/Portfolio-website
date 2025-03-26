@@ -1,8 +1,7 @@
-import { motion } from 'framer-motion'
-import React, { useRef, useState } from 'react'
-import { slideIn } from '../utils/motion'
-import BabylonEarth from '../compound/BabylonEarth'
+import React, { lazy, useEffect, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
+import AOS from 'aos'
+const BabylonEarth = lazy(() => import('../compound/BabylonEarth'));
 
 const Hireme:React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -13,7 +12,17 @@ const Hireme:React.FC = () => {
   })
 
   const [loading, setLoading] = useState(false)
-
+  useEffect(() => {
+    AOS.init({
+      duration: 600, 
+      once: true, 
+      easing: "ease-out",
+      offset: 400, 
+    });
+  }, []);
+  useEffect(() => {
+    import('../compound/BabylonEarth');
+  }, []);
   const handleChange = (e: { target: any }) => {
     const { target } = e
     const { name, value } = target
@@ -62,10 +71,10 @@ const Hireme:React.FC = () => {
   };
 
   return (
-    <div className='grid grid-cols-1 xl:grid-cols-2 py-24 bg-[#0f0715] ' id='contact' data-testid='Hireme'>
-      <motion.div
-        variants={slideIn('left', 'tween', 0.2, 1)}
-        className=' bg-[#100D25] mx-8 sm:w-[30rem] xl:order-1 order-2 xl:w-[33rem] 2xl:w-[40rem] sm:m-auto p-8  rounded-2xl'
+    <div className='grid grid-cols-1 xl:grid-cols-2 py-24 bg-[#0f0715] overflow-x-hidden ' id='contact' data-testid='Hireme'>
+      <div
+        data-aos="fade-right"
+        className="bg-[#100D25] mx-8 sm:w-[30rem] xl:order-1 order-2 xl:w-[33rem] 2xl:w-[40rem] sm:m-auto p-8 rounded-2xl"
       >
         <p className='text-[#AAA6C3] text-xl mb-2 uppercase'>Get in touch</p>
         <h3 className='text-white text-6xl font-extrabold'>Contact.</h3>
@@ -116,13 +125,13 @@ const Hireme:React.FC = () => {
             {loading ? 'Sending...' : 'Send'}
           </button>
         </form>
-      </motion.div>
-      <motion.div
-        variants={slideIn('right', 'tween', 0.2, 1)}
-        className='xl:order-2 order-1'
+      </div>
+      <div
+       data-aos="fade-left"
+        className="xl:order-2 order-1"
       >
         <BabylonEarth />
-      </motion.div>
+      </div>
     </div>
   )
 }

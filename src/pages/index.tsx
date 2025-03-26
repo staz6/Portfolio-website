@@ -21,7 +21,7 @@ import CustomCursor from '../components/complex/CustomCursor'
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails()
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 500, once: true });
   
     document.documentElement.classList.add("custom-scrollbar");
     return () => {

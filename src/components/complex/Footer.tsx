@@ -9,28 +9,21 @@ const Footer: React.FC = () => {
 
   return (
     <div className='bg-[#050709]' data-testid='Footer'>
-      <h1 data-aos='fade-right ' className='text-gray-300 text-center pt-10'>
-      You may also find me on these platforms!
+      <h1 className='text-gray-300 text-center pt-10'>
+        You may also find me on these platforms!
       </h1>
       <div
         data-testid='SocialLinks'
         className='flex justify-center  mt-3 gap-5'
       >
-        <a
-          data-aos='zoom-in'
-          data-aos-delay='100'
-          className='text-gray-300 hover:text-customYellow'
-          href={githubLink}
-        >
-          <LuGithub size={24} />
+        <a href={githubLink}>
+          <LuGithub size={24} className='text-gray-300 hover:text-[#6cc644]' />
         </a>
-        <a
-          data-aos='zoom-in'
-          data-aos-delay='100'
-          className='text-gray-300 hover:text-customYellow'
-          href={linkedinLink}
-        >
-          <FiLinkedin size={24} />
+        <a href={linkedinLink}>
+          <FiLinkedin
+            size={24}
+            className='text-gray-300 hover:text-[#0077b5]'
+          />
         </a>
       </div>
 
