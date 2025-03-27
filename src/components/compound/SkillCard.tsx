@@ -23,7 +23,8 @@ const SkillCard: React.FC<SkillCardType> = ({
       <div data-testid="SkillCard"
         data-aos='flip-left'
         data-aos-anchor-placement='top-center'
-        data-aos-delay={index * 100}
+        data-aos-delay={index * 70}
+        data-aos-offset='-250'
       >
         <div className='p-6 hover:bg-blue-900 duration-300 transition-all cursor-pointer text-center rounded-lg bg-gray-900'>
           <div className='w-20 h-20 flex mx-auto items-center justify-center'>
