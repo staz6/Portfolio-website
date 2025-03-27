@@ -17,16 +17,14 @@ const Footer: React.FC = () => {
         className='flex justify-center  mt-3 gap-5'
       >
         <a
-          data-aos='zoom-in'
-          data-aos-delay='100'
+          
           className='text-gray-300 hover:text-customYellow'
           href={githubLink}
         >
           <LuGithub size={24} />
         </a>
         <a
-          data-aos='zoom-in'
-          data-aos-delay='100'
+          
           className='text-gray-300 hover:text-customYellow'
           href={linkedinLink}
         >
