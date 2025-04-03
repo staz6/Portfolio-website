@@ -13,7 +13,7 @@ const TestimonialsSliderControls: React.FC<TestimonialsSliderControlsProps> = ({
 }) => (
   <div className="flex ">
     <Button
-      className="p-3 hover:bg-button2 hover:scale-105 transition-all duration-300 dark:hover:text-gray-50 dark:text-gray-300 hover:text-gray-900 text-gray-600 text-text2 bg-secondary1 rounded-full"
+      className="p-3 bg-black bg-opacity-50 hover:bg-button2 hover:scale-105 transition-all duration-300 dark:hover:text-gray-50 dark:text-gray-300 hover:text-gray-900 text-gray-600 text-text2 bg-secondary1 rounded-full"
       onClick={() => prevRef.current?.click()}
       icon={<IoMdArrowBack size={28} />}
       ref={prevRef}

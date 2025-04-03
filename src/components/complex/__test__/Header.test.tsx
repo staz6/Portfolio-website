@@ -94,7 +94,7 @@ describe("Header Component Tests", () => {
             </UserDetailsContext.Provider>
         );
         expect(screen.getByTestId("logo")).toBeInTheDocument();
-        expect(screen.getByTestId("NavigationLinks")).toBeInTheDocument();
+        expect(screen.getAllByTestId("NavigationLinks")).toHaveLength(2);
         expect(screen.getByTestId("ActionPanel")).toBeInTheDocument();
         expect(screen.getByTestId("MobileNavBtn")).toBeInTheDocument();
     });

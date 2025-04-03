@@ -11,20 +11,21 @@ type Props = {
 const NavigationLinks: React.FC<Props> = ({ Active , handleScroll }) => {
 
   const linkClasses = (sectionId: string) =>
-    `relative group transition-all w-fit  duration-200 ${
-      Active === sectionId ? "text-black dark:text-gray-50" : "text-gray-600 dark:text-gray-300"
-    } hover:text-black dark:hover:text-gray-50`;
+    `relative group transition-all text-white w-fit  duration-200 ${
+      Active === sectionId ? "" : ""
+    } `;
 
   const underlineClasses = (sectionId: string) =>
-    `absolute left-0 bottom-0 h-0.5 bg-black dark:bg-gray-50 transition-all duration-300 
+    `absolute left-0 bottom-0 h-0.5 bg-customYellow transition-all duration-300 
     ${Active === sectionId ? "w-full" : "w-0 group-hover:w-full"}`;
 
   return (
-    <div data-testid="NavigationLinks" className="flex md:flex-row flex-col gap-5 lg:gap-10 font-medium">
+    <div data-testid="NavigationLinks" className="flex lg:text-base text-xl sm:text-3xl lg:flex-row flex-col gap-5 lg:gap-10 ">
       {[
         { id: "about", label: "About" },
-        { id: "work", label: "Work" },
-        { id: "testimonials", label: "Testimonials" },
+        { id: "Services", label: "Services" },
+        { id: "Projects", label: "Projects" },
+        { id: "Reviews", label: "Reviews" },
         { id: "contact", label: "Contact" },
       ].map((link) => (
         <a

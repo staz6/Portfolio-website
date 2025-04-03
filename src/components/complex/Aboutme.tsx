@@ -1,86 +1,111 @@
-import React from "react";
-import Wrapper from "../shared/Wrapper";
-import { useUserDetails } from "../Context/UserDetailsContext";
-import { PortableText } from '@portabletext/react';
-import { PortableTextComponents } from '@portabletext/react'
+import React, { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { FaCheck } from 'react-icons/fa'
+import { useUserDetails } from '../Context/UserDetailsContext'
 
-const components: PortableTextComponents = {
-  marks: {
-    em: ({ children }) => <em className="text-gray-600 font-semibold">{children}</em>,
-    link: ({ value, children }) => {
-      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined;
-      return (
-        <a href={value?.href} target={target} className="text-blue-600 hover:underline">
-          {children}
-        </a>
-      );
-    },
-  },
-  block: {
-    h1: ({ children }) => <h1 className="text-2xl font-bold">{children}</h1>,
-    blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-gray-300 pl-4 italic">{children}</blockquote>
-    ),
-  },
-  list: {
-    bullet: ({ children }) => (
-      <ul className="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">{children}</ul>
-    ),
-    number: ({ children }) => (
-      <ol className="list-decimal pl-5 space-y-2 text-gray-600 dark:text-gray-300">{children}</ol>
-    ),
-  },
-  listItem: {
-    bullet: ({ children }) => <li className="text-gray-600 dark:text-gray-300">{children}</li>,
-    number: ({ children }) => <li className="text-gray-600 dark:text-gray-300">{children}</li>,
-  },
-};
+const AboutMe: React.FC = () => {
+  const {
+    AboutmeHeading,
+    AboutmeDescription,
+    AboutmeCheckmark,
+    yearsExperience,
+    completedProjects,
+    websiteLaunched,
+    satisfiedCustomers
+  } = useUserDetails()
+  const tailwindColors = [
+    'bg-red-500',
+    'bg-blue-500',
+    'bg-green-500',
+    'bg-yellow-500',
+    'bg-purple-500',
+    'bg-pink-500',
+    'bg-indigo-500',
+    'bg-teal-500'
+  ]
+  const getUniqueColors = (count: number) => {
+    const shuffled = [...tailwindColors].sort(() => 0.5 - Math.random())
+    return shuffled.slice(0, count)
+  }
 
-
-
-const Aboutme: React.FC = () => {
-  const { detailedDescription, profileImage } = useUserDetails()
-
+  const uniqueColors = getUniqueColors(AboutmeCheckmark.length)
   return (
-    <Wrapper id="about" className="gray-50 dark:bg-gray-900 bg-gray-50  py-20 ">
-      <h1
-        data-testid="SectionTitle"
-        className="text-center  mb-10 w-28 m-auto px-4 py-1 font-inter font-medium rounded-2xl dark:bg-gray-700 dark:text-gray-300 bg-gray-200 text-gray-600"
-      >
-        About me
+    <div
+      id='about'
+      data-testid='Aboutme'
+      className='py-24 bg-[#050709] w-full overflow-hidden'
+      
+    >
+      <h1 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
+        About Me
       </h1>
-      <div className="grid items-center  grid-cols-12  ">
-        <div
-          data-testid="PortfolioPic"
-          className="col-span-12 lg:col-span-6 mb-10 lg:mb-0 mt-10 flex justify-center  relative"
-        >
-          <div className="bg-gray-200 max-w-80 sm:max-w-full  h-[22rem]  z-0 absolute sm:h-[30rem] w-[98%]  sm:w-[26rem] lg:w-[22rem] xl:w-[25rem] "></div>
-          <img
-            className=" h-[22rem] sm:h-[30rem] max-w-72 sm:max-w-full relative bottom-5 sm:bottom-8 lg:left-8 z-10 w-[85%] sm:w-[22rem] xl:w-[25rem]"
-            src={profileImage.asset.url}
-            alt="ProfilePic"
-            data-aos="fade-up"
-          />
-        </div>
-        <div
-          data-testid="Description"
-          className="col-span-12 lg:col-span-6 font-inter "
-        >
-          <h1 data-aos="fade-up" className="text-gray-900 dark:text-gray-50 mb-5 font-semibold text-3xl">
-            Curious about me? Here you have it:
+      <div className='w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-20'>
+        <div data-aos='fade-left' data-aos-offset='200'>
+          <h1 className='bg-linearGradientHeading to-white bg-clip-text text-transparent text-[26px] sm:text-3xl md:text-4xl lg:text-5xl font-bold'>
+            {AboutmeHeading}
           </h1>
-          <p data-aos="fade-right" className="dark:text-gray-300 text-gray-600 mb-5">
-            <PortableText
-              value={detailedDescription}
-              components={components}
-            />
-          </p>
+          <p className='mt-6 text-base text-gray-500'>{AboutmeDescription}</p>
+          <div className='mt-8'>
+            {AboutmeCheckmark.map(({ Text }, index) => {
+              const containerClass = `w-7 h-7 flex items-center justify-center rounded-full ${uniqueColors[index]}`
+
+              return (
+                <div key={index} className='flex items-center space-x-2 mb-6'>
+                  <div className={containerClass}>
+                    <FaCheck className='text-white' />
+                  </div>
+                  <p className='text-sm sm:text-base md:text-lg font-bold text-gray-300'>
+                    {Text}
+                  </p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        <div
+          data-aos='zoom-in'
+          data-aos-delay='150'
+          data-aos-offset='200'
+          className='grid grid-cols-2 gap-16 items-center lg:mx-auto'
+        >
+          {[
+            {
+              img: 'https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Fcustomer.png&w=96&q=75',
+              value: `${satisfiedCustomers}+`,
+              label: 'Satisfied Customers'
+            },
+            {
+              img: 'https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Fexperience.png&w=96&q=75',
+              value: `${yearsExperience}+`,
+              label: 'Years Experience'
+            },
+            {
+              img: 'https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Fexperience.png&w=96&q=75',
+              value: `${completedProjects}+`,
+              label: 'Completed Projects'
+            },
+            {
+              img: 'https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Frocket.png&w=96&q=75',
+              value: `${websiteLaunched}+`,
+              label: 'Website Launched'
+            }
+          ].map(({ img, value, label }, index) => (
+            <div key={index}>
+              <img className='m-auto' src={img} alt={label} />
+              <p className='mt-3 font-bold text-xl text-white text-center'>
+                {value}
+              </p>
+              <p className='text-base sm:text-lg text-gray-400 text-center'>
+                {label}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
-    </Wrapper>
-  );
-};
+    </div>
+  )
+}
 
-export default Aboutme;
-
-
+export default AboutMe

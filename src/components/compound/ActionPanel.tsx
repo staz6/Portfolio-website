@@ -1,38 +1,28 @@
-import React from "react";
-import Button from "../shared/Button";
-import ThemeChanger from "./ThemeChanger";
-import { useUserDetails } from "../Context/UserDetailsContext";
+import React from 'react'
+import Button from '../shared/Button'
 
-const ActionPanel = () => {
-  const { cvDocument } = useUserDetails();
 
-  const handleDownloadCV = () => {
-    if (cvDocument?.asset?.url) {
-      const fileUrl = cvDocument.asset.url;
-      const fileName = fileUrl.split("/").pop() || "CV"; 
-      const link = document.createElement("a");
-      link.href = fileUrl;
-      link.download = fileName; 
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } 
-  };
 
+type ActionPanelTypes = {
+  handleScroll: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    sectionId: string
+  ) => void;
+};
+const ActionPanel: React.FC<ActionPanelTypes> = ({ handleScroll }) => {
   return (
     <div
-      data-testid="ActionPanel"
-      className="flex md:flex-row flex-col items-center gap-5"
+      data-testid='ActionPanel'
+      className='flex md:flex-row flex-col items-center gap-5'
     >
-      <ThemeChanger />
       <Button
-        description="Download CV"
-        className="text-gray-50 dark:text-gray-900 w-full md:w-fit text-nowrap dark:hover:bg-gray-300 dark:bg-gray-50 bg-gray-900 rounded-xl font-medium hover:bg-gray-700 transition-all duration-200 p-2 px-4"
-        onClick={handleDownloadCV}
-        icon=""
+        description='Hire me'
+        className='md:px-10 md:py-3 px-8 py-3 text-blue-800 font-semibold sm:text-base text-sm bg-white hover:bg-gray-200 transition-all duration-200 rounded-lg'
+        onClick={(e) => handleScroll(e, 'contact')}
+        icon=''
       />
     </div>
-  );
-};
+  )
+}
 
-export default ActionPanel;
+export default ActionPanel
