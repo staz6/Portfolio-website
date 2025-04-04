@@ -7,7 +7,6 @@ interface Props {
 }
 
 const MobileNavButton: React.FC<Props> = ({ setOpenMenu, openMenu }) => {
-  // const genericHamburgerLine = `h-1 w-7 my-1 rounded-full bg-black dark:bg-gray-50 transition ease transform duration-300`;
   return (
       <Button
         onClick={() => {

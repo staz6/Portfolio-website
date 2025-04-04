@@ -39,18 +39,18 @@ const Header: React.FC = () => {
   }, [])
   return (
     <header
-      className={`fixed z-20 py-4 w-full font-medium   transition-all duration-300  ${
+      className={`fixed z-20 py-5 w-full font-medium  transition-all duration-300  ${
         isScrolled ? 'bg-customPurple shadow-md' : 'bg-[#0f0715]'
       }`}
     >
-      <div className=' flex  h-full justify-between w-[95%] sm:w-[90%] xl:w-[80%] mx-auto sm:pr-0 pr-2 relative  items-center  '>
+      <div className=' flex  h-full justify-between  w-4/5 mx-auto sm:pr-0 pr-2 relative  items-center  '>
         <a
           href='#herosection'
           data-testid='logo'
           className='text-3xl font-bold cursor-pointer relative group '
           onClick={e => handleScroll(e, 'herosection')}
         >
-          <img src="logo/cropped_image.png" className='w-44 h-7 pt-1' alt="WebDev Logo" />
+          <img src="logo/cropped_image.png" className=' w-32  sm:w-44 h-7 pt-1' alt="WebDev Logo" />
 
         </a>
 

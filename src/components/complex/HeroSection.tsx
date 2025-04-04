@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
     <div
     data-testid="Herosection"
     id="herosection"
-    className="w-full sm:pt-[4vh] pt-28 md:pt-[12vh] h-[50rem] sm:h-screen bg-[#0f0715] relative overflow-hidden"
+    className="w-full sm:pt-[4vh] pt-28 md:pt-[12vh] h-[50rem] xl:h-screen bg-[#0f0715] relative overflow-hidden"
   >
     <div className="flex justify-center flex-col w-4/5 h-full mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
@@ -28,14 +28,14 @@ const HeroSection: React.FC = () => {
           >
             I am {name}
           </h1>
-          <h1
+          <h2
             data-testid="Description"
             data-aos="fade-right"
             data-aos-delay="100"
             className="bg-linearGradientHeading to-white bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold w-full"
           >
             {description}
-          </h1>
+          </h2>
           <p
             data-testid="Shortdescription"
             data-aos="fade-left"
@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
           <div
             data-aos="zoom-in"
             data-aos-delay="400"
-            className="h-[31rem] w-[31rem] mx-auto hidden lg:block rounded-[3rem] border-[3.5px] border-blue-950 overflow-hidden"
+            className="xl:h-[31rem] xl:w-[31rem] mx-auto hidden lg:block rounded-[3rem] border-[3.5px] border-blue-950 overflow-hidden"
           >
             {profileImage?.asset?.url && (
               <img className="h-full w-full" src={profileImage.asset.url} alt={name} />

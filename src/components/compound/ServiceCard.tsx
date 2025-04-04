@@ -25,9 +25,9 @@ const ServiceCard: React.FC<{ service: ServiceCardType; index: number }> = ({
     >
       <Tilt className='shadow-2xl p-6 rounded-lg bg-[#814ced] will-change-transform transition-[transform] duration-[400ms] ease-[cubic-bezier(0.03,0.98,0.52,0.99)] perspective-[1000px] scale-100'>
         <img src={service.ServiceImage.asset.url} alt='' />
-        <h1 className='mt-4 text-lg font-bold text-gray-100'>
+        <h3 className='mt-4 text-lg font-bold text-gray-100'>
           {service.ServiceName}
-        </h1>
+        </h3>
         <p className='mt-3 text-sm text-white text-opacity-80'>
           {service.ServiceDescription}
         </p>

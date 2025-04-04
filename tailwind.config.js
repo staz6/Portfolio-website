@@ -14,6 +14,7 @@ module.exports = {
         inter: ['Sora', 'Inter', 'sans-serif'],
       },
       colors: {
+        secondary: "#aaa6c3",
         customPurple: 'rgb(36 11 57)',
         customDarkPurple: 'rgb(15 7 21)',
         customYellow: 'rgb(250 204 21 / var(--tw-bg-opacity))',
