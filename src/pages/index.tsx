@@ -21,23 +21,71 @@ import CustomCursor from '../components/complex/CustomCursor'
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails()
   useEffect(() => {
-    AOS.init({ duration: 500, once: true });
-  
-    document.documentElement.classList.add("custom-scrollbar");
+    AOS.init({ duration: 500, once: true })
+
+    document.documentElement.classList.add('custom-scrollbar')
     return () => {
-      document.documentElement.classList.remove("custom-scrollbar"); 
-    };
-  }, []);
-  
+      document.documentElement.classList.remove('custom-scrollbar')
+    }
+  }, [])
 
   return (
     <>
       <UserDetailsProvider data={userDetails}>
         <Helmet>
-          <title>My Portfolio</title>
-          <meta name='description' content={userDetails.MetaDescription} />
-          <meta name='keywords' content={userDetails.MetaKeywords} />
-          <link rel='canonical' href={userDetails.CanonicalLink} />
+          <title>
+            Muhammad Aahad | Full Stack JavaScript Developer – React, Node.js,
+            Next.js
+          </title>
+          <link rel="icon" href="logo/Favicon.png" />
+          <meta
+            name='title'
+            content='Muhammad Aahad | Full Stack JavaScript Developer – React, Node.js, Next.js'
+          />
+          <meta
+            name='description'
+            content='Hire Muhammad Aahad, a Full Stack JavaScript Developer with 4+ years of experience working with brands like Toyota and Deloitte. Specializes in React, Node.js, Next.js, and SEO-friendly apps.'
+          />
+          <meta
+            name='keywords'
+            content='Full Stack Developer, JavaScript Developer, React Developer, Next.js Developer, Node.js Developer, NestJS, SEO Developer, Web Developer Portfolio, Freelance Developer, Hire React Developer, Toyota Developer, Deloitte Developer, Web Performance Optimization, CI/CD Automation'
+          />
+          <meta name='author' content='Muhammad Aahad' />
+          <meta name='robots' content='index, follow' />
+          <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1.0'
+          />
+          <script type='application/ld+json'>
+            {JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Muhammad Aahad',
+              url: 'https://maahadportfolio.netlify.app/',
+              sameAs: [
+                'www.linkedin.com/in/muhammad-aahad-568aaa179',
+                'https://github.com/staz6'
+              ],
+              jobTitle: 'Full Stack JavaScript Developer',
+              worksFor: {
+                '@type': 'Organization',
+                name: 'Freelance / Remote'
+              },
+              knowsAbout: [
+                'React',
+                'Next.js',
+                'Node.js',
+                'NestJS',
+                'AEM',
+                'JavaScript',
+                'AWS',
+                'SEO',
+                'Performance Optimization',
+                'CI/CD',
+                'JavaScript'
+              ]
+            })}
+          </script>
         </Helmet>
 
         <ThemeProvider>
