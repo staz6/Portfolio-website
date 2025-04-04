@@ -39,7 +39,7 @@ const Header: React.FC = () => {
   }, [])
   return (
     <header
-      className={`fixed z-20 py-1 w-full font-medium   transition-all duration-300  ${
+      className={`fixed z-20 py-4 w-full font-medium   transition-all duration-300  ${
         isScrolled ? 'bg-customPurple shadow-md' : 'bg-[#0f0715]'
       }`}
     >
@@ -50,11 +50,8 @@ const Header: React.FC = () => {
           className='text-3xl font-bold cursor-pointer relative group '
           onClick={e => handleScroll(e, 'herosection')}
         >
-          <img
-            className='w-[170px] h-[102px] relative right-3 '
-            src='	https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75'
-            alt=''
-          />
+          <img src="logo/cropped_image.png" className='w-44 h-7 pt-1' alt="WebDev Logo" />
+
         </a>
 
         <div className='flex items-center gap-4 sm:gap-10'>

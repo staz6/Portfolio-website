@@ -8,17 +8,10 @@ const HeroSection: React.FC = () => {
   const { name, description, Shortdescription, location, cvDocument, profileImage } = useUserDetails();
   const handleDownloadCV = () => {
     if (cvDocument?.asset?.url) {
-      const fileUrl = cvDocument.asset.url;
-      const fileName = fileUrl.split("/").pop() || "CV";
-      const link = document.createElement("a");
-      link.href = fileUrl;
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      window.open(cvDocument.asset.url, "_blank");
     }
   };
-
+  
   return (
     <div
     data-testid="Herosection"

@@ -119,7 +119,7 @@ const Hireme:React.FC = () => {
       </motion.div>
       <motion.div
         variants={slideIn('right', 'tween', 0.2, 1)}
-        className='xl:order-2 order-1'
+        className='xl:order-2 order-1 p-10'
       >
         <BabylonEarth />
       </motion.div>
