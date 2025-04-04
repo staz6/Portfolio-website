@@ -17,7 +17,7 @@ const ActionPanel: React.FC<ActionPanelTypes> = ({ handleScroll }) => {
     >
       <Button
         description='Hire me'
-        className='md:px-10 md:py-3 px-8 py-3 text-blue-800 font-semibold sm:text-base text-sm bg-white hover:bg-gray-200 transition-all duration-200 rounded-lg'
+        className='xl:px-10 xl:py-3 px-5 py-3 text-blue-800 font-semibold sm:text-base text-sm bg-white hover:bg-gray-200 transition-all duration-200 rounded-lg'
         onClick={(e) => handleScroll(e, 'contact')}
         icon=''
       />

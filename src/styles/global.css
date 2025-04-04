@@ -45,3 +45,7 @@ body{
     background: #c277fa;
     border-radius: 4px;
 }
+.vertical-timeline {
+    width: 100% !important;
+
+}

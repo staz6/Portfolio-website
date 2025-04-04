@@ -37,9 +37,9 @@ const AboutMe: React.FC = () => {
       className='py-24 bg-[#050709] w-full overflow-hidden'
       
     >
-      <h1 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
+      <h2 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
         About Me
-      </h1>
+      </h2>
       <div className='w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-20'>
         <div data-aos='fade-left' data-aos-offset='200'>
           <h1 className='bg-linearGradientHeading to-white bg-clip-text text-transparent text-[26px] sm:text-3xl md:text-4xl lg:text-5xl font-bold'>

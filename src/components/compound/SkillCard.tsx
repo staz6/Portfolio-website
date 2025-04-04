@@ -39,7 +39,7 @@ const SkillCard: React.FC<SkillCardType> = ({
               src={image.asset.url}
             />
           </div>
-          <h1 className='text-[18px] mt-4 text-white font-[600] '>{name}</h1>
+          <h3 className='text-[18px] mt-4 text-white font-[600] '>{name}</h3>
           <div className='bg-black mt-4 rounded-lg p-2 text-white opacity-40'>
             {excellency}%
           </div>

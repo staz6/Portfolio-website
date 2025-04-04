@@ -10,9 +10,9 @@ const Projects: React.FC = () => {
       data-testid='Projects'
       id='Projects'
     >
-      <h1 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
+      <h2 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
         Projects
-      </h1>
+      </h2>
       <div className='w-[80%] mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center'>
         {Project.map((project, index) => (
           <ProjectCard

@@ -16,12 +16,12 @@ const Testimonials: React.FC = () => {
     <div
     id='Reviews'
       data-testid='Testimonials'
-      className='py-24 bg-[#050709] w-full overflow-hidden'
+      className='py-24 bg-[#0f0715] w-full overflow-hidden'
     >
-      <h1 className='bg-blue-800 mb-20 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
+      <h2 className='bg-blue-800 mb-20 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
         Client Reviews
-      </h1>
-      <div className='flex justify-center w-full px-4'>
+      </h2>
+      <div className='flex justify-center w-full'>
         <Swiper
           slidesPerView={ReviewsLength}
           spaceBetween={20}
@@ -34,7 +34,7 @@ const Testimonials: React.FC = () => {
             768: { slidesPerView: ReviewsLength < 2 ? ReviewsLength : 2 },
             1300: { slidesPerView: ReviewsLength < 3 ? ReviewsLength : 3 }
           }}
-          className='w-[85%]'
+          className='w-[81%]'
         >
           {reviews.map(({ name, description, background }, index) => (
             <SwiperSlide key={index} className='flex justify-center'>
@@ -62,7 +62,7 @@ const Testimonials: React.FC = () => {
                      <FaUser  size={20}/>
                     </div>
                     <div>
-                      <h1 className='text-lg font-bold '>{name}</h1>
+                      <h3 className='text-lg font-bold '>{name}</h3>
                       <p className='text-base text-gray-700'>{background}</p>
                     </div>
                   </div>
