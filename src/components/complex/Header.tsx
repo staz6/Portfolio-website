@@ -43,7 +43,7 @@ const Header: React.FC = () => {
         isScrolled ? 'bg-customPurple shadow-md' : 'bg-[#0f0715]'
       }`}
     >
-      <div className=' flex  h-full justify-between  w-4/5 mx-auto sm:pr-0 pr-2 relative  items-center  '>
+      <div className=' flex  h-full justify-between w-full px-[15px] sm:px-0 sm:w-4/5 mx-auto sm:pr-0  relative  items-center  '>
         <a
           href='#herosection'
           data-testid='logo'

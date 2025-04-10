@@ -10,7 +10,7 @@ const Experience: React.FC = () => {
   const { Experience } = useUserDetails()
   return (
     <div data-testid='Experience' className='py-24 bg-[#050709] w-full'>
-      <div className='w-4/5 mx-auto'>
+      <div className='px-[15px] sm:px-0 sm:w-4/5 mx-auto'>
         <div data-aos='fade-up' data-aos-offset='200'>
           <p className='text-center "sm:text-[18px] text-lg text-secondary uppercase tracking-wide '>
             What I have done so far

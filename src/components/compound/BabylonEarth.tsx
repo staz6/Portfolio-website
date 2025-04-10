@@ -13,8 +13,17 @@ const BabylonEarth = () => {
     const engine = new BABYLON.Engine(canvas, true, { disableWebGL2Support: false });
 
     const getCameraRadius = () => {
-      return window.innerWidth >= 1400 ? 2.5 : 2.8;
+      const width = window.innerWidth;
+    
+      if (width >= 1800) return 2.8;
+      else if (width >= 1700) return 2.9;
+      else if (width >= 1600) return 3.0;
+      else if (width >= 1500) return 3.1;
+      else if (width >= 1400) return 3.3;
+      else if (width >= 1280) return 3.5;
+      else return 2.3; 
     };
+    
 
     const createScene = async () => {
       const scene = new BABYLON.Scene(engine);
@@ -63,7 +72,7 @@ const BabylonEarth = () => {
     };
   }, []);
 
-  return <canvas id="babylon-canvas" className="w-full h-full" style={{ background: "transparent", outline: "none" }} />;
+  return <canvas id="babylon-canvas" className="w-full h-full xl:ml-10" style={{ background: "transparent", outline: "none" }} />;
 };
 
 export default BabylonEarth;

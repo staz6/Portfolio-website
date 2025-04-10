@@ -34,7 +34,7 @@ const Testimonials: React.FC = () => {
             768: { slidesPerView: ReviewsLength < 2 ? ReviewsLength : 2 },
             1300: { slidesPerView: ReviewsLength < 3 ? ReviewsLength : 3 }
           }}
-          className='w-[81%]'
+          className='px-[15px] sm:px-0 sm:w-4/5'
         >
           {reviews.map(({ name, description, background }, index) => (
             <SwiperSlide key={index} className='flex justify-center'>

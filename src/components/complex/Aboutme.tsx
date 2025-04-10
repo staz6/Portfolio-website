@@ -40,11 +40,11 @@ const AboutMe: React.FC = () => {
       <h2 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
         About Me
       </h2>
-      <div className='w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-20'>
+      <div className='px-[15px] sm:px-0 sm:w-4/5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-20'>
         <div data-aos='fade-left' data-aos-offset='200'>
-          <h1 className='bg-linearGradientHeading to-white bg-clip-text text-transparent text-[26px] sm:text-3xl md:text-4xl lg:text-5xl font-bold'>
+          <h3 className='bg-linearGradientHeading to-white bg-clip-text text-transparent text-[26px] sm:text-3xl md:text-4xl lg:text-5xl font-bold'>
             {AboutmeHeading}
-          </h1>
+          </h3>
           <p className='mt-6 text-base text-gray-500'>{AboutmeDescription}</p>
           <div className='mt-8'>
             {AboutmeCheckmark.map(({ Text }, index) => {
