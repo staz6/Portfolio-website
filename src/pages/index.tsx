@@ -37,7 +37,7 @@ const IndexPage: React.FC = () => {
             Muhammad Aahad | Full Stack JavaScript Developer – React, Node.js,
             Next.js
           </title>
-          <link rel="icon" href="logo/Favicon.png" />
+          <link rel="icon" href="logo/TabFaviconv5.png" />
           <meta
             name='title'
             content='Muhammad Aahad | Full Stack JavaScript Developer – React, Node.js, Next.js'
