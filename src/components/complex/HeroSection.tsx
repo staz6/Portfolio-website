@@ -1,23 +1,24 @@
-import React, { useEffect } from 'react'
-import 'aos/dist/aos.css'
+import React from 'react'
 import { useUserDetails } from '../Context/UserDetailsContext'
 import Button from '../shared/Button'
 import { FaDownload } from 'react-icons/fa'
+import useInView from '../hooks/useInView'
 
 const HeroSection: React.FC = () => {
-  const {
-    name,
-    description,
-    Shortdescription,
-    location,
-    cvDocument,
-    profileImage
-  } = useUserDetails()
+  const { name, description, Shortdescription, cvDocument, profileImage } =
+    useUserDetails()
+
   const handleDownloadCV = () => {
     if (cvDocument?.asset?.url) {
       window.open(cvDocument.asset.url, '_blank')
     }
   }
+
+  const nameRef = useInView<HTMLHeadingElement>()
+  const descRef = useInView<HTMLParagraphElement>()
+  const shortDescRef = useInView<HTMLParagraphElement>()
+  const divRef = useInView<HTMLDivElement>()
+  const imageRef = useInView<HTMLImageElement>()
 
   return (
     <div
@@ -30,47 +31,69 @@ const HeroSection: React.FC = () => {
           <div className='max-w-full'>
             <h1>
               <span
+                ref={nameRef.ref}
                 data-testid='Name'
-                data-aos='fade-left'
-                className='text-2xl block md:text-3xl lg:text-4xl mb-5 text-gray-300 font-semibold w-full'
+                className={`text-2xl block md:text-3xl lg:text-4xl mb-5 text-gray-300 font-semibold transition-all duration-700 ease-out transform ${
+                  nameRef.isInView
+                    ? 'opacity-100 translate-x-0'
+                    : 'opacity-0 -translate-x-10'
+                }`}
               >
                 I am {name}
               </span>
+
               <span
+                ref={descRef.ref}
                 data-testid='Description'
-                data-aos='fade-right'
-                data-aos-delay='100'
-                className='bg-linearGradientHeading block to-white bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold w-full'
+                className={`bg-linearGradientHeading block to-white bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold transition-all duration-700 ease-out transform ${
+                  descRef.isInView
+                    ? 'opacity-100 translate-x-0'
+                    : 'opacity-0 translate-x-10'
+                }`}
               >
                 {description}
               </span>
             </h1>
+
             <p
+              ref={shortDescRef.ref}
               data-testid='Shortdescription'
-              data-aos='fade-left'
-              data-aos-delay='200'
-              className='mt-6 text-sm md:text-base text-white text-opacity-60 w-full'
+              className={`mt-6 text-sm md:text-base text-white text-opacity-60 transition-all duration-700 ease-out transform ${
+                shortDescRef.isInView
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-6'
+              }`}
             >
               {Shortdescription}
             </p>
-            <Button
-              data-aos='zoom-in'
-              data-aos-delay='300'
-              description='Download CV'
-              className='md:px-8 w-fit md:py-2.5 px-6 py-1.5 text-white font-semibold text-sm md:text-lg transition-all duration-200 rounded-lg mt-8 bg-blue-700 hover:bg-blue-900 flex items-center space-x-2'
-              onClick={handleDownloadCV}
-              icon={<FaDownload />}
-            />
+
+            <div
+              ref={divRef.ref}
+              className={`transition-all duration-700 ease-out transform ${
+                divRef.isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+              }`}
+            >
+              <Button
+                description='Download CV'
+                className='md:px-8 w-fit md:py-2.5 px-6 py-1.5 text-white font-semibold text-sm md:text-lg rounded-lg mt-8 bg-blue-700 hover:bg-blue-900 flex items-center space-x-2'
+                onClick={handleDownloadCV}
+                icon={<FaDownload />}
+              />
+            </div>
           </div>
+
           <div>
             <div
-              data-aos='zoom-in'
-              data-aos-delay='400'
-              className='xl:h-[31rem] xl:w-[31rem] mx-auto hidden lg:block rounded-[3rem] border-[3.5px] border-blue-950 overflow-hidden'
+              ref={imageRef.ref}
+              className={`xl:h-[31rem] xl:w-[31rem] mx-auto hidden lg:block rounded-[3rem] border-[3.5px] border-blue-950 overflow-hidden transition-all duration-700 ease-out transform ${
+                imageRef.isInView
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-90'
+              }`}
             >
               {profileImage?.asset?.url && (
                 <img
-                  className='h-full w-full'
+                  className='h-full w-full object-cover'
                   src={profileImage.asset.url}
                   alt={name}
                 />

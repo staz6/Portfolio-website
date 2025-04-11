@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import React from 'react'
 import { FaCheck } from 'react-icons/fa'
 import { useUserDetails } from '../Context/UserDetailsContext'
+import useInView from '../hooks/useInView'
 
 const AboutMe: React.FC = () => {
   const {
@@ -14,6 +13,7 @@ const AboutMe: React.FC = () => {
     websiteLaunched,
     satisfiedCustomers
   } = useUserDetails()
+
   const tailwindColors = [
     'bg-red-500',
     'bg-blue-500',
@@ -24,24 +24,34 @@ const AboutMe: React.FC = () => {
     'bg-indigo-500',
     'bg-teal-500'
   ]
+
   const getUniqueColors = (count: number) => {
     const shuffled = [...tailwindColors].sort(() => 0.5 - Math.random())
     return shuffled.slice(0, count)
   }
 
   const uniqueColors = getUniqueColors(AboutmeCheckmark.length)
+
+  const { ref: leftRef, isInView: isLeftInView } = useInView<HTMLDivElement>()
+  const { ref: rightRef, isInView: isRightInView } = useInView<HTMLDivElement>()
+
   return (
     <div
       id='about'
       data-testid='Aboutme'
       className='py-24 bg-[#050709] w-full overflow-hidden'
-      
     >
       <h2 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
         About Me
       </h2>
       <div className='px-[15px] sm:px-0 sm:w-4/5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-20'>
-        <div data-aos='fade-left' data-aos-offset='200'>
+        {/* Left Section */}
+        <div
+          ref={leftRef}
+          className={`transition-all duration-1000 ease-in-out ${
+            isLeftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+          }`}
+        >
           <h3 className='bg-linearGradientHeading to-white bg-clip-text text-transparent text-[26px] sm:text-3xl md:text-4xl lg:text-5xl font-bold'>
             {AboutmeHeading}
           </h3>
@@ -65,10 +75,10 @@ const AboutMe: React.FC = () => {
         </div>
 
         <div
-          data-aos='zoom-in'
-          data-aos-delay='150'
-          data-aos-offset='200'
-          className='grid grid-cols-2 gap-16 items-center lg:mx-auto'
+          ref={rightRef}
+          className={`grid grid-cols-2 gap-16 items-center lg:mx-auto transition-all duration-1000 ease-in-out ${
+            isRightInView ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+          }`}
         >
           {[
             {
