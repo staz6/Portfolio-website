@@ -2,9 +2,7 @@ import React from 'react'
 import ServiceCard from '../compound/ServiceCard'
 import { useUserDetails } from '../Context/UserDetailsContext'
 
-type Props = {}
-
-const Services = (props: Props) => {
+const Services:React.FC = () => {
   const { Serivces } = useUserDetails()
   return (
     <div data-testid="services" id='Services' className='py-24 bg-[#0f0715] overflow-hidden'>
