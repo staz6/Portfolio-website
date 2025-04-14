@@ -17,12 +17,6 @@ import Scroll_To_Top from '../components/complex/Scroll_To_Top'
 import CustomCursor from '../components/complex/CustomCursor'
 const IndexPage: React.FC = () => {
   const userDetails: UserDetails = useUserDetails()
-  useEffect(() => {
-    document.documentElement.classList.add('custom-scrollbar')
-    return () => {
-      document.documentElement.classList.remove('custom-scrollbar')
-    }
-  }, [])
   return (
     <>
       <UserDetailsProvider data={userDetails}>
@@ -31,7 +25,7 @@ const IndexPage: React.FC = () => {
             Muhammad Aahad | Full Stack JavaScript Developer – React, Node.js,
             Next.js
           </title>
-          <link rel='icon' href='logo/TabFaviconv5.png' />
+          <link rel='icon' href='logo/TabFaviconv5.webp' />
           <meta
             name='title'
             content='Muhammad Aahad | Full Stack JavaScript Developer – React, Node.js, Next.js'
@@ -83,7 +77,7 @@ const IndexPage: React.FC = () => {
         </Helmet>
         <Header />
         <CustomCursor />
-        <HeroSection />
+        <HeroSection /> 
         <Aboutme />
         <Suspense fallback={<></>}>
           <Services />

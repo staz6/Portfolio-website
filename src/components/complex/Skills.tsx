@@ -17,6 +17,7 @@ const Skills: React.FC = () => {
             image={skill.image}
             index={index}
             key={index}
+            total={skillSet.length}
           />
         ))}
       </div>
