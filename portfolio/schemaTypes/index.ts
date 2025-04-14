@@ -86,11 +86,6 @@ export const schemaTypes = [
         type: 'text'
       },
       {
-        name: 'location',
-        title: 'Location',
-        type: 'string'
-      },
-      {
         name: 'availability',
         title: 'Availability',
         type: 'boolean'
@@ -120,12 +115,6 @@ export const schemaTypes = [
         title: 'Experience',
         type: 'array',
         of: [{type: 'ExperienceObj'}]
-      },
-      {
-        name: 'work',
-        title: 'Work',
-        type: 'array',
-        of: [{type: 'workItem'}]
       },
       {
         name: 'reviews',
@@ -338,44 +327,5 @@ export const schemaTypes = [
       }
     ]
   },
-  {
-    name: 'workItem',
-    title: 'Work Item',
-    type: 'object',
-    fields: [
-      {
-        name: 'name',
-        title: 'Name',
-        type: 'string',
-        validation: (Rule: {required: () => any}) => Rule.required()
-      },
-      {
-        name: 'description',
-        title: 'Description',
-        type: 'text'
-      },
-      {
-        name: 'skills',
-        title: 'Skills',
-        type: 'array',
-        of: [{type: 'string'}]
-      },
-      {
-        name: 'ProjectImage',
-        title: 'Project Image',
-        type: 'image',
-        options: {hotspot: true}
-      },
-      {
-        name: 'ProjectUrl',
-        title: 'Project URL',
-        type: 'url',
-        validation: (Rule: {uri: (arg0: {scheme: string[]}) => any}) =>
-          Rule.uri({
-            scheme: ['http', 'https']
-          }),
-        description: 'Provide the URL for the project (optional).'
-      }
-    ]
-  }
+ 
 ]
