@@ -27,8 +27,8 @@ const ServiceCard: React.FC<{ service: ServiceCardType; index: number }> = ({
         transitionDelay: isInView ? delay : '0ms', 
       }}
       className={`${
-        isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-      } transition-all duration-1000 ease-out`}
+        isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'
+      } transition-all duration-700 ease-out`}
     >
       <Tilt className="shadow-2xl p-6 rounded-lg bg-[#814ced] will-change-transform transition-[transform] duration-[400ms] ease-[cubic-bezier(0.03,0.98,0.52,0.99)] perspective-[1000px] scale-100">
         <img src={service.ServiceImage.asset.url} alt={service.ServiceName} />

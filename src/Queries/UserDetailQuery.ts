@@ -56,8 +56,6 @@ export const useUserDetails = () => {
             }
           }
         }
-        location
-        availability
         githubLink
         linkedinLink
         profileImage {
@@ -78,15 +76,6 @@ export const useUserDetails = () => {
               url
             }
           }
-        }
-        work {
-          _key
-          _type
-          name
-          skills
-          description
-          ProjectUrl
-          _rawProjectImage
         }
         reviews {
           _key

@@ -14,11 +14,11 @@ const HeroSection: React.FC = () => {
     }
   }
 
-  const nameRef = useInView<HTMLHeadingElement>()
-  const descRef = useInView<HTMLParagraphElement>()
-  const shortDescRef = useInView<HTMLParagraphElement>()
-  const divRef = useInView<HTMLDivElement>()
-  const imageRef = useInView<HTMLImageElement>()
+  const nameRef = useInView<HTMLHeadingElement>(0.05)
+  const descRef = useInView<HTMLParagraphElement>(0.05)
+  const shortDescRef = useInView<HTMLParagraphElement>(0.05)
+  const divRef = useInView<HTMLDivElement>(0.05)
+  const imageRef = useInView<HTMLImageElement>(0.05)
 
   return (
     <div
@@ -36,7 +36,7 @@ const HeroSection: React.FC = () => {
                 className={`text-2xl block md:text-3xl lg:text-4xl mb-5 text-gray-300 font-semibold transition-all duration-700 ease-out transform ${
                   nameRef.isInView
                     ? 'opacity-100 translate-x-0'
-                    : 'opacity-0 -translate-x-10'
+                    : 'opacity-0 -translate-x-16'
                 }`}
               >
                 I am {name}
@@ -48,7 +48,7 @@ const HeroSection: React.FC = () => {
                 className={`bg-linearGradientHeading block to-white bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold transition-all duration-700 ease-out transform ${
                   descRef.isInView
                     ? 'opacity-100 translate-x-0'
-                    : 'opacity-0 translate-x-10'
+                    : 'opacity-0 translate-x-16'
                 }`}
               >
                 {description}
@@ -94,8 +94,9 @@ const HeroSection: React.FC = () => {
               {profileImage?.asset?.url && (
                 <img
                   className='h-full w-full object-cover'
-                  src={profileImage.asset.url}
+                  src={`${profileImage.asset.url}?w=400&h=400&fit=crop&auto=format`}
                   alt={name}
+                  loading='lazy'
                 />
               )}
             </div>

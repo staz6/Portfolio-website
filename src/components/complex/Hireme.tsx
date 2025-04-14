@@ -12,7 +12,7 @@ const Hireme: React.FC = () => {
   }, [inView])
 
   return (
-    <div className=' py-24 bg-[#0f0715] ' id='contact' data-testid='Hireme'>
+    <div className=' py-24 bg-[#0f0715] overflow-x-hidden' id='contact' data-testid='Hireme'>
       <div className=' flex flex-col xl:flex-row justify-between px-[15px] sm:px-0 sm:w-4/5 mx-auto'>
         <div
           ref={ref}

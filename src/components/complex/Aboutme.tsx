@@ -39,17 +39,16 @@ const AboutMe: React.FC = () => {
     <div
       id='about'
       data-testid='Aboutme'
-      className='py-24 bg-[#050709] w-full overflow-hidden'
+      className='py-24 bg-[#050709] w-full overflow-x-hidden'
     >
       <h2 className='bg-blue-800 w-fit text-center px-4 py-3 mx-auto text-white text-2xl sm:text-3xl md:text-4xl uppercase -rotate-6'>
         About Me
       </h2>
       <div className='px-[15px] sm:px-0 sm:w-4/5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-20'>
-        {/* Left Section */}
         <div
           ref={leftRef}
-          className={`transition-all duration-1000 ease-in-out ${
-            isLeftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+          className={`transition-all duration-700 ease-in-out ${
+            isLeftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-14'
           }`}
         >
           <h3 className='bg-linearGradientHeading to-white bg-clip-text text-transparent text-[26px] sm:text-3xl md:text-4xl lg:text-5xl font-bold'>
@@ -76,28 +75,28 @@ const AboutMe: React.FC = () => {
 
         <div
           ref={rightRef}
-          className={`grid grid-cols-2 gap-16 items-center lg:mx-auto transition-all duration-1000 ease-in-out ${
-            isRightInView ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+          className={`grid grid-cols-2 gap-16 items-center lg:mx-auto transition-all duration-700 ease-in-out ${
+            isRightInView ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
           }`}
         >
           {[
             {
-              img: 'https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Fcustomer.png&w=96&q=75',
+              img: 'customer.webp',
               value: `${satisfiedCustomers}+`,
               label: 'Satisfied Customers'
             },
             {
-              img: 'https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Fexperience.png&w=96&q=75',
+              img: 'experience.webp',
               value: `${yearsExperience}+`,
               label: 'Years Experience'
             },
             {
-              img: 'https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Fexperience.png&w=96&q=75',
+              img: 'completed.webp',
               value: `${completedProjects}+`,
               label: 'Completed Projects'
             },
             {
-              img: 'https://devportfoliowebsite.vercel.app/_next/image?url=%2Fimages%2Frocket.png&w=96&q=75',
+              img: 'rocket.webp',
               value: `${websiteLaunched}+`,
               label: 'Website Launched'
             }
