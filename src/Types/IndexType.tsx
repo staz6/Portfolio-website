@@ -31,13 +31,19 @@ interface WorkItem {
 export interface ProjectCardType{
   ProjectName: string
   ProjectDescription: string
-  ProjectUrl: string
+  ProjectUrl?: string
+  myRole: string
   skills: string[]
   ProjectImage: {
     asset: {
       url: string
     }
   }
+  ProjectImages?: {
+    asset: {
+      url: string
+    }
+  }[]
   index: number
 }
 export interface UserDetails {

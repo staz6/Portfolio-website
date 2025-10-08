@@ -8,8 +8,14 @@ export const useUserDetails = () => {
           ProjectName
           ProjectDescription
           ProjectUrl
+          myRole
           skills
           ProjectImage {
+            asset {
+              url
+            }
+          }
+          ProjectImages {
             asset {
               url
             }

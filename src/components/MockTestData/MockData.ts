@@ -27,17 +27,98 @@ export const mockUserDetails = {
   ],
   Project: [
     {
-      ProjectName: 'TrendMart',
+      ProjectName: 'CheckWriter',
       ProjectDescription:
-        'Trendmart is an ecommerce website that has a variety of products for sale.',
-      ProjectUrl: 'https://trend-mart-app.vercel.app/',
+        'A comprehensive financial management dashboard built with React, Node.js, and integrated with Stripe and QuickBooks for seamless payment processing and accounting. Features include real-time transaction monitoring, automated reconciliation, and comprehensive reporting tools.',
+      ProjectUrl: 'https://checkwriter-demo.com/',
+      myRole: 'Full Stack Developer',
       index: 1,
-      skills: ['React', 'Typescript'],
+      skills: ['React', 'Node.js', 'Stripe', 'QuickBooks', 'TypeScript'],
       ProjectImage: {
         asset: {
-          url: 'https://example.com/profile.jpg'
+          url: 'https://example.com/checkwriter.jpg'
+        },
+        
+      },
+      ProjectImages: [
+        {
+          asset: {
+            url: 'https://example.com/checkwriter.jpg'
+          }
+        },
+        {
+          asset: {
+            url: 'https://example.com/checkwriter.jpg'
+          }
+        },
+        {
+          asset: {
+            url: 'https://example.com/checkwriter-3.jpg'
+          }
         }
-      }
+      ]
+    },
+    {
+      ProjectName: 'Geo Dashboard Benchmarking AI',
+      ProjectDescription:
+        'An AI-powered analytics dashboard that provides real-time insights and performance benchmarking across different geographical regions with advanced data visualization. The platform includes machine learning algorithms for predictive analytics and automated reporting.',
+      ProjectUrl: 'https://geo-dashboard-demo.com/',
+      myRole: 'Full Stack Developer',
+      index: 2,
+      skills: ['React', 'Node.js', 'TypeScript', 'AI/ML', 'D3.js'],
+      ProjectImage: {
+        asset: {
+          url: 'https://example.com/geo-dashboard.jpg'
+        }
+      },
+      ProjectImages: [
+        {
+          asset: {
+            url: 'https://example.com/geo-dashboard-1.jpg'
+          }
+        },
+        {
+          asset: {
+            url: 'https://example.com/geo-dashboard-2.jpg'
+          }
+        }
+      ]
+    },
+    {
+      ProjectName: 'RacketHub',
+      ProjectDescription:
+        'A tennis court booking platform with integrated payment processing, featuring real-time availability, user management, and seamless booking experience. Built with high-performance backend architecture and modern frontend technologies.',
+      ProjectUrl: 'https://rackethub-demo.com/',
+      myRole: 'Backend Engineer',
+      index: 3,
+      skills: ['Fastify', 'Stripe', 'QuickBooks', 'PostgreSQL', 'Redis'],
+      ProjectImage: {
+        asset: {
+          url: 'https://example.com/rackethub.jpg'
+        }
+      },
+      ProjectImages: [
+        {
+          asset: {
+            url: 'https://example.com/rackethub-1.jpg'
+          }
+        },
+        {
+          asset: {
+            url: 'https://example.com/rackethub-2.jpg'
+          }
+        },
+        {
+          asset: {
+            url: 'https://example.com/rackethub-3.jpg'
+          }
+        },
+        {
+          asset: {
+            url: 'https://example.com/rackethub-4.jpg'
+          }
+        }
+      ]
     }
   ],
   AboutmeDescription:
