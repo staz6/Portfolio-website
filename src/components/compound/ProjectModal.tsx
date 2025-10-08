@@ -15,26 +15,47 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
     ? project.ProjectImages
     : [project.ProjectImage]
 
+  // Manual cleanup function
+  const cleanupBodyScroll = () => {
+    document.body.classList.remove('modal-open')
+    document.body.style.top = ''
+    document.body.removeAttribute('data-scroll-y')
+  }
+
   // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       // Save current scroll position
       const scrollY = window.scrollY
       
-      // Apply styles to prevent scrolling
-      document.body.style.position = 'fixed'
+      // Add class to body to prevent scrolling
+      document.body.classList.add('modal-open')
       document.body.style.top = `-${scrollY}px`
-      document.body.style.width = '100%'
+      document.body.dataset.scrollY = scrollY.toString()
+    } else {
+      // Ensure class is removed when modal is closed
+      cleanupBodyScroll()
       
-      return () => {
-        // Restore scroll position when modal closes
-        document.body.style.position = ''
-        document.body.style.top = ''
-        document.body.style.width = ''
-        window.scrollTo(0, scrollY)
+      // Restore scroll position
+      const savedScrollY = parseInt(document.body.dataset.scrollY || '0')
+      if (savedScrollY > 0) {
+        setTimeout(() => {
+          window.scrollTo(0, savedScrollY)
+        }, 0)
       }
     }
+    
+    // Cleanup function to ensure class is always removed
+    return () => {
+      cleanupBodyScroll()
+    }
   }, [isOpen])
+
+  // Handle close with manual cleanup
+  const handleClose = () => {
+    cleanupBodyScroll()
+    onClose()
+  }
 
   return (
     <AnimatePresence>
@@ -47,7 +68,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4"
-            onClick={onClose}
+            onClick={handleClose}
             style={{
               backdropFilter: 'blur(10px) saturate(1.2) contrast(1.2)',
             }}
@@ -87,7 +108,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                   <p className="text-lg text-customYellow font-medium mt-1">{project.myRole}</p>
                 </div>
                 <button
-                  onClick={onClose}
+                  onClick={handleClose}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
