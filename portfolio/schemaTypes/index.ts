@@ -197,6 +197,18 @@ export const schemaTypes = [
           Rule.uri({
             scheme: ['http', 'https']
           })
+      },
+      {
+        name: 'myRole',
+        title: 'My Role',
+        type: 'string',
+        validation: (Rule: {required: () => any}) => Rule.required()
+      },
+      {
+        name: 'ProjectImages',
+        title: 'Project Images',
+        type: 'array',
+        of: [{type: 'image', options: {hotspot: true}}]
       }
     ]
   },
