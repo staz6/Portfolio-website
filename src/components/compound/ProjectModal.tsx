@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ProjectCardType } from '../../Types/IndexType'
 
@@ -11,9 +11,30 @@ interface ProjectModalProps {
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose }) => {
   if (!project) return null
 
-  const images = project.ProjectImages && project.ProjectImages.length > 0 
-    ? project.ProjectImages 
+  const images = project.ProjectImages && project.ProjectImages.length > 0
+    ? project.ProjectImages
     : [project.ProjectImage]
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      // Save current scroll position
+      const scrollY = window.scrollY
+      
+      // Apply styles to prevent scrolling
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.width = '100%'
+      
+      return () => {
+        // Restore scroll position when modal closes
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.width = ''
+        window.scrollTo(0, scrollY)
+      }
+    }
+  }, [isOpen])
 
   return (
     <AnimatePresence>
@@ -37,13 +58,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="bg-customDarkPurple rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto lg:overflow-hidden border border-gray-800 lg:flex lg:flex-col"
+              className="bg-customDarkPurple rounded-xl shadow-2xl w-full max-h-[95vh] overflow-y-auto lg:overflow-hidden border border-gray-800 lg:flex lg:flex-col"
               onClick={(e) => e.stopPropagation()}
               style={{
-                maxWidth: 'min(1280px, 85vw)',
-                minWidth: '600px',
+                maxWidth: 'min(1400px, 95vw)',
+                minWidth: '320px',
                 minHeight: 'min(720px, 90vh)',
-                maxHeight: 'calc(100vh - 32px)',
+                maxHeight: 'calc(100vh - 16px)',
               }}
             >
               {/* Header */}
@@ -78,11 +99,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               {/* Content */}
               <div className="flex flex-col lg:flex-row lg:flex-1 lg:min-h-0">
                 {/* Left side - Text content (lg-4) */}
-                <div className="lg:w-1/3 p-4 lg:p-8 lg:flex-shrink-0 lg:overflow-y-auto">
+                <div className="lg:w-1/3 p-4 lg:p-8 lg:flex-shrink-0 lg:overflow-y-auto lg:max-h-full">
                   <div className="space-y-6 lg:space-y-8">
                     {/* Project Description */}
                     <div>
-                      <h3 className="text-lg font-semibold text-white mb-4">Project Description</h3>
+                      <h3 className="text-sm font-semibold text-white mb-4">Project Description</h3>
                       <p className="text-gray-300 leading-relaxed">{project.ProjectDescription}</p>
                     </div>
 
